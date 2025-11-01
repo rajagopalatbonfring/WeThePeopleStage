@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>We The People Stage - Empowering Citizens, Building the Nation</title>
+    <style>
+        :root {
+            --color-primary: #2c5f2d;
+            --color-primary-light: #3a7a3c;
+            --color-secondary: #f0f4f0;
+            --color-accent: #e67e22;
+            --color-text: #2c3e50;
+            --color-text-light: #5a6c7d;
+            --color-bg: #fdfdfb;
+            --color-white: #ffffff;
+            --color-border: #e0e6e0;
+            --color-card-bg: #f9faf9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: var(--color-text);
+            background-color: var(--color-bg);
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+            color: var(--color-white);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        nav {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        nav a {
+            color: var(--color-white);
+            text-decoration: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            transition: background-color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover, nav a.active {
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--color-white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(44, 95, 45, 0.9) 0%, rgba(58, 122, 60, 0.85) 100%), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23f0f4f0" width="1200" height="600"/><path fill="%2390c695" opacity="0.3" d="M0,300 Q300,200 600,300 T1200,300 L1200,600 L0,600 Z"/></svg>') center/cover;
+            color: var(--color-white);
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.9rem 2rem;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--color-accent);
+            color: var(--color-white);
+        }
+
+        .btn-primary:hover {
+            background-color: #d35400;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(230, 126, 34, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: var(--color-white);
+            color: var(--color-primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--color-secondary);
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            color: var(--color-primary);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            font-size: 1.8rem;
+            color: var(--color-primary);
+            margin: 2rem 0 1rem;
+            font-weight: 600;
+        }
+
+        .section-content {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: var(--color-text);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: var(--color-white);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .card h3 {
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .card li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .card li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--color-primary);
+            font-weight: bold;
+        }
+
+        /* Mission/Vision Cards */
+        .mission-vision {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .mv-card {
+            background: var(--color-card-bg);
+            border-left: 5px solid var(--color-primary);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .mv-card h3 {
+            color: var(--color-primary);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .mv-card p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+        }
+
+        /* Donation Info */
+        .donation-info {
+            background: var(--color-secondary);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin: 2rem 0;
+            border: 2px solid var(--color-border);
+        }
+
+        .donation-info h3 {
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+            font-size: 1.6rem;
+        }
+
+        .donation-details {
+            background: var(--color-white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            font-family: monospace;
+        }
+
+        .donation-details p {
+            margin: 0.5rem 0;
+            font-size: 1rem;
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .impact-item {
+            background: var(--color-white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid var(--color-border);
+        }
+
+        .impact-item strong {
+            display: block;
+            font-size: 1.3rem;
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            background: var(--color-card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--color-border);
+            color: var(--color-text-light);
+            font-style: italic;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            padding: 3rem 2rem 1.5rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+            text-decoration: none;
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: var(--color-accent);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--color-primary);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            nav a {
+                padding: 1rem;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .mission-vision {
+                grid-template-columns: 1fr;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <h1>We The People Stage</h1>
+            </div>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+            <nav id="mainNav">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About Us</a>
+                <a href="#mission" class="nav-link">Mission & Vision</a>
+                <a href="#reforms" class="nav-link">Policy Reforms</a>
+                <a href="#join" class="nav-link">Join Us</a>
+                <a href="#gallery" class="nav-link">Gallery</a>
+                <a href="#donate" class="nav-link">Donate</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>Empowering Citizens. Building the Nation.</h2>
+            <p><strong>We the People Stage (WTPS)</strong> is a national trust dedicated to strengthening democracy, public policy making and driving inclusive socio-economic development across the Nation.</p>
+            <p>Our mission is to empower citizens through education, awareness, and action — creating a society that values transparency, equality, and participation in nation-building.</p>
+            <div class="hero-cta">
+                <a href="#join" class="btn btn-primary">Join the Movement</a>
+                <a href="#donate" class="btn btn-secondary">Support Our Cause</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="container section">
+        <h2 class="section-title">About We The People Stage</h2>
+        <div class="section-content">
+            <p><strong>We the People Stage (WTPS)</strong> is a <strong>registered non-profit trust in India</strong> committed to promoting <strong>education, health, and socio-economic development</strong>, with a special focus on <strong>Public Policy</strong>.</p>
+            
+            <p>We work to create awareness of the <strong>United Nations Sustainable Development Goals (SDGs)</strong> and conduct <strong>vocational and skill training programs</strong> for underprivileged communities and students—irrespective of <strong>caste, creed, colour, or religion</strong>.</p>
+            
+            <p>Our mission is to <strong>build capabilities, enhance livelihoods, and empower individuals</strong> to contribute meaningfully to society.</p>
+            
+            <p>WTPS also partners with <strong>organizations, NGOs, and social enterprises</strong> to design <strong>customized advisory and learning solutions</strong> that strengthen human capital and organizational effectiveness.</p>
+            
+            <p>Through our capacity-building initiatives, we help NGOs adapt to global challenges with <strong>scalable, sustainable, and impact-driven programs</strong> that foster <strong>inclusive growth</strong> and <strong>nation-building</strong>.</p>
+        </div>
+
+        <h3 class="section-subtitle">Focus Areas</h3>
+        <div class="cards-grid">
+            <div class="card">
+                <h3>Women & Child Empowerment</h3>
+                <p>Programs dedicated to uplifting women and children through education, skill development, and advocacy.</p>
+            </div>
+            <div class="card">
+                <h3>Education & Health Awareness</h3>
+                <p>Promoting quality education and health consciousness across communities for holistic development.</p>
+            </div>
+            <div class="card">
+                <h3>Skill Development & Training</h3>
+                <p>Vocational training programs that equip individuals with practical skills for better livelihoods.</p>
+            </div>
+            <div class="card">
+                <h3>SDGs Advocacy</h3>
+                <p>Creating awareness and action towards achieving the United Nations Sustainable Development Goals.</p>
+            </div>
+            <div class="card">
+                <h3>NGO Capacity Building</h3>
+                <p>Advisory services and learning solutions to strengthen NGOs and social organizations.</p>
+            </div>
+            <div class="card">
+                <h3>Social Entrepreneurship</h3>
+                <p>Supporting youth and entrepreneurs in creating sustainable social impact through innovation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision Section -->
+    <section id="mission" class="container section">
+        <h2 class="section-title">Our Mission & Vision</h2>
+        <div class="mission-vision">
+            <div class="mv-card">
+                <h3>Our Mission</h3>
+                <p>To promote <strong>education, empowerment, and ethical governance</strong> through research, training, and community-driven programs that strengthen democratic values.</p>
+            </div>
+            <div class="mv-card">
+                <h3>Our Vision</h3>
+                <p>To create a <strong>vibrant, cultural, religious, Social Values informed, and empowered society</strong> where every citizen contributes to nation-building and sustainable development.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Policy Reforms Section -->
+    <section id="reforms" class="container section">
+        <h2 class="section-title">Policy Reforms</h2>
+        <div class="section-content">
+            <p style="text-align: center; font-size: 1.2rem; color: var(--color-primary); margin-bottom: 2rem;"><strong>Driving Transparency. Strengthening Democracy. Empowering Citizens.</strong></p>
+            
+            <p>At <strong>We the People Stage (WTPS)</strong>, we believe that good governance is the foundation of a strong democracy. Our <strong>Policy Reforms Division</strong> works to influence and support <strong>evidence-based, people-driven policies</strong> that promote <strong>transparency, accountability, and inclusive development</strong>.</p>
+        </div>
+
+        <div class="cards-grid">
+            <div class="card">
+                <h3>Electoral & Governance Reforms</h3>
+                <p>We actively advocate for <strong>clean elections</strong> and a <strong>corruption-free political process</strong> through awareness, research, and citizen engagement.</p>
+                <ul>
+                    <li>100% voter participation and electoral literacy</li>
+                    <li>Campaign finance transparency and ethical funding</li>
+                    <li>Digitization and accountability in election processes</li>
+                    <li>Collaboration with Election Commission and civic bodies</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Economic & Social Policy Reforms</h3>
+                <p>WTPS supports reforms that strengthen India's <strong>economic liberalization, entrepreneurship, and social equity</strong>.</p>
+                <ul>
+                    <li>Employment generation through skill-based reforms</li>
+                    <li>Micro, small, and social enterprise development</li>
+                    <li>Financial literacy and empowerment for marginalized groups</li>
+                    <li>Advocacy for equitable access to economic opportunities</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Environmental & Sustainable Development</h3>
+                <p>In alignment with the <strong>United Nations Sustainable Development Goals (SDGs)</strong>, WTPS encourages <strong>eco-conscious policy frameworks</strong>.</p>
+                <ul>
+                    <li>Clean energy and renewable resource management</li>
+                    <li>Waste reduction and environmental education</li>
+                    <li>Green innovation and sustainability awareness campaigns</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Constitutional Awareness & Civic Education</h3>
+                <p>A strong democracy begins with informed citizens. Our programmes on <strong>constitutional literacy</strong> help communities understand their rights and responsibilities.</p>
+                <ul>
+                    <li>Workshops and seminars on rights and duties</li>
+                    <li>Constitutional literacy programs for students</li>
+                    <li>Research forums on governance and policy</li>
+                    <li>Bridging the gap between people and policy</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section-content" style="margin-top: 2rem; text-align: center;">
+            <h3 class="section-subtitle">Collaborate for Change</h3>
+            <p>We invite <strong>academia, policymakers, NGOs, and citizens</strong> to join us in shaping India's reform journey. Together, we can create policies that serve people — not just systems.</p>
+        </div>
+    </section>
+
+    <!-- Join the Movement Section -->
+    <section id="join" class="container section">
+        <h2 class="section-title">Join the Movement</h2>
+        <div class="section-content" style="text-align: center;">
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Be part of our mission to build a cleaner, fairer, and more empowered India. Act as a Pressure Group for Policy making.</p>
+            <p style="font-size: 1.1rem;">Your support — through <strong>partnerships, volunteering, or donations</strong> — helps us take one step closer to a stronger democracy.</p>
+        </div>
+
+        <div class="cards-grid" style="margin-top: 3rem;">
+            <div class="card">
+                <h3>Volunteer with Us</h3>
+                <p>Join our programs and initiatives as a volunteer. Help us organize workshops, awareness campaigns, and community events.</p>
+            </div>
+            <div class="card">
+                <h3>Partner with WTPS</h3>
+                <p>Collaborate with us as an NGO, institution, or corporate partner to amplify the impact of our initiatives.</p>
+            </div>
+            <div class="card">
+                <h3>Donate & Support</h3>
+                <p>Your financial support helps us sustain and expand our programs. Every contribution makes a difference.</p>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem;">
+            <a href="#donate" class="btn btn-primary">Make a Donation</a>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="container section">
+        <h2 class="section-title">Gallery</h2>
+        <p style="text-align: center; margin-bottom: 2rem; color: var(--color-text-light);">Visual stories of our journey, programs, and community impact.</p>
+        <div class="gallery-grid">
+            <div class="gallery-item">Program Photo 1</div>
+            <div class="gallery-item">Community Event</div>
+            <div class="gallery-item">Workshop Session</div>
+            <div class="gallery-item">Training Program</div>
+            <div class="gallery-item">Awareness Campaign</div>
+            <div class="gallery-item">Team Activities</div>
+        </div>
+        <p style="text-align: center; margin-top: 2rem; color: var(--color-text-light); font-style: italic;">Image placeholders - Add your event and program photos here</p>
+    </section>
+
+    <!-- Donation Section -->
+    <section id="donate" class="container section">
+        <h2 class="section-title">Support Our Cause</h2>
+        <div class="section-content">
+            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 2rem;"><strong>Your Support Builds a Stronger Nation</strong></p>
+            
+            <p>Every contribution — big or small — helps us take one step closer to a <strong>cleaner, fairer, and more empowered India</strong>. At <strong>We the People Stage (WTPS)</strong>, we rely on the generosity of citizens, institutions, and corporate partners to sustain our initiatives in <strong>education, health, women empowerment, skill development, and democratic reforms</strong>.</p>
+            
+            <p>Your donation directly supports programs that <strong>educate youth, empower women, promote clean elections, and strengthen civic participation</strong> across India.</p>
+        </div>
+
+        <div class="donation-info">
+            <h3>Why Donate to WTPS</h3>
+            <ul style="list-style: none; padding: 0;">
+                <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                    <span style="position: absolute; left: 0; color: var(--color-primary); font-weight: bold;">✓</span>
+                    <strong>Registered Non-Profit Trust</strong> under the Indian Registration Act
+                </li>
+                <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                    <span style="position: absolute; left: 0; color: var(--color-primary); font-weight: bold;">✓</span>
+                    <strong>80G Tax Exemption</strong> available under the Income Tax Act, 1961
+                </li>
+                <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                    <span style="position: absolute; left: 0; color: var(--color-primary); font-weight: bold;">✓</span>
+                    Transparent accounting and donor reporting system
+                </li>
+                <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                    <span style="position: absolute; left: 0; color: var(--color-primary); font-weight: bold;">✓</span>
+                    Real impact through education, empowerment, and advocacy
+                </li>
+                <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                    <span style="position: absolute; left: 0; color: var(--color-primary); font-weight: bold;">✓</span>
+                    Supporting national goals aligned with <strong>UN Sustainable Development Goals (SDGs)</strong>
+                </li>
+            </ul>
+        </div>
+
+        <h3 class="section-subtitle">How Your Contribution Helps</h3>
+        <div class="impact-grid">
+            <div class="impact-item">
+                <strong>₹5,000</strong>
+                <p>Supports skill training for 10 rural youth</p>
+            </div>
+            <div class="impact-item">
+                <strong>₹10,000</strong>
+                <p>Funds awareness workshops on clean elections</p>
+            </div>
+            <div class="impact-item">
+                <strong>₹25,000</strong>
+                <p>Enables vocational programs for women and students</p>
+            </div>
+            <div class="impact-item">
+                <strong>₹50,000+</strong>
+                <p>Empowers community-level campaigns and NGO partnerships</p>
+            </div>
+        </div>
+
+        <div class="donation-info">
+            <h3>Bank Details</h3>
+            <div class="donation-details">
+                <p><strong>Account Name:</strong> We the People Stage</p>
+                <p><strong>Bank Name:</strong> Bank of Baroda</p>
+                <p><strong>Account Number:</strong> [Insert Account Number]</p>
+                <p><strong>IFSC Code:</strong> [Insert IFSC Code]</p>
+                <p><strong>Branch:</strong> [Insert Branch Name]</p>
+            </div>
+            <p style="margin-top: 1rem; font-style: italic; font-size: 0.95rem;">Please email your transaction details to <strong>info@peoplestageindia.com</strong> to receive your 80G donation receipt.</p>
+        </div>
+
+        <div class="section-content" style="margin-top: 2rem;">
+            <h3 class="section-subtitle">Other Ways to Support</h3>
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>Event Sponsorships</h3>
+                    <p>Support major events like the National Conclave on Clean Election and community awareness programs.</p>
+                </div>
+                <div class="card">
+                    <h3>CSR Collaborations</h3>
+                    <p>Partner with us through Corporate Social Responsibility initiatives and souvenir advertisements.</p>
+                </div>
+                <div class="card">
+                    <h3>Business Promotion Stalls</h3>
+                    <p>Set up promotional stalls at major WTPS events to reach engaged audiences while supporting our cause.</p>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: var(--color-secondary); border-radius: 8px;">
+            <h3 style="color: var(--color-primary); margin-bottom: 1rem;">Join Hands with Us</h3>
+            <p>Be part of a movement that empowers citizens and transforms India. Together, let's build a future driven by <strong>knowledge, equality, and participation</strong>.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>We The People Stage</h4>
+                <p>A registered non-profit trust committed to strengthening democracy and driving inclusive development across India.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="#home">Home</a>
+                <a href="#about">About Us</a>
+                <a href="#mission">Mission & Vision</a>
+                <a href="#reforms">Policy Reforms</a>
+            </div>
+            <div class="footer-section">
+                <h4>Get Involved</h4>
+                <a href="#join">Join the Movement</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#donate">Donate</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p>Email: info@peoplestageindia.com</p>
+                <p>Connect with us to learn more about our initiatives and how you can contribute to positive change.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 We The People Stage. All Rights Reserved. | Empowering Citizens. Building the Nation.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMenu() {
+            const nav = document.getElementById('mainNav');
+            nav.classList.toggle('active');
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu after clicking
+                    const nav = document.getElementById('mainNav');
+                    nav.classList.remove('active');
+                }
+            });
+        });
+
+        // Active navigation highlighting
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
