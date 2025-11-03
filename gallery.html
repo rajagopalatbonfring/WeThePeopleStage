@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - We the People Stage</title>
+    <title>Gallery - We the People Stage</title>
     <style>
         .logo{
             width: 180px;
@@ -125,16 +125,11 @@
             padding: 0.5rem;
         }
 
-        /* Page Header */
-        .wtps-page-header {
-            background: white;
+        /* Gallery Header */
+        .wtps-gallery-header {
+            background: var(--wtps-bg-cream);
             padding: 4rem 0;
-        }
-
-        .wtps-page-header-grid {
-            display: grid;
-            gap: 3rem;
-            align-items: center;
+            text-align: center;
         }
 
         .wtps-section-label {
@@ -142,145 +137,52 @@
             font-weight: 600;
             font-size: 0.875rem;
             letter-spacing: 1px;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
 
-        .wtps-page-title {
+        .wtps-gallery-title {
             font-size: 2.5rem;
             font-weight: 700;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             color: var(--wtps-primary);
             line-height: 1.2;
         }
 
-        .wtps-page-description {
+        .wtps-gallery-subtitle {
             color: var(--wtps-text-light);
-            margin-bottom: 1rem;
+            max-width: 800px;
+            margin: 0 auto;
             line-height: 1.8;
         }
 
-        .wtps-page-image {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        }
-
-        .wtps-page-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .wtps-image-placeholder {
-            width: 100%;
-            aspect-ratio: 4/3;
-            background: var(--wtps-bg-light);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--wtps-success);
-        }
-
-        /* Section */
+        /* Gallery Empty State */
         .wtps-section {
-            
-            background: #B79891;  /* fallback for old browsers */
-            background: -webkit-linear-gradient(to right, #94716B, #B79891);  /* Chrome 10-25, Safari 5.1-6 */
-            background: linear-gradient(to right, #b29f94); 
             padding: 4rem 0;
-        }
-
-        .wtps-section-title-center {
-            font-size: 2rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 1rem;
-            color: var(--wtps-primary);
-        }
-
-        .wtps-section-description-center {
-            text-align: center;
-            color: white;
-            margin-bottom: 3rem;
-            line-height: 1.8;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Purpose Cards */
-        .wtps-purpose-grid {
-            display: grid;
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .wtps-purpose-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            text-align: center;
-        }
-
-        .wtps-purpose-icon {
-            width: 70px;
-            height: 70px;
-            margin: 0 auto 1.5rem;
+            min-height: 50vh;
             display: flex;
             align-items: center;
-            justify-content: center;
-            border-radius: 12px;
-            color: var(--wtps-success);
         }
 
-        .wtps-purpose-title {
+        .wtps-gallery-empty {
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .wtps-gallery-empty svg {
+            color: var(--wtps-text-light);
+            opacity: 0.3;
+            margin-bottom: 1.5rem;
+        }
+
+        .wtps-gallery-empty h3 {
             font-size: 1.5rem;
             font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--wtps-primary);
-        }
-
-        .wtps-purpose-description {
-            color: var(--wtps-text-light);
-            line-height: 1.8;
-        }
-
-        /* Focus Areas */
-        .wtps-focus-section {
-            background: white;
-            padding: 4rem 0;
-        }
-
-        .wtps-focus-grid {
-            display: grid;
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-
-        .wtps-focus-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-        }
-
-        .wtps-focus-check {
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            background: #e8f5e9;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            color: var(--wtps-success);
-        }
-
-        .wtps-focus-item span {
             color: var(--wtps-text);
-            font-size: 1rem;
-            line-height: 1.6;
+            margin-bottom: 0.5rem;
+        }
+
+        .wtps-gallery-empty p {
+            color: var(--wtps-text-light);
         }
 
         /* Footer - Same as Home */
@@ -410,16 +312,8 @@
                 display: none;
             }
 
-            .wtps-page-header-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .wtps-purpose-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .wtps-focus-grid {
-                grid-template-columns: 1fr 1fr;
+            .wtps-gallery-title {
+                font-size: 3rem;
             }
 
             .wtps-footer-content {
@@ -428,12 +322,12 @@
         }
 
         @media (min-width: 1024px) {
-            .wtps-page-header {
+            .wtps-gallery-header {
                 padding: 5rem 0;
             }
 
-            .wtps-page-title {
-                font-size: 3rem;
+            .wtps-gallery-title {
+                font-size: 3.5rem;
             }
         }
     </style>
@@ -444,14 +338,14 @@
         <div class="wtps-container">
             <div class="wtps-header-content">
                 <div class="wtps-logo">
-                    <img class="logo" src="../ClientData/newww.png" alt="Wethepeoplestage">
+                    <img class="logo" src="ClientData/newww.png" alt="Wethepeoplestage">
                 </div>
                 <nav class="wtps-nav-desktop">
                     <a href="index.html" class="wtps-nav-link">Home</a>
-                    <a href="about.html" class="wtps-nav-link active">About</a>
+                    <a href="about.html" class="wtps-nav-link">About</a>
                     <a href="policy-reforms.html" class="wtps-nav-link">Policy Reforms</a>
                     <a href="get-involved.html" class="wtps-nav-link">Get Involved</a>
-                    <a href="gallery.html" class="wtps-nav-link">Gallery</a>
+                    <a href="gallery.html" class="wtps-nav-link active">Gallery</a>
                 </nav>
                 <a href="donate.html" class="wtps-btn wtps-btn-primary">Donate</a>
                 <button class="wtps-mobile-menu-btn">
@@ -465,115 +359,26 @@
         </div>
     </header>
 
-    <!-- Page Header -->
-    <section class="wtps-page-header">
+    <!-- Gallery Header -->
+    <section class="wtps-gallery-header">
         <div class="wtps-container">
-            <div class="wtps-page-header-grid">
-                <div>
-                    <p class="wtps-section-label">OUR STORY</p>
-                    <h1 class="wtps-page-title">We the People Stage</h1>
-                    <p class="wtps-page-description">We the People Stage (WTPS) is a registered non-profit trust in India committed to promoting education, health, and socio-economic development, with a special focus on the Public Policy. We work to create awareness of the United Nations Sustainable Development Goals (SDGs) and conduct vocational and skill training programs for underprivileged communities and students—irrespective of caste, creed, colour, or religion.</p>
-                    <p class="wtps-page-description">Our mission is to build capabilities, enhance livelihoods, and empower individuals to contribute meaningfully to society.</p>
-                </div>
-                <div class="wtps-page-image">
-                    <div class="wtps-image-placeholder">
-                        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="9" cy="7" r="4"></circle>
-                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                        </svg>
-                    </div>
-                </div>
-            </div>
+            <p class="wtps-section-label">VISUAL DIARY</p>
+            <h1 class="wtps-gallery-title">Our Journey in Pictures</h1>
+            <p class="wtps-gallery-subtitle">A glimpse into the heart of our activities, events, and the community we serve. See the change we're making, one moment at a time.</p>
         </div>
     </section>
 
-    <!-- Our Purpose Section -->
+    <!-- Gallery Empty State -->
     <section class="wtps-section">
         <div class="wtps-container">
-            <h2 class="wtps-section-title-center">Our Purpose</h2>
-            <p class="wtps-section-description-center">WTPS also partners with organizations, NGOs, and social enterprises to design customized advisory and learning solutions that strengthen human capital and organizational effectiveness. Through our capacity-building initiatives, we help NGOs adapt to global challenges with scalable, sustainable, and impact-driven programs that foster inclusive growth and nation-building.</p>
-            
-            <div class="wtps-purpose-grid">
-                <div class="wtps-purpose-card">
-                    <div class="wtps-purpose-icon" style="background: #e8f5e9;">
-                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="wtps-purpose-title">Mission</h3>
-                    <p class="wtps-purpose-description">To promote education, empowerment, and ethical governance through research, training, and community-driven programs that strengthen democratic values.</p>
-                </div>
-                <div class="wtps-purpose-card">
-                    <div class="wtps-purpose-icon" style="background: #e8f5e9;">
-                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <path d="m21 21-4.35-4.35"></path>
-                        </svg>
-                    </div>
-                    <h3 class="wtps-purpose-title">Vision</h3>
-                    <p class="wtps-purpose-description">To create a vibrant, cultural, religious, Social Values informed, and empowered society where every citizen contributes to nation-building and sustainable development.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Focus Areas Section -->
-    <section class="wtps-focus-section">
-        <div class="wtps-container">
-            <h2 class="wtps-section-title-center">Focus Areas</h2>
-            
-            <div class="wtps-focus-grid">
-                <div class="wtps-focus-item">
-                    <div class="wtps-focus-check">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg>
-                    </div>
-                    <span>Women and child empowerment</span>
-                </div>
-                <div class="wtps-focus-item">
-                    <div class="wtps-focus-check">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg>
-                    </div>
-                    <span>Education and health awareness</span>
-                </div>
-                <div class="wtps-focus-item">
-                    <div class="wtps-focus-check">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg>
-                    </div>
-                    <span>Skill development and vocational training</span>
-                </div>
-                <div class="wtps-focus-item">
-                    <div class="wtps-focus-check">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg>
-                    </div>
-                    <span>Sustainable development goals (SDGs) advocacy</span>
-                </div>
-                <div class="wtps-focus-item">
-                    <div class="wtps-focus-check">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg>
-                    </div>
-                    <span>NGO capacity building and advisory services</span>
-                </div>
-                <div class="wtps-focus-item">
-                    <div class="wtps-focus-check">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg>
-                    </div>
-                    <span>Social entrepreneurship and youth empowerment</span>
-                </div>
+            <div class="wtps-gallery-empty">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                    <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                    <polyline points="21 15 16 10 5 21"></polyline>
+                </svg>
+                <h3>The gallery is currently empty</h3>
+                <p>Check back soon for photos of our work!</p>
             </div>
         </div>
     </section>
@@ -584,7 +389,7 @@
             <div class="wtps-footer-content">
                 <div>
                     <div class="wtps-footer-logo">
-                        <img class="logo" src="../ClientData/newww.png" alt="Wethepeoplestage">
+                        <img class="logo" src="ClientData/newww.png" alt="Wethepeoplestage">
                     </div>
                     <p class="wtps-footer-description">A national trust dedicated to strengthening democracy and driving inclusive socio-economic development.</p>
                     <div class="wtps-social-links">
