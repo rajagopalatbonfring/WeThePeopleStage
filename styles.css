@@ -186,97 +186,6 @@ body {
     font-size: 0.9rem;
 }
 
-/* Responsive Design */
-@media (min-width: 1024px) {
-    /* Desktop */
-    .wtps-nav-desktop {
-        display: flex; /* Show desktop nav */
-    }
-
-    .wtps-mobile-menu-btn {
-        display: none; /* Hide hamburger */
-    }
-
-    .wtps-mobile-nav {
-        display: none; /* Hide mobile nav */
-    }
-}
-
-@media (min-width: 768px) and (max-width: 1023px) {
-    /* Tablet */
-    .wtps-nav-desktop {
-        display: flex; /* Show desktop nav */
-        flex-grow: 1; /* Take available space */
-        justify-content: flex-end;
-    }
-
-    .wtps-nav-link {
-        padding: 0.4rem 0.6rem; /* Smaller padding for tablet */
-        font-size: 0.85rem; /* Smaller font */
-    }
-
-    .wtps-mobile-menu-btn {
-        display: none; /* Hide hamburger */
-    }
-
-    .wtps-mobile-nav {
-        display: none; /* Hide mobile nav */
-    }
-
-    .wtps-container {
-        padding: 0 1rem; /* Adjusted padding */
-        max-width: 100%;
-    }
-
-
-    .wtps-btn-primary {
-        padding: 0.4rem 1rem; /* Slightly smaller button */
-        font-size: 0.85rem;
-    }
-}
-
-@media (max-width: 767px) {
-    /* Mobile */
-    .wtps-container {
-        padding: 0 0.75rem; /* Reduced padding */
-        max-width: 100%;
-    }
-
-
-    .wtps-header-content {
-        padding: 0 0.5rem;
-        gap: 0.3rem;
-    }
-
-    .wtps-nav-desktop {
-        display: none; /* Hide desktop nav */
-    }
-
-    .wtps-header-actions {
-        gap: 0; /* No gap, only hamburger */
-    }
-
-    .wtps-btn-primary {
-        display: none; /* Hide Donate button */
-    }
-
-    .wtps-mobile-menu-btn {
-        padding: 0.25rem;
-        width: 30px; /* Smaller hamburger */
-        height: 30px;
-    }
-}
-
-@media (max-width: 360px) {
-
-    .wtps-mobile-menu-btn {
-        width: 28px;
-        height: 28px;
-    }
-}
-
-
-
 
 
 
@@ -420,3 +329,109 @@ body {
 .wtps-footer-bottom a:hover {
     color: var(--wtps-success);
 }
+
+
+
+
+
+
+
+
+
+
+
+/* Responsive Design */
+@media (min-width: 1024px) {
+    /* Desktop */
+    .wtps-nav-desktop {
+        display: flex; /* Show desktop nav */
+    }
+
+    .wtps-mobile-menu-btn {
+        display: none; /* Hide hamburger */
+    }
+
+    .wtps-mobile-nav {
+        display: none; /* Hide mobile nav */
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    /* Tablet */
+    .wtps-nav-desktop {
+        display: flex; /* Show desktop nav */
+        flex-grow: 1; /* Take available space */
+        justify-content: flex-end;
+    }
+
+    .wtps-nav-link {
+        padding: 0.4rem 0.6rem; /* Smaller padding for tablet */
+        font-size: 0.85rem; /* Smaller font */
+    }
+
+    .wtps-mobile-menu-btn {
+        display: none; /* Hide hamburger */
+    }
+
+    .wtps-mobile-nav {
+        display: none; /* Hide mobile nav */
+    }
+
+    .wtps-container {
+        padding: 0 1rem; /* Adjusted padding */
+        max-width: 100%;
+    }
+
+
+    .wtps-btn-primary {
+        padding: 0.4rem 1rem; /* Slightly smaller button */
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 767px) {
+    /* Mobile */
+    .wtps-container {
+        padding: 0 0.75rem; /* Reduced padding */
+        max-width: 100%;
+    }
+
+
+    .wtps-header-content {
+        padding: 0 0.5rem;
+        gap: 0.3rem;
+    }
+
+    .wtps-nav-desktop {
+        display: none; /* Hide desktop nav */
+    }
+
+    .wtps-header-actions {
+        gap: 0; /* No gap, only hamburger */
+    }
+
+    .wtps-btn-primary {
+        display: none; /* Hide Donate button */
+    }
+
+    .wtps-mobile-menu-btn {
+        padding: 0.25rem;
+        width: 30px; /* Smaller hamburger */
+        height: 30px;
+    }
+
+    .wtps-footer-content{
+        gap : 1rem;
+    }
+}
+
+@media (max-width: 360px) {
+
+    .wtps-mobile-menu-btn {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+
+
