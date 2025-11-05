@@ -32,22 +32,73 @@
             color: var(--wtps-text);
         }
 
-        /* Header */
+
+
+
+
+
+
+        /* Classic Header */
         .wtps-header {
             background: white;
-            padding: .5rem 0;
-            border-bottom: 1px solid var(--wtps-border);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
             z-index: 1000;
         }
 
+        .wtps-header-top {
+            background: #f8f9fa;
+            padding: 0.5rem 0;
+            font-size: 0.85rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .wtps-header-top-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .wtps-contact-info {
+            display: flex;
+            gap: 1.5rem;
+            color: var(--wtps-text);
+            flex-wrap: wrap;
+        }
+
+        .wtps-contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .wtps-social-header {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .wtps-social-header a {
+            color: var(--wtps-text);
+            transition: color 0.3s;
+        }
+
+        .wtps-social-header a:hover {
+            color: var(--wtps-success);
+        }
+
         .wtps-container {
             position: relative;
-            z-index : 10;
-            max-width: 1200px;
+            z-index: 10;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 1.5rem;
+        }
+
+        .wtps-header-main {
+            padding: 1rem 0;
         }
 
         .wtps-header-content {
@@ -65,36 +116,42 @@
             font-size: 1.1rem;
         }
 
-        .wtps-logo svg {
-            color: var(--wtps-success);
-        }
-
         .wtps-nav-desktop {
             display: none;
-            gap: 2rem;
+            gap: 0;
         }
 
         .wtps-nav-link {
             text-decoration: none;
             color: var(--wtps-text);
-            transition: color 0.3s;
+            transition: all 0.3s;
+            padding: 0.75rem 1.25rem;
+            display: block;
+            border-right: 1px solid #e0e0e0;
         }
 
         .wtps-nav-link:hover,
         .wtps-nav-link.active {
+            background: #f8f9fa;
             color: var(--wtps-success);
+        }
+
+        .wtps-header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
         }
 
         .wtps-btn {
             padding: 0.6rem 1.5rem;
-            border-radius: 6px;
+            border-radius: 4px;
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s;
             display: inline-block;
             border: none;
             cursor: pointer;
-            font-size: 1rem;
+            font-size: 0.95rem;
         }
 
         .wtps-btn-primary {
@@ -129,11 +186,48 @@
 
         .wtps-mobile-menu-btn {
             display: block;
-            background: none;
-            border: none;
+            background: #f8f9fa;
+            border: 1px solid #e0e0e0;
             cursor: pointer;
             padding: 0.5rem;
+            color: var(--wtps-text);
+            border-radius: 4px;
         }
+
+        .wtps-mobile-menu-btn:hover {
+            background: #e9ecef;
+        }
+
+        /* Mobile Menu */
+        .wtps-mobile-nav {
+            display: none;
+            background: white;
+            border-top: 1px solid #e0e0e0;
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.3s ease-in-out;
+        }
+
+        .wtps-mobile-nav.active {
+            display: block;
+            max-height: 500px;
+        }
+
+        .wtps-mobile-nav .wtps-nav-link {
+            border-right: none;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+
+
+
+
+
+
+
+
+
+
 
         /* Hero Section */
         .wtps-hero {
@@ -192,7 +286,6 @@
             background-position: center;
             background: #ffffff2f;
         }
-
 
         /* Section */
         .wtps-section {
@@ -270,9 +363,9 @@
 
         /* CTA Section */
         .wtps-cta-section {
-            background: #1e130c;  /* fallback for old browsers */
-            background: -webkit-linear-gradient(to right, #9a8478, #1e130c);  /* Chrome 10-25, Safari 5.1-6 */
-            background: linear-gradient(to right, #9a8478d3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            background: #1e130c;
+            background: -webkit-linear-gradient(to right, #9a8478, #1e130c);
+            background: linear-gradient(to right, #9a8478d3);
             padding: 4rem 0;
             text-align: center;
         }
@@ -300,17 +393,29 @@
             margin-right: auto;
         }
 
-        /* Footer */
+
+
+
+
+
+
+
+
+
+
+        /* Classic Footer */
         .wtps-footer {
-            background: #1a1a1a;
-            color: #ccc;
-            padding: 3rem 0 1rem;
+            background: white;
+            color: var(--wtps-text);
+            padding: 3rem 0 0;
         }
 
         .wtps-footer-content {
             display: grid;
             gap: 2rem;
             margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #e0e0e0;
         }
 
         .wtps-footer-logo {
@@ -318,14 +423,15 @@
             align-items: center;
             gap: 0.5rem;
             font-weight: 600;
-            color: white;
+            color: var(--wtps-primary);
             margin-bottom: 1rem;
         }
 
         .wtps-footer-description {
-            color: #999;
+            color: var(--wtps-text-light);
             font-size: 0.9rem;
             margin-bottom: 1rem;
+            line-height: 1.6;
         }
 
         .wtps-social-links {
@@ -339,22 +445,28 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #333;
-            border-radius: 50%;
-            color: #ccc;
+            background: #f8f9fa;
+            border-radius: 4px;
+            color: var(--wtps-text);
             text-decoration: none;
             transition: all 0.3s;
+            border: 1px solid #e0e0e0;
         }
 
         .wtps-social-link:hover {
             background: var(--wtps-success);
             color: white;
+            border-color: var(--wtps-success);
         }
 
         .wtps-footer-heading {
-            color: white;
+            color: var(--wtps-primary);
             font-size: 1.1rem;
             margin-bottom: 1rem;
+            font-weight: 600;
+            border-bottom: 2px solid var(--wtps-warning);
+            display: inline-block;
+            padding-bottom: 0.5rem;
         }
 
         .wtps-footer-links {
@@ -366,42 +478,58 @@
         }
 
         .wtps-footer-links a {
-            color: #999;
+            color: var(--wtps-text-light);
             text-decoration: none;
             transition: color 0.3s;
+            display: inline-block;
         }
 
         .wtps-footer-links a:hover {
             color: var(--wtps-success);
+            padding-left: 5px;
         }
 
-        .wtps-newsletter-text {
-            color: #999;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
+        .wtps-donation-section {
+            text-align: center;
         }
 
-        .wtps-form-control {
+        .wtps-donation-qr {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto;
+            background: #f8f9fa;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .wtps-donation-qr img {
             width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #444;
-            border-radius: 6px;
-            background: #2a2a2a;
-            color: white;
-            margin-bottom: 0.5rem;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .wtps-donation-text {
+            color: var(--wtps-text-light);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
         }
 
         .wtps-footer-bottom {
-            border-top: 1px solid #333;
-            padding-top: 1.5rem;
+            background: #f8f9fa;
+            padding: 1.5rem 0;
             text-align: center;
-            color: #666;
+            color: var(--wtps-text-light);
             font-size: 0.85rem;
         }
 
         .wtps-footer-bottom a {
-            color: #999;
+            color: var(--wtps-text);
             text-decoration: none;
+            transition: color 0.3s;
         }
 
         .wtps-footer-bottom a:hover {
@@ -448,31 +576,56 @@
                 padding: 5rem 0;
             }
         }
+
+        @media (max-width: 767px) {
+            .wtps-header-top-content {
+                font-size: 0.75rem;
+            }
+
+            .wtps-contact-info {
+                gap: 0.75rem;
+            }
+
+            .logo {
+                width: 180px;
+            }
+        }
     </style>
 </head>
 <body>
     <!-- Header -->
     <header class="wtps-header">
-        <div class="wtps-container">
-            <div class="wtps-header-content">
-                <div class="wtps-logo">
-                    <img class="logo" src="ClientData/THE.png" alt="Wethepeoplestage">
+        <div class="wtps-header-main">
+            <div class="wtps-container">
+                <div class="wtps-header-content">
+                    <div class="wtps-logo">
+                        <img class="logo" src="ClientData/THE.png" alt="Wethepeoplestage">
+                    </div>
+                    <nav class="wtps-nav-desktop">
+                        <a href="index.html" class="wtps-nav-link active">Home</a>
+                        <a href="about.html" class="wtps-nav-link">About</a>
+                        <a href="policy-reforms.html" class="wtps-nav-link">Policy Reforms</a>
+                        <a href="get-involved.html" class="wtps-nav-link">Get Involved</a>
+                        <a href="gallery.html" class="wtps-nav-link">Gallery</a>
+                    </nav>
+                    <div class="wtps-header-actions">
+                        <a href="donate.html" class="wtps-btn wtps-btn-primary">Donate</a>
+                        <button class="wtps-mobile-menu-btn" onclick="toggleMobileMenu()">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="3" y1="12" x2="21" y2="12"></line>
+                                <line x1="3" y1="6" x2="21" y2="6"></line>
+                                <line x1="3" y1="18" x2="21" y2="18"></line>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
-                <nav class="wtps-nav-desktop">
+                <nav class="wtps-mobile-nav" id="mobileNav">
                     <a href="index.html" class="wtps-nav-link active">Home</a>
                     <a href="about.html" class="wtps-nav-link">About</a>
                     <a href="policy-reforms.html" class="wtps-nav-link">Policy Reforms</a>
                     <a href="get-involved.html" class="wtps-nav-link">Get Involved</a>
                     <a href="gallery.html" class="wtps-nav-link">Gallery</a>
                 </nav>
-                <a href="donate.html" class="wtps-btn wtps-btn-primary">Donate</a>
-                <button class="wtps-mobile-menu-btn">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="3" y1="12" x2="21" y2="12"></line>
-                        <line x1="3" y1="6" x2="21" y2="6"></line>
-                        <line x1="3" y1="18" x2="21" y2="18"></line>
-                    </svg>
-                </button>
             </div>
         </div>
     </header>
@@ -538,8 +691,6 @@
         </section>
     </section>
 
-
-
     <!-- CTA Section -->
     <section class="wtps-cta-section">
         <div class="wtps-container">
@@ -558,7 +709,7 @@
                     <div class="wtps-footer-logo">
                         <img class="logo" src="ClientData/THE.png" alt="Wethepeoplestage">
                     </div>
-                    <p class="wtps-footer-description">A national trust dedicated to strengthening democracy and driving inclusive socio-economic development.</p>
+                    <p class="wtps-footer-description">A national trust dedicated to strengthening democracy and driving inclusive socio-economic development across India.</p>
                     <div class="wtps-social-links">
                         <a href="#" class="wtps-social-link">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -573,8 +724,7 @@
                         <a href="#" class="wtps-social-link">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" stroke="#1a1a1a" stroke-width="2"></path>
-                                <circle cx="17.5" cy="6.5" r="1.5"></circle>
+                                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" stroke="#2d5f3f" stroke-width="2"></path>
                             </svg>
                         </a>
                         <a href="#" class="wtps-social-link">
@@ -589,41 +739,69 @@
                 <div>
                     <h3 class="wtps-footer-heading">About Us</h3>
                     <ul class="wtps-footer-links">
-                        <li><a href="#">Our Mission</a></li>
-                        <li><a href="#">Our Vision</a></li>
-                        <li><a href="#">Focus Areas</a></li>
+                        <li><a href="about.html#visioMission">Our Mission</a></li>
+                        <li><a href="about.html#visioMission">Our Vision</a></li>
+                        <li><a href="about.html#wtps-focus-section">Focus Areas</a></li>
+                        <li><a href="about.html#leadership">Leadership</a></li>
                     </ul>
                 </div>
 
                 <div>
-                    <h3 class="wtps-footer-heading">Get Involved</h3>
+                    <h3 class="wtps-footer-heading">Join the Mission</h3>
                     <ul class="wtps-footer-links">
-                        <li><a href="#">Volunteer</a></li>
-                        <li><a href="#">Campaigns</a></li>
-                        <li><a href="#">Events</a></li>
+                        <li><a href="get-involved.html#contribution">Volunteer</a></li>
+                        <li><a href="get-involved.html#contribution">Partnerships</a></li>
+                        <li><a href="donate.html#donate">Donate Now</a></li>
+                        <li><a href="policy-reforms.html">Our Policy</a></li>
                     </ul>
                 </div>
 
                 <div>
-                    <h3 class="wtps-footer-heading">Support</h3>
+                    <h3 class="wtps-footer-heading">Others</h3>
                     <ul class="wtps-footer-links">
-                        <li><a href="donate.html">Donate Now</a></li>
-                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
                     </ul>
                 </div>
 
                 <div>
-                    <h3 class="wtps-footer-heading">Newsletter</h3>
-                    <p class="wtps-newsletter-text">Stay updated with our latest news and initiatives.</p>
-                    <input type="email" placeholder="Your Email" class="wtps-form-control">
-                    <button class="wtps-btn wtps-btn-success" style="width: 100%;">Subscribe</button>
+                    <h3 class="wtps-footer-heading">Contact Us</h3>
+                    <ul class="wtps-footer-links">
+                        <li><a href="#">Location</a></li>
+                        <li><a href="#">Phone number</a></li>
+                        <li><a href="#">Email</a></li>
+                    </ul>
                 </div>
             </div>
-
-            <div class="wtps-footer-bottom">
-                <p>&copy; 2025 We the People Stage. All Rights Reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        </div>
+        <div class="wtps-footer-bottom">
+            <div class="wtps-container">
+                <p>&copy; 2025 We the People Stage. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const mobileNav = document.getElementById('mobileNav');
+            mobileNav.classList.toggle('active');
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const mobileNav = document.getElementById('mobileNav');
+            const menuBtn = document.querySelector('.wtps-mobile-menu-btn');
+            
+            if (!mobileNav.contains(event.target) && !menuBtn.contains(event.target)) {
+                mobileNav.classList.remove('active');
+            }
+        });
+
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('.wtps-mobile-nav .wtps-nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobileNav').classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
