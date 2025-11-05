@@ -248,6 +248,130 @@
             line-height: 1.8;
         }
 
+        /* Managing Trustee Section */
+        .wtps-trustee-section {
+            padding: 4rem 0;
+            background: var(--wtps-bg-cream);
+        }
+
+        .wtps-trustee-container {
+            display: grid;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .wtps-trustee-image-wrapper {
+            position: relative;
+        }
+
+        .wtps-trustee-image {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            display: block;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .wtps-trustee-content {
+            text-align: left;
+        }
+
+        .wtps-trustee-name {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--wtps-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .wtps-trustee-title {
+            color: var(--wtps-success);
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .wtps-trustee-quote {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--wtps-text);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+            border-left: 4px solid var(--wtps-success);
+        }
+
+        .wtps-trustee-message {
+            color: var(--wtps-text-light);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        /* Trust Members Section */
+        .wtps-team-section {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .wtps-team-grid {
+            display: grid;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .wtps-team-card {
+            background: var(--wtps-bg-light);
+            border-radius: 12px;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .wtps-team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .wtps-team-image {
+            width: 100%;
+            aspect-ratio: 1;
+            background: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--wtps-success);
+        }
+
+        .wtps-team-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .wtps-team-info {
+            padding: 1.5rem;
+        }
+
+        .wtps-team-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--wtps-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .wtps-team-role {
+            color: var(--wtps-success);
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+        }
+
+        .wtps-team-description {
+            color: var(--wtps-text-light);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
         /* Focus Areas */
         .wtps-focus-section {
             background: white;
@@ -402,6 +526,12 @@
         }
 
         /* Responsive Design */
+        @media (min-width: 640px) {
+            .wtps-team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
         @media (min-width: 768px) {
             .wtps-nav-desktop {
                 display: flex;
@@ -417,6 +547,11 @@
 
             .wtps-purpose-grid {
                 grid-template-columns: 1fr 1fr;
+            }
+
+            .wtps-trustee-container {
+                grid-template-columns: 1fr 1fr;
+                gap: 4rem;
             }
 
             .wtps-focus-grid {
@@ -435,6 +570,18 @@
 
             .wtps-page-title {
                 font-size: 3rem;
+            }
+
+            .wtps-trustee-name {
+                font-size: 2.5rem;
+            }
+
+            .wtps-trustee-quote {
+                font-size: 1.3rem;
+            }
+
+            .wtps-team-grid {
+                grid-template-columns: repeat(3, 1fr);
             }
         }
     </style>
@@ -478,12 +625,7 @@
                 </div>
                 <div class="wtps-page-image">
                     <div class="wtps-image-placeholder">
-                        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="9" cy="7" r="4"></circle>
-                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                        </svg>
+                        <img src="./ClientData/உரக்க சொல்வோம் உலகுக்கு.png" alt="">
                     </div>
                 </div>
             </div>
@@ -521,20 +663,83 @@
         </div>
     </section>
 
+    <!-- Managing Trustee Section -->
+    <section class="wtps-trustee-section">
+        <div class="wtps-container">
+            <p class="wtps-section-label" style="text-align: center; margin-bottom: 3rem;">LEADERSHIP</p>
+            <div class="wtps-trustee-container">
+                <div class="wtps-trustee-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&h=800&fit=crop" alt="Managing Trustee" class="wtps-trustee-image">
+                </div>
+                <div class="wtps-trustee-content">
+                    <h2 class="wtps-trustee-name">Mr.P.Senthil Kumar</h2>
+                    <p class="wtps-trustee-title">Managing Trustee</p>
+                    <p class="wtps-trustee-message">
+                        With over two decades of experience in public policy and social development, Dr. Kumar envisions a society where governance is transparent, inclusive, and responsive to the needs of every citizen. His leadership has been instrumental in bridging the gap between policy-makers and communities, ensuring that grassroots voices shape the decisions that affect their lives.
+                    </p>
+                    <p class="wtps-trustee-message">
+                        Under his guidance, We the People Stage has grown into a powerful platform for democratic engagement, empowering thousands of citizens to actively participate in shaping India's future. His commitment to sustainable development and social justice continues to inspire our work across education, health, and electoral reforms.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Members Section -->
+    <section class="wtps-team-section">
+        <div class="wtps-container">
+            <p class="wtps-section-label" style="text-align: center;">OUR TEAM</p>
+            <h2 class="wtps-section-title-center">Trust Members</h2>
+            <p class="wtps-section-description-center" style="color: var(--wtps-text-light);">
+                Meet the dedicated individuals who drive our mission forward with their expertise, passion, and commitment to social change.
+            </p>
+            
+            <div class="wtps-team-grid">
+                <!-- Team Member 1 - Dr. Gayatri Suresh -->
+                <div class="wtps-team-card">
+                    <div class="wtps-team-image">
+                        <img src="ClientData/Gayathri.jpg" alt="Dr. Gayatri Suresh">
+                    </div>
+                    <div class="wtps-team-info">
+                        <h3 class="wtps-team-name">Dr. Gayatri Suresh</h3>
+                        <p class="wtps-team-role">Trustee - Education & Youth Development</p>
+                        <p class="wtps-team-description">Educationist, consultant & administrator with 22+ years experience. Senate Member at Bharathiyar University. Expert in youth development programs and academic improvement.</p>
+                    </div>
+                </div>
+
+                <!-- Team Member 2 - M. Chandran -->
+                <div class="wtps-team-card">
+                    <div class="wtps-team-image">
+                        <img src="ClientData/Chandran.jpg" alt="M. Chandran">
+                    </div>
+                    <div class="wtps-team-info">
+                        <h3 class="wtps-team-name">M. Chandran</h3>
+                        <p class="wtps-team-role">Trustee - Political & Social Affairs</p>
+                        <p class="wtps-team-description">State Office Secretary, BJP Tamilnadu. RSS Swayam Sevak since 1980. Former State President of ABVP and State Coordinator for Swadeshi Jagran. Extensive political and social experience.</p>
+                    </div>
+                </div>
+
+                <!-- Team Member 3 - T.S. Sankar -->
+                <div class="wtps-team-card">
+                    <div class="wtps-team-image">
+                        <img src="ClientData/Sankar.jpg" alt="T.S. Sankar">
+                    </div>
+                    <div class="wtps-team-info">
+                        <h3 class="wtps-team-name">T.S. Sankar, M.B.A., LL.M.</h3>
+                        <p class="wtps-team-role">Trustee - Legal & Governance</p>
+                        <p class="wtps-team-description">Advocate practicing in District Court since 2004. Standing Government Counsel for India, Tiruvannamalai District. State President of Tamil Nadu Yogasana Association. Active in social and legal reforms.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Focus Areas Section -->
     <section class="wtps-focus-section">
         <div class="wtps-container">
             <h2 class="wtps-section-title-center">Focus Areas</h2>
             
             <div class="wtps-focus-grid">
-                <div class="wtps-focus-item">
-                    <div class="wtps-focus-check">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg>
-                    </div>
-                    <span>Women and child empowerment</span>
-                </div>
                 <div class="wtps-focus-item">
                     <div class="wtps-focus-check">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
