@@ -6,15 +6,6 @@
     <title>About - We the People Stage</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        .logo{
-            width: 250px;
-            border-radius: 6px;
-        }
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
         :root {
             --wtps-primary: #2d5f3f;
@@ -28,23 +19,23 @@
             --wtps-border: #e0e0e0;
         }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: var(--wtps-text);
-            background: var(--wtps-bg-cream);
+
+        /* Page Header - Enhanced */
+        .wtps-page-header {
+            background: linear-gradient(135deg, #2d5f3f 0%, #1a3a27 100%);
+            padding: 5rem 0 6rem;
+            position: relative;
+            overflow: hidden;
         }
 
- 
-        /* Page Header */
-        .wtps-page-header {
-            background: white;
-            padding: 4rem 0;
+        .wtps-page-header .wtps-container {
+            position: relative;
+            z-index: 1;
         }
 
         .wtps-page-header-grid {
             display: grid;
-            gap: 3rem;
+            gap: 4rem;
             align-items: center;
         }
 
@@ -52,29 +43,31 @@
             color: var(--wtps-warning);
             font-weight: 600;
             font-size: 0.875rem;
-            letter-spacing: 1px;
-            margin-bottom: 1rem;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
         }
 
         .wtps-page-title {
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
-            color: var(--wtps-primary);
+            color: white;
             line-height: 1.2;
         }
 
         .wtps-page-description {
-            color: var(--wtps-text-light);
-            margin-bottom: 1rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 1.5rem;
             line-height: 1.8;
+            font-size: 1.05rem;
         }
 
         .wtps-page-image {
             background: white;
-            border-radius: 12px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
         }
 
         .wtps-page-image img {
@@ -90,27 +83,20 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--wtps-success);
         }
 
         /* Section */
         .wtps-section {
-            background: #9a847854;  /* fallback for old browsers */
-            background: -webkit-linear-gradient(to right, #94716B, #B79891);  /* Chrome 10-25, Safari 5.1-6 */
-            background: linear-gradient(to right, #cccccc33); 
-            padding: 4rem 0;
+            padding: 5rem 0;
+            background: var(--wtps-bg-cream);
         }
 
         .wtps-section-title-center {
-            font-size: 2rem;
+            font-size: 2.5rem;
             font-weight: 700;
             text-align: center;
             margin-bottom: 1rem;
             color: var(--wtps-primary);
-        }
-
-        .purpose{
-            color: var(--wtps-success);
         }
 
         .wtps-section-description-center {
@@ -121,37 +107,45 @@
             max-width: 900px;
             margin-left: auto;
             margin-right: auto;
+            font-size: 1.05rem;
         }
 
-        /* Purpose Cards */
+        /* Purpose Cards - Enhanced */
         .wtps-purpose-grid {
             display: grid;
-            gap: 2rem;
-            margin-top: 3rem;
+            gap: 2.5rem;
+            margin-top: 4rem;
         }
 
         .wtps-purpose-card {
             background: white;
-            padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
             text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .wtps-purpose-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
         }
 
         .wtps-purpose-icon {
-            width: 70px;
-            height: 70px;
+            width: 80px;
+            height: 80px;
             margin: 0 auto 1.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 12px;
-            color: var(--wtps-success);
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff990049 0%, #ff990020 100%);
         }
 
         .wtps-purpose-title {
-            font-size: 1.5rem;
-            font-weight: 600;
+            font-size: 1.75rem;
+            font-weight: 700;
             margin-bottom: 1rem;
             color: var(--wtps-primary);
         }
@@ -159,18 +153,20 @@
         .wtps-purpose-description {
             color: var(--wtps-text-light);
             line-height: 1.8;
+            font-size: 1.05rem;
         }
 
-        /* Managing Trustee Section */
+        /* Managing Trustee Section - Enhanced */
         .wtps-trustee-section {
-            padding: 4rem 0;
-            background: var(--wtps-bg-cream);
+            padding: 5rem 0;
+            background: white;
         }
 
         .wtps-trustee-container {
             display: grid;
-            gap: 3rem;
+            gap: 4rem;
             align-items: center;
+            margin-top: 3rem;
         }
 
         .wtps-trustee-image-wrapper {
@@ -179,11 +175,11 @@
 
         .wtps-trustee-image {
             width: 100%;
-            max-width: 400px;
+            max-width: 450px;
             margin: 0 auto;
             display: block;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
         }
 
         .wtps-trustee-content {
@@ -191,104 +187,104 @@
         }
 
         .wtps-trustee-name {
-            font-size: 2rem;
+            font-size: 2.2rem;
             font-weight: 700;
             color: var(--wtps-primary);
             margin-bottom: 0.5rem;
         }
 
         .wtps-trustee-title {
-            color: var(--wtps-success);
+            color: var(--wtps-warning);
             font-weight: 600;
             font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .wtps-trustee-quote {
-            font-size: 1.2rem;
-            font-style: italic;
-            color: var(--wtps-text);
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-            padding-left: 1.5rem;
-            border-left: 4px solid var(--wtps-success);
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .wtps-trustee-message {
             color: var(--wtps-text-light);
-            line-height: 1.8;
-            margin-bottom: 1rem;
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
         }
 
-        /* Trust Members Section */
+        /* Trust Members Section - Enhanced */
         .wtps-team-section {
-            padding: 4rem 0;
-            background: white;
+            padding: 5rem 0;
+            background: var(--wtps-bg-cream);
         }
 
         .wtps-team-grid {
             display: grid;
-            gap: 2rem;
+            gap: 2.5rem;
             margin-top: 3rem;
         }
 
         .wtps-team-card {
-            background: var(--wtps-bg-light);
-            border-radius: 12px;
+            background: white;
+            border-radius: 16px;
             overflow: hidden;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
         }
 
         .wtps-team-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
         }
 
         .wtps-team-image {
             width: 100%;
             aspect-ratio: 1;
-            background: #e0e0e0;
+            background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--wtps-success);
+            overflow: hidden;
         }
 
         .wtps-team-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .wtps-team-card:hover .wtps-team-image img {
+            transform: scale(1.05);
         }
 
         .wtps-team-info {
-            padding: 1.5rem;
+            padding: 2rem;
+            text-align: center;
         }
 
         .wtps-team-name {
-            font-size: 1.3rem;
-            font-weight: 600;
+            font-size: 1.4rem;
+            font-weight: 700;
             color: var(--wtps-primary);
             margin-bottom: 0.5rem;
         }
 
         .wtps-team-role {
-            color: var(--wtps-success);
-            font-weight: 500;
-            margin-bottom: 0.75rem;
+            color: var(--wtps-warning);
+            font-weight: 600;
+            margin-bottom: 1rem;
             font-size: 0.95rem;
         }
 
         .wtps-team-description {
             color: var(--wtps-text-light);
-            font-size: 0.9rem;
-            line-height: 1.6;
+            font-size: 0.95rem;
+            line-height: 1.7;
         }
 
-        /* Focus Areas */
+        /* Focus Areas - Enhanced */
         .wtps-focus-section {
-            background: linear-gradient(to right, #dadadaef);
-            padding: 4rem 0;
+            background: white;
+            padding: 5rem 0;
         }
 
         .wtps-focus-grid {
@@ -301,28 +297,34 @@
             display: flex;
             align-items: flex-start;
             gap: 1rem;
+            padding: 1.25rem;
+            background: var(--wtps-bg-cream);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .wtps-focus-item:hover {
+            background: #fff5e6;
+            transform: translateX(5px);
         }
 
         .wtps-focus-check {
-            width: 28px;
-            height: 28px;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
-            background: #ff990049;
+            background: linear-gradient(135deg, #ff990049 0%, #ff990020 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
-            color: var(--wtps-success);
         }
 
         .wtps-focus-item span {
             color: var(--wtps-text);
-            font-size: 1rem;
+            font-size: 1.05rem;
             line-height: 1.6;
+            padding-top: 0.25rem;
         }
-
-        
- 
 
         /* Responsive Design */
         @media (min-width: 640px) {
@@ -350,7 +352,7 @@
 
             .wtps-trustee-container {
                 grid-template-columns: 1fr 1fr;
-                gap: 4rem;
+                gap: 5rem;
             }
 
             .wtps-focus-grid {
@@ -364,19 +366,15 @@
 
         @media (min-width: 1024px) {
             .wtps-page-header {
-                padding: 5rem 0;
+                padding: 6rem 0 7rem;
             }
 
             .wtps-page-title {
-                font-size: 3rem;
+                font-size: 3.5rem;
             }
 
             .wtps-trustee-name {
-                font-size: 2.5rem;
-            }
-
-            .wtps-trustee-quote {
-                font-size: 1.3rem;
+                font-size: 2.8rem;
             }
 
             .wtps-team-grid {
@@ -413,8 +411,8 @@
                     </div>
                 </div>
                 <nav class="wtps-mobile-nav" id="mobileNav">
-                    <a href="index.html" class="wtps-nav-link active">Home</a>
-                    <a href="about.html" class="wtps-nav-link">About</a>
+                    <a href="index.html" class="wtps-nav-link">Home</a>
+                    <a href="about.html" class="wtps-nav-link active">About</a>
                     <a href="policy-reforms.html" class="wtps-nav-link">Policy Reforms</a>
                     <a href="get-involved.html" class="wtps-nav-link">Get Involved</a>
                     <a href="gallery.html" class="wtps-nav-link">Gallery</a>
@@ -428,14 +426,14 @@
         <div class="wtps-container">
             <div class="wtps-page-header-grid">
                 <div>
-                    <p class="wtps-section-label">OUR STORY</p>
+                    <p class="wtps-section-label">Our Story</p>
                     <h1 class="wtps-page-title">We the People Stage</h1>
                     <p class="wtps-page-description">We the People Stage (WTPS) is a registered non-profit trust in India committed to promoting education, health, and socio-economic development, with a special focus on the Public Policy. We work to create awareness of the United Nations Sustainable Development Goals (SDGs) and conduct vocational and skill training programs for underprivileged communities and students—irrespective of caste, creed, colour, or religion.</p>
                     <p class="wtps-page-description">Our mission is to build capabilities, enhance livelihoods, and empower individuals to contribute meaningfully to society.</p>
                 </div>
                 <div class="wtps-page-image">
                     <div class="wtps-image-placeholder">
-                        <img src="./ClientData/உரக்க சொல்வோம் உலகுக்கு.png" alt="">
+                        <img src="./ClientData/உரக்க சொல்வோம் உலகுக்கு.png" alt="We the People Stage">
                     </div>
                 </div>
             </div>
@@ -445,13 +443,13 @@
     <!-- Our Purpose Section -->
     <section id="visioMission" class="wtps-section">
         <div class="wtps-container">
-            <h2 class="wtps-section-title-center purpose">Our Purpose</h2>
+            <h2 class="wtps-section-title-center">Our Purpose</h2>
             <p class="wtps-section-description-center">WTPS also partners with organizations, NGOs, and social enterprises to design customized advisory and learning solutions that strengthen human capital and organizational effectiveness. Through our capacity-building initiatives, we help NGOs adapt to global challenges with scalable, sustainable, and impact-driven programs that foster inclusive growth and nation-building.</p>
             
             <div class="wtps-purpose-grid">
                 <div class="wtps-purpose-card">
-                    <div class="wtps-purpose-icon" style="background: #ff990049;">
-                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#ff9800" stroke-width="2">
+                    <div class="wtps-purpose-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ff9800" stroke-width="2">
                             <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
                             <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
                         </svg>
@@ -460,8 +458,8 @@
                     <p class="wtps-purpose-description">To promote education, empowerment, and ethical governance through research, training, and community-driven programs that strengthen democratic values.</p>
                 </div>
                 <div class="wtps-purpose-card">
-                    <div class="wtps-purpose-icon" style="background: #ff990049;">
-                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#ff9800" stroke-width="2">
+                    <div class="wtps-purpose-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ff9800" stroke-width="2">
                             <circle cx="11" cy="11" r="8"></circle>
                             <path d="m21 21-4.35-4.35"></path>
                         </svg>
@@ -476,13 +474,14 @@
     <!-- Managing Trustee Section -->
     <section id="leadership" class="wtps-trustee-section">
         <div class="wtps-container">
-            <p class="wtps-section-label" style="text-align: center; margin-bottom: 3rem;">LEADERSHIP</p>
+            <p class="wtps-section-label" style="text-align: center;">Leadership</p>
+            <h2 class="wtps-section-title-center">Meet Our Managing Trustee</h2>
             <div class="wtps-trustee-container">
                 <div class="wtps-trustee-image-wrapper">
                     <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&h=800&fit=crop" alt="Managing Trustee" class="wtps-trustee-image">
                 </div>
                 <div class="wtps-trustee-content">
-                    <h2 class="wtps-trustee-name">Mr.P.Senthil Kumar</h2>
+                    <h2 class="wtps-trustee-name">Mr. P. Senthil Kumar</h2>
                     <p class="wtps-trustee-title">Managing Trustee</p>
                     <p class="wtps-trustee-message">
                         With over two decades of experience in public policy and social development, Dr. Kumar envisions a society where governance is transparent, inclusive, and responsive to the needs of every citizen. His leadership has been instrumental in bridging the gap between policy-makers and communities, ensuring that grassroots voices shape the decisions that affect their lives.
@@ -498,9 +497,9 @@
     <!-- Trust Members Section -->
     <section class="wtps-team-section">
         <div class="wtps-container">
-            <p class="wtps-section-label" style="text-align: center;">TRUST MEMBERS</p>
+            <p class="wtps-section-label" style="text-align: center;">Trust Members</p>
             <h2 class="wtps-section-title-center">People Behind The Mission</h2>
-            <p class="wtps-section-description-center" style="color: var(--wtps-text-light);">
+            <p class="wtps-section-description-center">
                 Meet the dedicated individuals who drive our mission forward with their expertise, passion, and commitment to social change.
             </p>
             
@@ -548,11 +547,12 @@
     <section id="wtps-focus-section" class="wtps-focus-section">
         <div class="wtps-container">
             <h2 class="wtps-section-title-center">Focus Areas</h2>
+            <p class="wtps-section-description-center">Our comprehensive approach addresses key areas of social development to create lasting impact across communities.</p>
             
             <div class="wtps-focus-grid">
                 <div class="wtps-focus-item">
                     <div class="wtps-focus-check">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ff9800" stroke-width="3">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff9800" stroke-width="3">
                             <polyline points="20 6 9 17 4 12"></polyline>
                         </svg>
                     </div>
@@ -560,7 +560,7 @@
                 </div>
                 <div class="wtps-focus-item">
                     <div class="wtps-focus-check">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ff9800" stroke-width="3">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff9800" stroke-width="3">
                             <polyline points="20 6 9 17 4 12"></polyline>
                         </svg>
                     </div>
@@ -568,7 +568,7 @@
                 </div>
                 <div class="wtps-focus-item">
                     <div class="wtps-focus-check">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ff9800" stroke-width="3">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff9800" stroke-width="3">
                             <polyline points="20 6 9 17 4 12"></polyline>
                         </svg>
                     </div>
@@ -576,7 +576,7 @@
                 </div>
                 <div class="wtps-focus-item">
                     <div class="wtps-focus-check">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ff9800" stroke-width="3">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff9800" stroke-width="3">
                             <polyline points="20 6 9 17 4 12"></polyline>
                         </svg>
                     </div>
@@ -584,7 +584,7 @@
                 </div>
                 <div class="wtps-focus-item">
                     <div class="wtps-focus-check">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ff9800" stroke-width="3">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff9800" stroke-width="3">
                             <polyline points="20 6 9 17 4 12"></polyline>
                         </svg>
                     </div>
@@ -594,7 +594,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <!-- Footer -->
     <footer class="wtps-footer">
         <div class="wtps-container">
@@ -667,15 +666,6 @@
                                 <span>30/267, 18th main road, Anna Nagar, Chennai 40</span>
                             </a>
                         </li>
-                        <!-- <li>
-                            <a href="tel:1234567890" class="wtps-contact-item">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-                                    <path fill="currentColor" d="M20 10.999h2C22 5.869 18.127 2 12.99 2v2C17.052 4 20 6.943 20 10.999z"/>
-                                    <path fill="currentColor" d="M13 8c2.103 0 3 .897 3 3h2c0-3.225-1.775-5-5-5v2zm3.422 5.443a1.001 1.001 0 0 0-1.391.043l-2.393 2.461c-.576-.11-1.734-.471-2.926-1.66c-1.192-1.193-1.553-2.354-1.66-2.926l2.459-2.394a1 1 0 0 0 .043-1.391L6.859 3.513a1 1 0 0 0-1.391-.087l-2.17 1.861a1 1 0 0 0-.29.649c-.015.25-.301 6.172 4.291 10.766C11.305 20.707 16.323 21 17.705 21c.202 0 .326-.006.359-.008a.992.992 0 0 0 .648-.291l1.86-2.171a.997.997 0 0 0-.086-1.391l-4.064-3.696z"/>
-                                </svg>
-                                <span>1234567890</span>
-                            </a>
-                        </li> -->
                         <li>
                             <a href="mailto:wethepeoplestageindia@gmail.com" class="wtps-contact-item">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
