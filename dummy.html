@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>We the People Stage - Home</title>
+    <title>Donate - We the People Stage</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         :root {
@@ -14,524 +14,638 @@
             --wtps-text-light: #666;
             --wtps-bg: #fff;
             --wtps-bg-light: #f8f9fa;
+            --wtps-bg-cream: #faf8f5;
             --wtps-border: #e0e0e0;
         }
 
-        .wtps-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
 
-        /* Hero Section - Improved Spacing */
-        .wtps-hero {
-            position: relative;
-            background: #603813;
-            background-image: url("ClientData/HomePagePhoto.jpg");
-            background-size: cover;
-            background-position: center;
-            color: rgb(253, 253, 253);
-            padding: 0;
+        /* Donate Hero - Improved */
+        .wtps-donate-hero {
+            background: linear-gradient(135deg, var(--wtps-bg-cream) 0%, #f0ede6 100%);
+            padding: 5rem 0;
             text-align: center;
-            min-height: 500px;
-            display: flex;
-            align-items: center;
+            position: relative;
+            overflow: hidden;
         }
 
-        .wtps-hero-overlay{
+        .wtps-donate-hero::before {
+            content: '';
             position: absolute;
             top: 0;
-            bottom: 0;
             left: 0;
             right: 0;
-            background: #60381371;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(255, 152, 0, 0.05) 0%, transparent 50%);
+            pointer-events: none;
         }
 
-        .hero-contain{
+        .wtps-donate-hero-content {
             position: relative;
-            background: #00000052;
-            padding: 4rem 2rem;
-            width: 100%;
+            z-index: 1;
         }
 
-        .wtps-hero-title {
+        .wtps-donate-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 2rem;
+            color: var(--wtps-warning);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .wtps-donate-title {
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
-            line-height: 1.3;
+            color: var(--wtps-primary);
+            line-height: 1.2;
+            word-wrap: break-word;
         }
 
-        .wtps-hero-subtitle {
-            font-size: 1.1rem;
-            margin-bottom: 2.5rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.7;
+        .wtps-donate-subtitle {
+            color: var(--wtps-text-light);
+            max-width: 900px;
+            margin: 0 auto 1.5rem;
+            line-height: 1.8;
+            font-size: 1.05rem;
+            word-wrap: break-word;
         }
 
-        .wtps-hero-actions {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .wrapper{
-            background: #ffffff2f;
-        }
-
-        /* Section - Better Spacing */
+        /* Why Donate Section - Improved Grid Layout */
         .wtps-section {
             padding: 5rem 0;
         }
 
-        .wtps-section-label {
-            color: var(--wtps-warning);
-            font-weight: 600;
-            font-size: 0.875rem;
-            letter-spacing: 2px;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-        }
-
-        .wtps-section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: var(--wtps-primary);
-            line-height: 1.3;
-        }
-
-        .wtps-section-description {
-            color: var(--wtps-text-light);
-            margin-bottom: 2rem;
-            line-height: 1.8;
-            font-size: 1.05rem;
-        }
-
-        .wtps-content-grid {
-            padding: 3rem;
-            border: 2px solid rgba(173, 173, 173, 0.2);
-            border-radius: 12px;
-            display: grid;
-            gap: 4rem;
-            align-items: center;
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-
-        /* Focus Areas Section - Improved */
-        .wtps-focus-section {
-            background: #9a847854;
-            padding: 5rem 0;
-        }
-
-        .wtps-focus-grid {
-            display: grid;
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .wtps-focus-card {
-            background: var(--wtps-bg);
-            padding: 2.5rem;
-            border-radius: 12px;
-            border: 1px solid var(--wtps-border);
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-
-        .wtps-focus-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-        }
-
-        .wtps-focus-icon {
-            margin-bottom: 1.5rem;
-        }
-
-        .wtps-focus-icon svg {
-            width: 48px;
-            height: 48px;
-            color: var(--wtps-primary);
-        }
-
-        .wtps-focus-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--wtps-primary);
-            line-height: 1.4;
-        }
-
-        .wtps-focus-description {
-            color: var(--wtps-text-light);
-            font-size: 1rem;
-            line-height: 1.7;
-        }
-
-        /* How We Work Section - Better Spacing */
-        .wtps-process-section {
-            padding: 5rem 0;
+        .wtps-section-white {
             background: white;
         }
 
-        .wtps-process-grid {
-            display: grid;
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .wtps-process-step {
-            display: flex;
-            gap: 2rem;
-            padding: 2rem;
-            background: var(--wtps-bg-light);
-            border-radius: 12px;
-            transition: all 0.3s ease;
-        }
-
-        .wtps-process-step:hover {
-            transform: translateX(5px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .wtps-process-number {
-            flex-shrink: 0;
-            width: 60px;
-            height: 60px;
-            background: var(--wtps-warning);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.75rem;
-            font-weight: 700;
-        }
-
-        .wtps-process-content h3 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-            color: var(--wtps-primary);
-        }
-
-        .wtps-process-content p {
-            color: var(--wtps-text-light);
-            line-height: 1.7;
-            font-size: 1rem;
-        }
-
-        /* Impact Metrics Section - Better Layout */
-        .wtps-impact-section {
-            background: linear-gradient(135deg, #603813 0%, #9a8478 100%);
-            padding: 5rem 0;
-            color: white;
-            text-align: center;
-        }
-
-        .wtps-impact-grid {
+        .wtps-donate-grid {
             display: grid;
             gap: 3rem;
             margin-top: 3rem;
         }
 
-        .wtps-impact-card {
-            padding: 2rem;
+        .wtps-donate-info {
+            background: var(--wtps-bg-cream);
+            padding: 3rem;
+            border-radius: 16px;
+            border: 2px solid rgba(45, 95, 63, 0.1);
         }
 
-        .wtps-impact-number {
-            font-size: 3rem;
+        .wtps-donate-section-title {
+            font-size: 2rem;
             font-weight: 700;
-            margin-bottom: 0.75rem;
-            color: var(--wtps-warning);
+            color: var(--wtps-primary);
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 1rem;
         }
 
-        .wtps-impact-label {
-            font-size: 1.1rem;
-            opacity: 0.95;
+        .wtps-donate-section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--wtps-warning);
+            border-radius: 2px;
         }
 
-        /* Activities Section - Improved Spacing */
-        .wtps-activities-section {
-            padding: 5rem 0;
-            background: #9a847854;
+        .wtps-benefits-list {
+            list-style: none;
         }
 
-        .wtps-activities-grid {
-            display: grid;
-            gap: 2.5rem;
-            margin-top: 3rem;
+        .wtps-benefits-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            color: var(--wtps-text);
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            transition: transform 0.3s;
         }
 
-        .wtps-activity-card {
-            background: var(--wtps-bg);
-            padding: 3rem 2rem;
-            border-radius: 12px;
-            text-align: center;
+        .wtps-benefits-list li:hover {
+            transform: translateX(8px);
+        }
+
+        .wtps-benefits-list svg {
+            flex-shrink: 0;
+            color: var(--wtps-success);
+            margin-top: 0.2rem;
+        }
+
+        /* Bank Card - Improved Design */
+        .wtps-bank-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
             border: 1px solid var(--wtps-border);
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
-        .wtps-activity-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        .wtps-bank-header {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid var(--wtps-bg-light);
         }
 
-        .wtps-activity-icon {
+        .wtps-bank-header h3 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--wtps-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .wtps-bank-header p {
+            color: var(--wtps-text-light);
+            font-size: 0.95rem;
+        }
+
+        .wtps-bank-details {
+            background: var(--wtps-bg-cream);
+            padding: 2rem;
+            border-radius: 12px;
             margin-bottom: 1.5rem;
         }
 
-        .wtps-activity-icon svg {
-            width: 60px;
-            height: 60px;
+        .wtps-bank-detail {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(45, 95, 63, 0.1);
+        }
+
+        .wtps-bank-detail:last-child {
+            border-bottom: none;
+        }
+
+        .wtps-bank-label {
+            color: var(--wtps-text-light);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .wtps-bank-value {
+            color: var(--wtps-text);
+            font-weight: 700;
+            text-align: right;
+            font-size: 0.95rem;
+            word-break: break-all;
+        }
+
+        .wtps-bank-note {
+            padding: 1.5rem;
+            background: #e8f5e9;
+            border-left: 4px solid var(--wtps-success);
+            border-radius: 8px;
+            color: var(--wtps-text);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .wtps-bank-note strong {
             color: var(--wtps-primary);
         }
 
-        .wtps-activity-title {
-            font-size: 1.4rem;
-            font-weight: 600;
+        /* Impact Section - Improved Cards */
+        .wtps-section-title-center {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
             margin-bottom: 1rem;
             color: var(--wtps-primary);
-            line-height: 1.4;
         }
 
-        .wtps-activity-description {
-            color: var(--wtps-text-light);
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-            font-size: 1rem;
-        }
-
-        /* Values Section - Better Spacing */
-        .wtps-values-section {
-            padding: 0 0 5rem 0;
-        }
-
-        .wtps-values-grid {
-            display: grid;
-            gap: 2.5rem;
-        }
-
-        .wtps-value-card {
-            background: var(--wtps-bg-light);
-            padding: 3rem 2rem;
-            border-radius: 12px;
+        .wtps-section-description-center {
             text-align: center;
-            transition: all 0.3s ease;
+            color: var(--wtps-text-light);
+            margin-bottom: 3rem;
+            font-size: 1.05rem;
+            line-height: 1.8;
         }
 
-        .wtps-value-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+        .wtps-impact-list {
+            max-width: 900px;
+            margin: 3rem auto;
+            display: grid;
+            gap: 1.5rem;
         }
 
-        .wtps-value-icon {
-            width: 70px;
-            height: 70px;
-            margin: 0 auto 1.5rem;
+        .wtps-impact-item {
             display: flex;
             align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            color: var(--wtps-warning);
-        }
-
-        .wtps-value-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--wtps-primary);
-        }
-
-        .wtps-value-description {
-            color: var(--wtps-text-light);
-            line-height: 1.7;
-            font-size: 1.05rem;
-        }
-
-        /* Get Involved Preview Section - Improved */
-        .wtps-involvement-section {
-            padding: 5rem 0;
+            gap: 2rem;
+            padding: 2rem;
             background: white;
-        }
-
-        .wtps-involvement-grid {
-            display: grid;
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
-
-        .wtps-involvement-card {
-            background: var(--wtps-bg-light);
-            padding: 3rem 2.5rem;
             border-radius: 12px;
-            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s;
             border: 2px solid transparent;
-            transition: all 0.3s ease;
         }
 
-        .wtps-involvement-card:hover {
-            border-color: var(--wtps-warning);
+        .wtps-impact-item:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border-color: var(--wtps-success);
         }
 
-        .wtps-involvement-icon {
-            margin-bottom: 1.5rem;
-        }
-
-        .wtps-involvement-icon svg {
-            width: 60px;
-            height: 60px;
-            color: var(--wtps-primary);
-        }
-
-        .wtps-involvement-card h3 {
+        .wtps-impact-amount {
             font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--wtps-primary);
+            font-weight: 700;
+            color: var(--wtps-success);
+            min-width: 140px;
+            text-align: center;
+            padding: 0.75rem 1rem;
+            background: #e8f5e9;
+            border-radius: 8px;
         }
 
-        .wtps-involvement-card p {
+        .wtps-impact-arrow {
+            font-size: 1.75rem;
+            color: var(--wtps-warning);
+            font-weight: bold;
+        }
+
+        .wtps-impact-description {
+            color: var(--wtps-text);
+            flex: 1;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            word-wrap: break-word;
+        }
+
+        .wtps-impact-footer {
+            text-align: center;
             color: var(--wtps-text-light);
-            margin-bottom: 2rem;
-            line-height: 1.7;
+            margin-top: 3rem;
+            font-style: italic;
             font-size: 1.05rem;
         }
 
-        /* CTA Section - Better Spacing */
-        .wtps-cta-section {
-            background: linear-gradient(to right, #9a8478ef, #603813);
-            padding: 5rem 0;
-            text-align: center;
+        /* Other Ways Section - Improved Cards */
+        .wtps-other-ways {
+            max-width: 900px;
+            margin: 3rem auto;
+            list-style: none;
+            display: grid;
+            gap: 1rem;
         }
 
-        .wtps-cta-label {
-            color: var(--wtps-warning);
-            font-weight: 600;
-            font-size: 0.875rem;
-            letter-spacing: 2px;
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
+        .wtps-other-ways li {
+            padding: 1.5rem 1.5rem 1.5rem 3rem;
+            background: white;
+            border-radius: 12px;
+            position: relative;
+            color: var(--wtps-text);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            font-size: 1.05rem;
+            border-left: 4px solid var(--wtps-success);
+        }
+
+        .wtps-other-ways li:hover {
+            transform: translateX(10px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .wtps-other-ways li::before {
+            content: '✓';
+            position: absolute;
+            left: 1rem;
+            color: var(--wtps-success);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        /* CTA Section - Enhanced */
+        .wtps-cta-section {
+            background: linear-gradient(135deg, var(--wtps-primary) 0%, #1e4029 100%);
+            padding: 5rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wtps-cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 80% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .wtps-cta-content {
+            position: relative;
+            z-index: 1;
         }
 
         .wtps-cta-title {
             font-size: 2.5rem;
             font-weight: 700;
+            color: white;
             margin-bottom: 1.5rem;
-            color: var(--wtps-bg-light);
-            line-height: 1.3;
         }
 
         .wtps-cta-description {
-            color: var(--wtps-bg-light);
-            margin-bottom: 2.5rem;
+            color: rgba(255, 255, 255, 0.9);
             max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0 auto 2.5rem;
             line-height: 1.8;
             font-size: 1.1rem;
         }
 
-        /* Responsive Design */
         @media (min-width: 768px) {
-            .wtps-nav-desktop {
-                display: flex;
-            }
-
-            .wtps-mobile-menu-btn {
-                display: none;
-            }
-
-            .wtps-hero {
-                min-height: 600px;
-            }
-
-            .wtps-hero-title {
-                font-size: 3.5rem;
-            }
-
-            .wtps-content-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .wtps-focus-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .wtps-values-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .wtps-impact-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-
-            .wtps-activities-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-
-            .wtps-involvement-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
 
             .wtps-footer-content {
                 grid-template-columns: 2fr 1fr 1fr 1fr 1.5fr;
             }
+
+            .wtps-donate-title {
+                font-size: 3rem;
+            }
+
+            .wtps-donate-grid {
+                grid-template-columns: 1fr 1fr;
+                align-items: start;
+            }
+
+            .wtps-impact-item {
+                flex-direction: row;
+            }
+
+            .wtps-cta-title {
+                font-size: 3rem;
+            }
+
+            .wtps-section-title-center {
+                font-size: 3rem;
+            }
         }
 
         @media (min-width: 1024px) {
-            .wtps-hero {
-                min-height: 650px;
+            .wtps-donate-hero {
+                padding: 6rem 0;
             }
 
-            .hero-contain {
-                padding: 5rem 2rem;
-            }
-
-            .wtps-hero-title {
-                font-size: 4rem;
-            }
-
-            .wtps-section-title {
-                font-size: 2.75rem;
-            }
-
-            .wtps-focus-grid {
-                grid-template-columns: repeat(3, 1fr);
+            .wtps-donate-title {
+                font-size: 3.5rem;
             }
         }
 
         @media (max-width: 767px) {
-            .wtps-header-top-content {
-                font-size: 0.75rem;
-            }
-
-            .wtps-contact-info {
-                gap: 0.75rem;
-            }
-
-            .wtps-process-step {
+            .wtps-impact-item {
                 flex-direction: column;
                 text-align: center;
             }
 
-            .wtps-hero-title {
+            .wtps-impact-arrow {
+                transform: rotate(90deg);
+            }
+
+            .wtps-bank-detail {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+
+            .wtps-bank-value {
+                text-align: left;
+            }
+
+            /* Mobile adjustments */
+            .wtps-section {
+                padding: 3rem 0;
+            }
+
+            .wtps-donate-hero {
+                padding: 3rem 0;
+            }
+
+            .wtps-donate-title {
                 font-size: 2rem;
             }
 
-            .wtps-section-title {
+            .wtps-donate-subtitle {
+                font-size: 1rem;
+            }
+
+            .wtps-donate-icon {
+                width: 60px;
+                height: 60px;
+            }
+
+            .wtps-donate-section-title {
+                font-size: 1.75rem;
+            }
+
+            .wtps-bank-card {
+                padding: 1.5rem;
+            }
+
+            .wtps-bank-header h3 {
+                font-size: 1.5rem;
+            }
+
+            .wtps-bank-details {
+                padding: 1.5rem;
+            }
+
+            .wtps-bank-note {
+                padding: 1rem;
+            }
+
+            .wtps-donate-info {
+                padding: 1.5rem;
+            }
+
+            .wtps-benefits-list li {
+                padding: 0.75rem;
+            }
+
+            .wtps-section-title-center {
                 font-size: 2rem;
             }
 
-            .wtps-content-grid {
-                padding: 2rem;
+            .wtps-section-description-center {
+                font-size: 1rem;
             }
+
+            .wtps-impact-item {
+                padding: 1.5rem;
+                gap: 1rem;
+            }
+
+            .wtps-impact-amount {
+                min-width: auto;
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+
+            .wtps-impact-description {
+                font-size: 1rem;
+            }
+
+            .wtps-other-ways li {
+                padding: 1rem 1rem 1rem 2.5rem;
+                font-size: 1rem;
+            }
+
+            .wtps-cta-section {
+                padding: 3rem 0;
+            }
+
+            .wtps-cta-title {
+                font-size: 2rem;
+            }
+
+            .wtps-cta-description {
+                font-size: 1rem;
+            }
+        }
+
+        /* New media query for screens below 370px to fix x-overflow */
+        @media (max-width: 370px) {
+            body {
+                overflow-x: hidden;
+            }
+
+            .wtps-container {
+                padding: 0 0.5rem;
+                max-width: 100%;
+            }
+
+            .wtps-donate-hero {
+                padding: 2rem 0;
+            }
+
+            .wtps-donate-title {
+                font-size: 1.75rem;
+            }
+
+            .wtps-donate-subtitle {
+                font-size: 0.9rem;
+                padding: 0 0.5rem;
+            }
+
+            .wtps-donate-icon {
+                width: 50px;
+                height: 50px;
+            }
+
+            .wtps-donate-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .wtps-donate-info {
+                padding: 1rem;
+            }
+
+            .wtps-donate-section-title {
+                font-size: 1.5rem;
+            }
+
+            .wtps-benefits-list li {
+                font-size: 0.9rem;
+                padding: 0.5rem;
+            }
+
+            .wtps-bank-card {
+                padding: 1rem;
+            }
+
+            .wtps-bank-header h3 {
+                font-size: 1.25rem;
+            }
+
+            .wtps-bank-details {
+                padding: 1rem;
+            }
+
+            .wtps-bank-detail {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.25rem;
+            }
+
+            .wtps-bank-label,
+            .wtps-bank-value {
+                font-size: 0.85rem;
+                word-break: break-all;
+            }
+
+            .wtps-bank-note {
+                font-size: 0.85rem;
+                padding: 0.75rem;
+            }
+
+            .wtps-section {
+                padding: 2rem 0;
+            }
+
+            .wtps-section-title-center {
+                font-size: 1.75rem;
+            }
+
+            .wtps-section-description-center {
+                font-size: 0.9rem;
+            }
+
+            .wtps-impact-list {
+                gap: 1rem;
+            }
+
+            .wtps-impact-item {
+                padding: 1rem;
+                gap: 0.5rem;
+            }
+
+            .wtps-impact-amount {
+                font-size: 1.25rem;
+                padding: 0.5rem;
+                width: 100%;
+            }
+
+            .wtps-impact-arrow {
+                font-size: 1.5rem;
+            }
+
+            .wtps-impact-description {
+                font-size: 0.9rem;
+            }
+
+
+            .wtps-other-ways li {
+                font-size: 0.9rem;
+                padding: 0.75rem 0.75rem 0.75rem 2rem;
+            }
+
+            .wtps-cta-section {
+                padding: 2rem 0;
+            }
+
+            .wtps-cta-title {
+                font-size: 1.75rem;
+            }
+
+            .wtps-cta-description {
+                font-size: 0.9rem;
+                padding: 0 0.5rem;
+            }
+
         }
     </style>
 </head>
@@ -545,7 +659,7 @@
                         <img class="logo" src="ClientData/THE.png" alt="Wethepeoplestage">
                     </div>
                     <nav class="wtps-nav-desktop">
-                        <a href="index.html" class="wtps-nav-link active">Home</a>
+                        <a href="index.html" class="wtps-nav-link">Home</a>
                         <a href="about.html" class="wtps-nav-link">About</a>
                         <a href="policy-reforms.html" class="wtps-nav-link">Policy Reforms</a>
                         <a href="get-involved.html" class="wtps-nav-link">Get Involved</a>
@@ -573,242 +687,150 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="wtps-hero">
-        <div class="wtps-hero-overlay"></div>
-        <div class="wtps-container hero-contain">
-            <h1 class="wtps-hero-title">Empowering Citizens.<br>Building the Nation.</h1>
-            <p class="wtps-hero-subtitle">We the People Stage (WTPS) is a national trust dedicated to strengthening democracy, Public Policy making and driving inclusive socio-economic development across the Nation.</p>
-            <div class="wtps-hero-actions">
-                <a href="get-involved.html" class="wtps-btn wtps-btn-primary">Join the Movement</a>
-                <a href="donate.html" class="wtps-btn wtps-btn-success">Support Our Mission</a>
+    <!-- Donate Hero -->
+    <section class="wtps-donate-hero">
+        <div class="wtps-container">
+            <div class="wtps-donate-hero-content">
+                <div class="wtps-donate-icon">
+                    <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                </div>
+                <h1 class="wtps-donate-title">Your Support Builds a Stronger Nation</h1>
+                <p class="wtps-donate-subtitle">Every contribution — big or small — helps us take one step closer to a cleaner, fairer, and more empowered India. At We the People Stage (WTPS), we rely on the generosity of citizens, institutions, and corporate partners to sustain our initiatives in education, health, women empowerment, skill development, and democratic reforms.</p>
+                <p class="wtps-donate-subtitle">Your donation directly supports programs that educate youth, empower women, promote clean elections, and strengthen civic participation across India.</p>
             </div>
         </div>
     </section>
 
-    <section class="wrapper">
-        <!-- Who We Are Section -->
-        <section class="wtps-section">
-            <div class="wtps-container">
-                <div class="wtps-content-grid">
-                    <div>
-                        <p class="wtps-section-label">Who We Are</p>
-                        <h2 class="wtps-section-title">We the People Stage</h2>
-                        <p class="wtps-section-description">Our mission is to empower citizens through education, awareness, and action — creating a society that values transparency, equality, and participation in nation-building. We work across the fields of education, health, women and child welfare, skill development, sustainable growth, and electoral awareness, aligning our efforts with the United Nations Sustainable Development Goals (SDGs).</p>
-                        <a href="about.html" class="wtps-btn wtps-btn-outline">Learn More About Us →</a>
-                    </div>
-                    <div>
-                        <p class="wtps-section-description">At We the People Stage, we believe that real change begins with informed citizens. By connecting communities, NGOs, policymakers, and youth leaders, we strive to make governance more responsive and development more people-centric.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Values Section -->
-        <section class="wtps-values-section">
-            <div class="wtps-container">
-                <div class="wtps-values-grid">
-                    <div class="wtps-value-card">
-                        <div class="wtps-value-icon" style="background: #ff990049;">
-                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="9" cy="7" r="4"></circle>
-                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+    <!-- Why Donate Section -->
+    <section id="donate" class="wtps-section wtps-section-white">
+        <div class="wtps-container">
+            <div class="wtps-donate-grid">
+                <div class="wtps-donate-info">
+                    <h2 class="wtps-donate-section-title">Why Donate to WTPS?</h2>
+                    <ul class="wtps-benefits-list">
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
-                        </div>
-                        <h3 class="wtps-value-title">Community First</h3>
-                        <p class="wtps-value-description">Building bridges and fostering dialogue between citizens, policymakers, and communities.</p>
-                    </div>
-                    <div class="wtps-value-card">
-                        <div class="wtps-value-icon" style="background: #ff990049;">
-                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10"></circle>
-                                <polyline points="12 6 12 12 16 14"></polyline>
+                            <span>Registered Non-Profit Trust under the Indian Registration Act</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
+                            <span>80G Tax Exemption available under the Income Tax Act, 1961</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <span>Transparent accounting and donor reporting system</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <span>Real impact through education, empowerment, and advocacy</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <span>Supporting national goals aligned with UN Sustainable Development Goals (SDGs)</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="wtps-bank-card">
+                    <div class="wtps-bank-header">
+                        <h3>Direct Bank Transfer</h3>
+                        <p>Use our details below for NEFT/RTGS/IMPS transfers.</p>
+                    </div>
+                    <div class="wtps-bank-details">
+                        <div class="wtps-bank-detail">
+                            <span class="wtps-bank-label">Account Name:</span>
+                            <span class="wtps-bank-value">WE THE PEOPLE STAGE</span>
                         </div>
-                        <h3 class="wtps-value-title">Impact-Driven</h3>
-                        <p class="wtps-value-description">Empowering citizens through education, advocacy, and actionable policy reforms.</p>
+                        <div class="wtps-bank-detail">
+                            <span class="wtps-bank-label">Account Number:</span>
+                            <span class="wtps-bank-value">79120200002036</span>
+                        </div>
+                        <div class="wtps-bank-detail">
+                            <span class="wtps-bank-label">Bank Name:</span>
+                            <span class="wtps-bank-value">Bank of Baroda</span>
+                        </div>
+                        <div class="wtps-bank-detail">
+                            <span class="wtps-bank-label">IFSC Code:</span>
+                            <span class="wtps-bank-value">BARB0DBTNAG</span>
+                        </div>
+                        <div class="wtps-bank-detail">
+                            <span class="wtps-bank-label">Branch:</span>
+                            <span class="wtps-bank-value">S G Road Branch, Nagar, Chennai 600017</span>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </section>
-    </section>
-
-    <!-- Focus Areas Section -->
-    <section class="wtps-focus-section">
-        <div class="wtps-container">
-            <p class="wtps-section-label">Our Focus Areas</p>
-            <h2 class="wtps-section-title">Building a Better Nation Together</h2>
-            <p class="wtps-section-description">We work across multiple domains to create sustainable impact and strengthen democratic participation.</p>
-            
-            <div class="wtps-focus-grid">
-                <div class="wtps-focus-card">
-                    <div class="wtps-focus-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path fill="#ff9800" d="M160 96C160 78.3 174.3 64 192 64C209.7 64 224 78.3 224 96L224 304L160 304L160 96zM352 256C352 238.3 366.3 224 384 224C401.7 224 416 238.3 416 256L416 320C416 337.7 401.7 352 384 352C366.3 352 352 337.7 352 320L352 256zM288 192C305.7 192 320 206.3 320 224L320 272C320 289.7 305.7 304 288 304C270.3 304 256 289.7 256 272L256 224C256 206.3 270.3 192 288 192zM448 288C448 270.3 462.3 256 480 256C497.7 256 512 270.3 512 288L512 352C512 369.7 497.7 384 480 384C462.3 384 448 369.7 448 352L448 288zM352 376L352 375.4C361.4 380.8 372.3 384 384 384C397.2 384 409.4 380 419.6 373.2C428.3 398.1 452.1 416 480 416C491.7 416 502.6 412.9 512 407.4L512 416C512 504.4 440.4 576 352 576L290.3 576C247.9 576 207.2 559.1 177.2 529.1L165.5 517.5C141.5 493.5 128 460.9 128 427L128 400C128 364.7 156.7 336 192 336L280 336C302.1 336 320 353.9 320 376C320 398.1 302.1 416 280 416L224 416C215.2 416 208 423.2 208 432C208 440.8 215.2 448 224 448L280 448C319.8 448 352 415.8 352 376z"/></svg>
-                    </div>
-                    <h3 class="wtps-focus-title">Electoral Reforms & Clean Governance</h3>
-                    <p class="wtps-focus-description">Advocating for transparent electoral processes and accountable governance systems.</p>
-                </div>
-                <div class="wtps-focus-card">
-                    <div class="wtps-focus-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="50" viewBox="0 0 640 640"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path fill="#ff9800" d="M320 205.3L320 514.6L320.5 514.4C375.1 491.7 433.7 480 492.8 480L512 480L512 160L492.8 160C450.6 160 408.7 168.4 369.7 184.6C352.9 191.6 336.3 198.5 320 205.3zM294.9 125.5L320 136L345.1 125.5C391.9 106 442.1 96 492.8 96L528 96C554.5 96 576 117.5 576 144L576 496C576 522.5 554.5 544 528 544L492.8 544C442.1 544 391.9 554 345.1 573.5L332.3 578.8C324.4 582.1 315.6 582.1 307.7 578.8L294.9 573.5C248.1 554 197.9 544 147.2 544L112 544C85.5 544 64 522.5 64 496L64 144C64 117.5 85.5 96 112 96L147.2 96C197.9 96 248.1 106 294.9 125.5z"/></svg>
-                    </div>
-                    <h3 class="wtps-focus-title">Civic Education & Constitutional Awareness</h3>
-                    <p class="wtps-focus-description">Empowering citizens with knowledge of their rights and constitutional responsibilities.</p>
-                </div>
-                <div class="wtps-focus-card">
-                    <div class="wtps-focus-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path fill="#ff9800" d="M128 128C128 110.3 113.7 96 96 96C78.3 96 64 110.3 64 128L64 464C64 508.2 99.8 544 144 544L544 544C561.7 544 576 529.7 576 512C576 494.3 561.7 480 544 480L144 480C135.2 480 128 472.8 128 464L128 128zM534.6 214.6C547.1 202.1 547.1 181.8 534.6 169.3C522.1 156.8 501.8 156.8 489.3 169.3L384 274.7L326.6 217.4C314.1 204.9 293.8 204.9 281.3 217.4L185.3 313.4C172.8 325.9 172.8 346.2 185.3 358.7C197.8 371.2 218.1 371.2 230.6 358.7L304 285.3L361.4 342.7C373.9 355.2 394.2 355.2 406.7 342.7L534.7 214.7z"/></svg>
-                    </div>
-                    <h3 class="wtps-focus-title">Economic Growth & Social Equity</h3>
-                    <p class="wtps-focus-description">Promoting inclusive economic policies that benefit all sections of society.</p>
-                </div>
-                <div class="wtps-focus-card">
-                    <div class="wtps-focus-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path fill="#ff9800" d="M114 348.8C118.2 350.9 123 352 128 352L178.7 352C187.2 352 195.3 355.4 201.3 361.4L214.6 374.7C220.6 380.7 228.7 384.1 237.2 384.1L255.9 384.1C273.6 384.1 287.9 369.8 287.9 352.1L287.9 312.1C287.9 298.8 298.6 288.1 311.9 288.1C325.2 288.1 335.9 277.4 335.9 264.1L335.9 221.4C335.9 212.9 339.3 204.8 345.3 198.8L358.6 185.5C364.6 179.5 368 171.4 368 162.9L368 121C368 119.8 367.9 118.7 367.8 117.5C352.4 113.9 336.4 112 320 112C205.1 112 112 205.1 112 320C112 329.8 112.7 339.4 114 348.8zM517.3 386.1C514.1 384.7 510.6 384 506.8 384L496 384C487.2 384 480 376.8 480 368C480 359.2 472.8 352 464 352L429.3 352C420.8 352 412.7 355.4 406.7 361.4L361.4 406.7C355.4 412.7 352 420.8 352 429.3L352 448C352 465.7 366.3 480 384 480L402.7 480C411.2 480 419.3 483.4 425.3 489.4C427.5 491.6 430 493.5 432.6 494.9C471.9 469.5 502.1 431.3 517.2 386.1zM64 320C64 178.6 178.6 64 320 64C461.4 64 576 178.6 576 320C576 461.4 461.4 576 320 576C178.6 576 64 461.4 64 320zM192 432C192 440.8 199.2 448 208 448L240 448C248.8 448 256 440.8 256 432C256 423.2 248.8 416 240 416L208 416C199.2 416 192 423.2 192 432zM336 320C327.2 320 320 327.2 320 336L320 368C320 376.8 327.2 384 336 384C344.8 384 352 376.8 352 368L352 336C352 327.2 344.8 320 336 320zM384 208L384 240C384 248.8 391.2 256 400 256C408.8 256 416 248.8 416 240L416 208C416 199.2 408.8 192 400 192C391.2 192 384 199.2 384 208z"/></svg>
-                    </div>
-                    <h3 class="wtps-focus-title">Sustainable Development (SDGs)</h3>
-                    <p class="wtps-focus-description">Aligning our work with UN Sustainable Development Goals for a better future.</p>
-                </div>
-                <div class="wtps-focus-card">
-                    <div class="wtps-focus-icon">
-                        <?xml version="1.0"?><svg fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M8 21V18M4 21V18.5C4 15.4624 6.46243 13 9.5 13H13M17.5 22V17M17.5 17C19.9853 17 22 14.9853 22 12.5C22 10.0147 19.9853 8 17.5 8C16.8505 8 16.2331 8.1376 15.6755 8.38524M17.5 17C15.0147 17 13 14.9853 13 12.5C13 11.7562 13.1805 11.0545 13.5 10.4364M15.5 20H19.5M16 6.5C16 8.70914 14.2091 10.5 12 10.5C9.79086 10.5 8 8.70914 8 6.5C8 4.29086 9.79086 2.5 12 2.5C14.2091 2.5 16 4.29086 16 6.5Z" stroke="#ff9800" stroke-linecap="round" stroke-width="2"/></svg>
-                    </div>
-                    <h3 class="wtps-focus-title">Women & Child Welfare</h3>
-                    <p class="wtps-focus-description">Ensuring protection, empowerment, and equal opportunities for women and children.</p>
-                </div>
-                <div class="wtps-focus-card">
-                    <div class="wtps-focus-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path fill="#ff9800" d="M320 64C355.3 64 384 92.7 384 128C384 163.3 355.3 192 320 192C284.7 192 256 163.3 256 128C256 92.7 284.7 64 320 64zM416 376C416 401 403.3 423 384 435.9L384 528C384 554.5 362.5 576 336 576L304 576C277.5 576 256 554.5 256 528L256 435.9C236.7 423 224 401 224 376L224 336C224 283 267 240 320 240C373 240 416 283 416 336L416 376zM160 96C190.9 96 216 121.1 216 152C216 182.9 190.9 208 160 208C129.1 208 104 182.9 104 152C104 121.1 129.1 96 160 96zM176 336L176 368C176 400.5 188.1 430.1 208 452.7L208 528C208 529.2 208 530.5 208.1 531.7C199.6 539.3 188.4 544 176 544L144 544C117.5 544 96 522.5 96 496L96 439.4C76.9 428.4 64 407.7 64 384L64 352C64 299 107 256 160 256C172.7 256 184.8 258.5 195.9 262.9C183.3 284.3 176 309.3 176 336zM432 528L432 452.7C451.9 430.2 464 400.5 464 368L464 336C464 309.3 456.7 284.4 444.1 262.9C455.2 258.4 467.3 256 480 256C533 256 576 299 576 352L576 384C576 407.7 563.1 428.4 544 439.4L544 496C544 522.5 522.5 544 496 544L464 544C451.7 544 440.4 539.4 431.9 531.7C431.9 530.5 432 529.2 432 528zM480 96C510.9 96 536 121.1 536 152C536 182.9 510.9 208 480 208C449.1 208 424 182.9 424 152C424 121.1 449.1 96 480 96z"/></svg>
-                    </div>
-                    <h3 class="wtps-focus-title">Skill Development & Youth Empowerment</h3>
-                    <p class="wtps-focus-description">Building capabilities and creating opportunities for India's young generation.</p>
-                </div>
-            </div>
-            <div style="text-align: center; margin-top: 3rem;">
-                <a href="policy-reforms.html" class="wtps-btn wtps-btn-primary">Explore Our Policy Reforms →</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- How We Work Section -->
-    <section class="wtps-process-section">
-        <div class="wtps-container">
-            <p class="wtps-section-label">How We Work</p>
-            <h2 class="wtps-section-title">Our Approach to Creating Change</h2>
-            <p class="wtps-section-description">We follow a transparent, evidence-based approach to drive meaningful reform and community impact.</p>
-            
-            <div class="wtps-process-grid">
-                <div class="wtps-process-step">
-                    <div class="wtps-process-number">1</div>
-                    <div class="wtps-process-content">
-                        <h3>Research & Evidence</h3>
-                        <p>We begin with thorough research and data collection to understand ground realities and identify key challenges.</p>
-                    </div>
-                </div>
-                <div class="wtps-process-step">
-                    <div class="wtps-process-number">2</div>
-                    <div class="wtps-process-content">
-                        <h3>Community Dialogue</h3>
-                        <p>Engaging directly with citizens, communities, and stakeholders to gather perspectives and build consensus.</p>
-                    </div>
-                </div>
-                <div class="wtps-process-step">
-                    <div class="wtps-process-number">3</div>
-                    <div class="wtps-process-content">
-                        <h3>Policy Advocacy</h3>
-                        <p>Working with policymakers and institutions to advocate for evidence-based reforms and systemic change.</p>
-                    </div>
-                </div>
-                <div class="wtps-process-step">
-                    <div class="wtps-process-number">4</div>
-                    <div class="wtps-process-content">
-                        <h3>Ground Implementation</h3>
-                        <p>Taking action through workshops, campaigns, and programs that directly benefit communities.</p>
-                    </div>
+                    <p class="wtps-bank-note">Please email your transaction details to <strong>wethepeoplestageindia@gmail.com</strong> to receive your 80G donation receipt.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Recent Activities Section -->
-    <section class="wtps-activities-section">
+    <!-- Contribution Impact Section -->
+    <section class="wtps-section">
         <div class="wtps-container">
-            <p class="wtps-section-label">Recent Activities</p>
-            <h2 class="wtps-section-title">See Our Work in Action</h2>
+            <h2 class="wtps-section-title-center">How Your Contribution Helps</h2>
+            <p class="wtps-section-description-center">See the tangible impact of your generosity</p>
             
-            <div class="wtps-activities-grid">
-                <div class="wtps-activity-card">
-                    <div class="wtps-activity-icon">
-                        <?xml version="1.0"?><svg height="64" id="svg8" version="1.1" viewBox="0 0 16.933333 16.933334"  xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="http://www.w3.org/2000/svg"><defs id="defs2"/><g id="layer1"><path d="m 52.009766,0 c -7.144543,0 -11.982511,6.0323205 -11.994141,11.986328 -0.0079,4.000855 1.689745,6.500243 3.236328,8.332031 0.773291,0.915896 1.500897,1.689057 1.994141,2.421875 0.287471,0.427082 0.592975,0.830618 0.71875,1.261719 -0.493913,0.07016 -0.940501,0.350183 -0.955078,0.990235 0.0021,0.549355 0.438921,0.995905 1,0.998046 -0.04883,1.311461 -0.0039,2.671422 -0.0039,4 0,0.837498 0.388132,1.566362 0.923829,2.097657 0.535691,0.531294 1.257069,0.90039 2.082031,0.90039 v 1.00586 c 0,1.645051 1.352996,2.996093 2.998047,2.996093 1.64505,0 3.003906,-1.35104 3.003906,-2.996093 v -1.00586 c 0.824961,0 1.538527,-0.369098 2.074219,-0.90039 0.535672,-0.531296 0.923828,-1.26016 0.923828,-2.097657 0.0016,-1.326309 0.01134,-2.68731 0,-4 0.55912,0.0022 1.001755,-0.445644 1.003906,-0.998046 0.0018,-0.668087 -0.460828,-0.925661 -0.957031,-0.994141 0.127937,-0.430278 0.433727,-0.831443 0.720703,-1.257813 0.493243,-0.732818 1.220848,-1.505979 1.994141,-2.421875 C 62.320016,18.486571 64,16.090429 64,11.986328 64,5.9774659 59.309258,0 52.009766,0 Z M 2.5839844,1.984375 C 1.1688875,1.984375 0,3.1552168 0,4.5703125 V 15.402344 c 0,1.415096 1.1688875,2.582031 2.5839844,2.582031 H 13.414062 C 14.82916,17.984375 16,16.81744 16,15.402344 v -3.080078 c 0.0022,-0.552406 -0.443689,-1.001753 -0.996094,-1.003907 -0.552404,0.0022 -0.998254,0.451501 -0.996094,1.003907 v 3.080078 c 0,0.341461 -0.252295,0.582031 -0.59375,0.582031 H 2.5839844 C 2.2425041,15.984375 2,15.743808 2,15.402344 V 4.5703125 C 2,4.2288511 2.2425211,3.9863281 2.5839844,3.9863281 H 10.335938 C 10.889872,3.9852551 11.337231,3.5343955 11.333984,2.9804688 11.331834,2.4303539 10.886052,1.9854455 10.335938,1.984375 Z M 52.009766,2 C 58.05882,2 62,6.9370661 62,11.986328 c 0,3.298312 -1.308591,5.332721 -2.755859,7.046875 -0.723636,0.857077 -1.497503,1.648798 -2.126953,2.583985 -0.46296,0.687818 -0.936267,1.477515 -1.105469,2.371093 l -8.001953,0.002 C 47.84268,23.096611 47.369208,22.305006 46.90625,21.617188 46.2768,20.682001 45.504878,19.89028 44.78125,19.033203 43.333986,17.319049 42.024801,15.236589 42.009766,11.986328 41.987088,7.115543 45.968864,2.0000004 52.009766,2 Z m 1.001953,1.9785156 c -2.430516,-0.017386 -4.664161,1.3513638 -5.882813,3.5078125 -0.276208,0.4950917 -0.09763,1.1201051 0.398438,1.3945313 0.495091,0.2762343 1.120103,0.097655 1.394531,-0.3984375 0.854494,-1.5348767 2.412753,-2.4570305 4.091797,-2.4570313 0.565296,-0.00228 1.021565,-0.4620466 1.019531,-1.0273437 -0.0033,-0.5614851 -0.42783,-1.0195317 -1.021484,-1.0195313 z M 13.001953,4.984375 c -0.26623,3.89e-5 -0.521282,0.1061383 -0.708984,0.2949219 L 8.0039062,9.5683594 5.7089844,7.2792969 c -0.3901418,-0.3879099 -1.0219715,-0.3879099 -1.4121094,0 -0.39312,0.3910337 -0.39312,1.026935 0,1.4179687 l 2.9980469,2.9960934 c 0.3910563,0.393063 1.0269124,0.393063 1.4179687,0 L 13.710938,6.6972656 c 0.393116,-0.3910333 0.393116,-1.026935 0,-1.4179687 C 13.523246,5.090517 13.268168,4.9844143 13.001953,4.984375 Z m 6.003906,0 C 18.449638,4.9811148 17.997819,5.432055 18,5.9882812 c 0.0022,0.5531709 0.452691,0.9993389 1.005859,0.9960938 h 9 C 28.55826,6.986535 29.007611,6.5406857 29.009766,5.9882812 29.011965,5.432823 28.561318,4.9822018 28.005859,4.984375 Z m 0,4 C 18.449638,8.981114 17.997819,9.4320554 18,9.9882812 c 0.0022,0.5531718 0.452691,0.9993388 1.005859,0.9960938 h 13 c 0.549355,-0.0021 0.995904,-0.446739 0.998047,-0.9960938 0.0022,-0.552404 -0.445641,-1.0017522 -0.998047,-1.0039062 z m 27.003907,1.0019531 c -0.552405,-4e-7 -1,0.4475969 -1,0.9999999 0,0.552403 0.447595,1 1,1 0.5524,0 1,-0.447597 1,-1 0,-0.552403 -0.4476,-1.0000003 -1,-0.9999999 z m 12.060546,0.9980469 c -0.264793,-0.01516 -0.524669,0.07543 -0.722656,0.251953 l -4.960937,4.416016 -2.710938,-2.416016 c -0.414463,-0.364195 -1.045258,-0.323992 -1.410156,0.08984 -0.365329,0.411583 -0.329623,1.042645 0.08008,1.410156 l 3.376953,2.998047 c 0.37889,0.336457 0.949235,0.336457 1.328125,0 l 5.625,-5 c 0.410926,-0.367695 0.446734,-0.998303 0.08008,-1.410156 -0.174463,-0.199726 -0.420957,-0.321921 -0.685547,-0.339844 z m -39.064453,2.001953 c -0.556221,-0.0033 -1.00804,0.449633 -1.005859,1.00586 0.0022,0.55317 0.452691,0.999338 1.005859,0.996093 h 18 c 0.552405,0.0022 1.001752,-0.443689 1.003907,-0.996093 0.0022,-0.55546 -0.448448,-1.008033 -1.003907,-1.00586 z m 11.996094,7 c -3.854967,0 -6.998047,3.152845 -6.998047,7.007813 0,2.07017 0.907038,3.935287 2.34375,5.21875 -3.628781,0.846152 -6.345703,4.037888 -6.345703,7.863281 v 8.912109 H 11 c -0.552382,0.0022 -0.998199,0.45152 -0.996094,1.003907 v 5.90625 c 3.4e-5,0.345977 0.178712,0.667156 0.472656,0.849609 L 16,60.191406 v 2.802735 C 15.9968,63.550336 16.447703,64.002132 17.003906,64 h 28.00586 c 0.553152,-0.0022 0.999283,-0.452718 0.996093,-1.005859 v -2.765625 l 5.509766,-3.199219 c 0.306973,-0.180019 0.495051,-0.509387 0.494141,-0.865235 v -6.171874 c 0.0021,-0.552387 -0.443712,-1.0017 -0.996094,-1.003907 L 39,49 l -0.0078,-3.335938 c 0.257877,0.333507 0.500448,0.333708 0.75,0.335938 H 47 c 1.672978,0 3,-1.328523 3,-3 0,-1.671481 -1.327022,-3 -3,-3 l -3.712891,0.0078 C 41.129392,37.947626 39.42221,34.6593 37.234375,33.011719 36.779399,32.677181 36.250536,32.421894 35.621094,32.25 c 1.462552,-1.284462 2.388668,-3.165959 2.388672,-5.255859 -4e-6,-3.854968 -3.152846,-7.007813 -7.007813,-7.007813 z m -28.4179686,2 C 1.1688875,21.986328 0,23.157171 0,24.572266 v 10.83789 c 0,1.415096 1.1688875,2.583985 2.5839844,2.583985 H 13.414062 C 14.82916,37.994141 16,36.825253 16,35.410156 v -3.085937 c -0.0021,-0.549355 -0.446736,-0.995906 -0.996094,-0.998047 -0.549354,0.0021 -0.993951,0.448692 -0.996094,0.998047 v 3.085937 c 0,0.341462 -0.252295,0.583985 -0.59375,0.583985 H 2.5839844 C 2.2425041,35.994141 2,35.75162 2,35.410156 v -10.83789 c 0,-0.341462 0.2425211,-0.583985 0.5839844,-0.583985 h 7.7519536 c 0.550116,-0.0011 0.995896,-0.445979 0.998046,-0.996093 0.0022,-0.553165 -0.44488,-1.004784 -0.998046,-1.00586 z m 28.4179686,0 c 2.773856,0 5.007813,2.233957 5.007813,5.007813 0,2.773856 -2.233957,4.996093 -5.007813,4.996093 -2.773852,0 -4.998047,-2.222237 -4.998047,-4.996093 0,-2.773856 2.224195,-5.007813 4.998047,-5.007813 z m -18,3 c -0.26623,3.9e-5 -0.521282,0.106142 -0.708984,0.294922 L 8.0039062,29.576172 5.7089844,27.28125 c -0.3901418,-0.38791 -1.0219715,-0.38791 -1.4121094,0 -0.3931162,0.391033 -0.3931162,1.026935 0,1.417969 l 2.9980469,2.996093 c 0.3910563,0.393063 1.0269124,0.393063 1.4179687,0 l 4.9980474,-4.998046 c 0.391808,-0.390814 0.391808,-1.025203 0,-1.416016 -0.187692,-0.18878 -0.44277,-0.294882 -0.708985,-0.294922 z m 15.261719,9.007813 h 5.191406 c 1.428367,0 2.062501,0.233461 2.597656,0.626953 0.535155,0.393492 1.087924,0.94099 1.873047,1.898437 l 4.078125,5.09375 c 0.190904,0.230022 0.511632,0.395667 0.810547,0.394531 L 47,42 c 0.625527,0 0.998047,0.429034 0.998047,1 0,0.570969 -0.372513,1 -0.998047,1 h -6.851562 l -2.820313,-2.755859 c -0.394586,-0.388063 -1.029,-0.381799 -1.416016,0.01367 -0.389375,0.394812 -0.383109,1.032691 0.01367,1.419922 L 37.005859,43.828125 37,49 H 27 l -0.0039,-5.996094 C 26.998279,42.451566 26.552404,42.002154 26,42 25.444542,41.9978 24.993921,42.448444 24.996094,43.003906 L 25,49 22.001953,48.988281 v -8.912109 c 0,-3.374029 2.762961,-6.082033 6.261719,-6.082031 z" id="path850" style="opacity:1;fill:#ff9800;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" transform="scale(0.26458334)"/></g></svg>
-                    </div>
-                    <h3 class="wtps-activity-title">Community Dialogue Sessions</h3>
-                    <p class="wtps-activity-description">Interactive forums where citizens voice concerns and collaborate on solutions.</p>
-                    <a href="gallery.html" class="wtps-btn wtps-btn-outline">View Gallery →</a>
+            <div class="wtps-impact-list">
+                <div class="wtps-impact-item">
+                    <span class="wtps-impact-amount">₹5,000</span>
+                    <span class="wtps-impact-arrow">→</span>
+                    <span class="wtps-impact-description">Supports skill training for 10 rural youth</span>
                 </div>
-                <div class="wtps-activity-card">
-                    <div class="wtps-activity-icon">
-                        <?xml version="1.0"?><svg fill="#ff9800" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><g id="_x32_0_x2C__Justice_x2C__justice_scale_x2C__scale_x2C__law_x2C__judge_x2C__balance"><g><path d="M435.562,139.814c13.01-2.126,25.673-7.117,36.994-15.038C480.761,119.035,490.597,116,501,116c5.522,0,10-4.478,10-10    s-4.478-10-10-10c-14.526,0-28.328,4.284-39.911,12.39C449.689,116.367,435.798,121,421,121c-14.45,0-28.369-4.409-40.089-12.61    C369.328,100.284,355.526,96,341,96h-30.928c-2.389-12.946-9.311-24.322-19.072-32.395V36c0-19.299-15.701-35-35-35    s-35,15.701-35,35v27.605c-9.761,8.073-16.683,19.449-19.072,32.395H171c-14.526,0-28.328,4.284-39.911,12.39    c-23.972,16.775-56.084,16.861-80.178,0C39.328,100.284,25.526,96,11,96c-5.522,0-10,4.478-10,10s4.478,10,10,10    c10.403,0,20.239,3.035,28.444,8.776c11.261,7.879,23.932,12.895,36.995,15.034L1.803,317.073    c-0.521,1.219-0.815,2.587-0.802,4.014C1.048,370.673,41.403,411,91,411c49.596,0,89.951-40.326,89.999-89.911    c0.013-1.359-0.267-2.766-0.802-4.016l-74.635-177.259c13.01-2.126,25.673-7.117,36.994-15.038    C150.761,119.035,160.597,116,171,116h30.928c2.389,12.946,9.311,24.322,19.072,32.395V267.5c0,5.522,4.478,10,10,10    s10-4.478,10-10V158.904c9.538,2.708,19.856,2.88,30,0V391h-30v-83.5c0-5.522-4.478-10-10-10s-10,4.478-10,10V391h-10    c-22.056,0-40,17.944-40,40v10h-5c-19.349,0-35,15.647-35,35c0,19.299,15.701,35,35,35h110c5.522,0,10-4.478,10-10    s-4.478-10-10-10H166c-8.271,0-15-6.729-15-15c0-8.294,6.702-15,15-15c13.03,0,171.925,0,180,0c8.271,0,15,6.729,15,15    c0,8.294-6.702,15-15,15h-30c-5.522,0-10,4.478-10,10s4.478,10,10,10h30c19.349,0,35-15.647,35-35c0-19.299-15.701-35-35-35h-5    v-10c0-22.056-17.944-40-40-40h-10V148.395c9.761-8.073,16.683-19.449,19.072-32.395H341c10.403,0,20.239,3.035,28.444,8.776    c11.261,7.879,23.932,12.895,36.995,15.034l-74.637,177.263c-0.551,1.286-0.814,2.697-0.802,4.014    C331.048,370.673,371.403,411,421,411c49.596,0,89.951-40.326,89.999-89.911c0.013-1.359-0.267-2.766-0.802-4.016L435.562,139.814    z M91,391c-35.203,0-64.421-26.122-69.288-60h138.576C155.421,364.878,126.203,391,91,391z M26.061,311L91,156.77L155.939,311    H26.061z M241,36c0-8.271,6.729-15,15-15s15,6.729,15,15v17.096c-9.538-2.708-19.856-2.88-30,0V36z M301,411    c11.028,0,20,8.972,20,20v10H191v-10c0-11.028,8.972-20,20-20C236.065,411,272.79,411,301,411z M256,141    c-19.299,0-35-15.701-35-35s15.701-35,35-35s35,15.701,35,35S275.299,141,256,141z M421,156.77L485.939,311H356.061L421,156.77z     M421,391c-35.203,0-64.421-26.122-69.288-60h138.576C485.421,364.878,456.203,391,421,391z"/></g></g><g id="Layer_1"/></svg>
-                    </div>
-                    <h3 class="wtps-activity-title">Constitutional Literacy Workshops</h3>
-                    <p class="wtps-activity-description">Educational programs helping citizens understand their fundamental rights.</p>
-                    <a href="gallery.html" class="wtps-btn wtps-btn-outline">View Gallery →</a>
+                <div class="wtps-impact-item">
+                    <span class="wtps-impact-amount">₹10,000</span>
+                    <span class="wtps-impact-arrow">→</span>
+                    <span class="wtps-impact-description">Funds awareness workshops on clean elections</span>
                 </div>
-                <div class="wtps-activity-card">
-                    <div class="wtps-activity-icon">
-                        <?xml version="1.0"?><!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" fill="#ff9800" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve" ><path d="M250.324,114.611h9.836c22.87,0,41.476-18.605,41.476-41.476V57.477C301.636,34.606,283.03,16,260.16,16h-9.836  c-22.87,0-41.477,18.606-41.477,41.477v15.659C208.847,96.006,227.454,114.611,250.324,114.611z M228.847,57.477  c0-11.842,9.634-21.477,21.477-21.477h9.836c11.842,0,21.476,9.635,21.476,21.477v15.659c0,11.842-9.634,21.476-21.476,21.476  h-9.836c-11.842,0-21.477-9.634-21.477-21.476V57.477z M154.789,294.271c-22.87,0-41.477,18.606-41.477,41.477v15.659  c0,22.87,18.606,41.477,41.477,41.477h9.836c22.87,0,41.477-18.606,41.477-41.477v-15.659c0-22.87-18.606-41.477-41.477-41.477  H154.789z M186.101,335.747v15.659c0,11.842-9.634,21.477-21.477,21.477h-9.836c-11.842,0-21.477-9.635-21.477-21.477v-15.659  c0-11.842,9.634-21.477,21.477-21.477h9.836C176.467,314.271,186.101,323.905,186.101,335.747z M251.082,294.271  c-22.87,0-41.477,18.606-41.477,41.477v15.659c0,22.87,18.606,41.477,41.477,41.477h9.836c22.87,0,41.477-18.606,41.477-41.477  v-15.659c0-22.87-18.606-41.477-41.477-41.477H251.082z M282.395,335.747v15.659c0,11.842-9.634,21.477-21.477,21.477h-9.836  c-11.842,0-21.477-9.635-21.477-21.477v-15.659c0-11.842,9.634-21.477,21.477-21.477h9.836  C272.76,314.271,282.395,323.905,282.395,335.747z M347.375,294.271c-22.87,0-41.477,18.606-41.477,41.477v15.659  c0,22.87,18.606,41.477,41.477,41.477h9.836c22.87,0,41.477-18.606,41.477-41.477v-15.659c0-22.87-18.606-41.477-41.477-41.477  H347.375z M378.688,335.747v15.659c0,11.842-9.634,21.477-21.477,21.477h-9.836c-11.842,0-21.477-9.635-21.477-21.477v-15.659  c0-11.842,9.634-21.477,21.477-21.477h9.836C369.054,314.271,378.688,323.905,378.688,335.747z M116.478,397.388h-9.836  c-22.87,0-41.476,18.606-41.476,41.477v15.659c0,22.87,18.606,41.477,41.476,41.477h9.836c22.87,0,41.476-18.606,41.476-41.477  v-15.659C157.954,415.994,139.348,397.388,116.478,397.388z M137.954,454.523c0,11.842-9.634,21.477-21.476,21.477h-9.836  c-11.842,0-21.476-9.635-21.476-21.477v-15.659c0-11.842,9.634-21.477,21.476-21.477h9.836c11.842,0,21.476,9.635,21.476,21.477  V454.523z M212.771,397.388h-9.836c-22.87,0-41.476,18.606-41.476,41.477v15.659c0,22.87,18.606,41.477,41.476,41.477h9.836  c22.87,0,41.476-18.606,41.476-41.477v-15.659C254.248,415.994,235.642,397.388,212.771,397.388z M234.248,454.523  c0,11.842-9.634,21.477-21.476,21.477h-9.836c-11.842,0-21.476-9.635-21.476-21.477v-15.659c0-11.842,9.634-21.477,21.476-21.477  h9.836c11.842,0,21.476,9.635,21.476,21.477V454.523z M309.065,397.388h-9.836c-22.87,0-41.476,18.606-41.476,41.477v15.659  c0,22.87,18.606,41.477,41.476,41.477h9.836c22.87,0,41.476-18.606,41.476-41.477v-15.659  C350.541,415.994,331.935,397.388,309.065,397.388z M330.541,454.523c0,11.842-9.634,21.477-21.476,21.477h-9.836  c-11.842,0-21.476-9.635-21.476-21.477v-15.659c0-11.842,9.634-21.477,21.476-21.477h9.836c11.842,0,21.476,9.635,21.476,21.477  V454.523z M405.358,397.388h-9.836c-22.87,0-41.476,18.606-41.476,41.477v15.659c0,22.87,18.606,41.477,41.476,41.477h9.836  c22.87,0,41.476-18.606,41.476-41.477v-15.659C446.834,415.994,428.229,397.388,405.358,397.388z M426.834,454.523  c0,11.842-9.634,21.477-21.476,21.477h-9.836c-11.842,0-21.476-9.635-21.476-21.477v-15.659c0-11.842,9.634-21.477,21.476-21.477  h9.836c11.842,0,21.476,9.635,21.476,21.477V454.523z M89.677,75.131l-4.463,21.504c-0.629,3.033,0.183,6.188,2.199,8.54  l64.039,74.113c1.9,2.217,4.673,3.492,7.593,3.492h29.318c5.523,0,10-4.478,10-10s-4.477-10-10-10h-24.718l-57.849-66.892  l4.562-21.979c0.148-0.716,0.217-1.438,0.208-2.154l0.622,0.622c0.12,0.12,0.244,0.237,0.37,0.352l72.789,65.712  c1.838,1.659,4.226,2.577,6.701,2.577h100.59c10.318,0,17.942,2.669,22.659,7.933c7.736,8.632,6.344,22.228,6.336,22.306  c-0.049,0.402-0.074,0.807-0.074,1.211v23.867H111.181c-5.523,0-10,4.478-10,10v53.075c0,5.522,4.477,10,10,10h289.639  c5.523,0,10-4.478,10-10v-53.075c0-5.522-4.477-10-10-10H385.04v-54.195c0-2.652-1.054-5.195-2.929-7.071l-17.869-17.869  c1.184-2.936,1.842-6.138,1.842-9.493c0-7.842-7.289-16.776-13.404-22.891c-6.115-6.115-15.049-13.404-22.891-13.404  c-14.043,0-25.468,11.425-25.468,25.468c0,7.842,7.289,16.776,13.404,22.892c6.115,6.114,15.05,13.403,22.891,13.403  c3.349,0,6.546-0.656,9.478-1.836l14.945,14.945v50.053h-24.482v-23.388c0.348-4.017,1.246-23.099-11.209-37.165  c-8.674-9.796-21.363-14.764-37.713-14.764h-96.744l-69.744-62.963l-25.094-25.094c-2.678-2.678-6.639-3.611-10.233-2.416  c-2.195,0.732-13.275,4.925-15.801,15.621c-1.159,4.912-0.739,12.569,7.848,21.156L89.677,75.131z M324.365,96.189  c0.312-2.466,2.271-4.425,4.737-4.736c4.509,1.946,14.993,12.432,16.94,16.94c-0.312,2.466-2.271,4.425-4.736,4.736  C336.796,111.184,326.312,100.698,324.365,96.189z M390.819,249.409H121.181v-33.075h269.639V249.409z"/></svg>
-                    </div>
-                    <h3 class="wtps-activity-title">Electoral Awareness Campaigns</h3>
-                    <p class="wtps-activity-description">Initiatives promoting informed voting and democratic participation.</p>
-                    <a href="gallery.html" class="wtps-btn wtps-btn-outline">View Gallery →</a>
+                <div class="wtps-impact-item">
+                    <span class="wtps-impact-amount">₹25,000</span>
+                    <span class="wtps-impact-arrow">→</span>
+                    <span class="wtps-impact-description">Enables vocational programs for women and students</span>
+                </div>
+                <div class="wtps-impact-item">
+                    <span class="wtps-impact-amount">₹50,000+</span>
+                    <span class="wtps-impact-arrow">→</span>
+                    <span class="wtps-impact-description">Empowers community-level campaigns and NGO partnerships</span>
                 </div>
             </div>
+
+            <p class="wtps-impact-footer">All contributions are utilized ethically and transparently for socio-democratic development.</p>
         </div>
     </section>
 
-    <!-- Get Involved Preview Section -->
-    <section class="wtps-involvement-section">
+    <!-- Other Ways Section -->
+    <section class="wtps-section wtps-section-white">
         <div class="wtps-container">
-            <p class="wtps-section-label">Get Involved</p>
-            <h2 class="wtps-section-title">Join Us in Building a Better Nation</h2>
+            <h2 class="wtps-section-title-center">Other Ways to Support</h2>
+            <p class="wtps-section-description-center">Explore additional opportunities to partner with us</p>
             
-            <div class="wtps-involvement-grid">
-                <div class="wtps-involvement-card">
-                    <div class="wtps-involvement-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path fill="#ff9800" d="M300.9 117.2L184.3 246.8C179.7 251.9 179.9 259.8 184.8 264.7C215.3 295.2 264.8 295.2 295.3 264.7L327.1 232.9C331.3 228.7 336.6 226.4 342 226C348.8 225.4 355.8 227.7 361 232.9L537.6 408L608 352L608 64L496 128L472.2 112.1C456.4 101.6 437.9 96 418.9 96L348.5 96C347.4 96 346.2 96 345.1 96.1C328.2 97 312.3 104.6 300.9 117.2zM148.6 214.7L255.4 96L215.8 96C190.3 96 165.9 106.1 147.9 124.1L32 256L32 608L176 472L188.4 482.3C211.4 501.5 240.4 512 270.3 512L286 512L279 505C269.6 495.6 269.6 480.4 279 471.1C288.4 461.8 303.6 461.7 312.9 471.1L353.9 512.1L362.9 512.1C382 512.1 400.7 507.8 417.7 499.8L391 473C381.6 463.6 381.6 448.4 391 439.1C400.4 429.8 415.6 429.7 424.9 439.1L456.9 471.1L474.4 453.6C483.3 444.7 485.9 431.8 482 420.5L344.1 283.7L329.2 298.6C279.9 347.9 200.1 347.9 150.8 298.6C127.8 275.6 126.9 238.7 148.6 214.6z"/></svg>
-                    </div>
-                    <h3>Partner With Us</h3>
-                    <p>Collaborate with WTPS to amplify your organization's social impact.</p>
-                    <a href="get-involved.html" class="wtps-btn wtps-btn-primary">Learn More</a>
-                </div>
-                <div class="wtps-involvement-card">
-                    <div class="wtps-involvement-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path fill="#ff9800" d="M280 88C280 57.1 254.9 32 224 32C193.1 32 168 57.1 168 88C168 118.9 193.1 144 224 144C254.9 144 280 118.9 280 88zM304 300.7L341 350.6C353.8 333.1 369.5 317.9 387.3 305.6L331.1 229.9C306 196 266.3 176 224 176C181.7 176 142 196 116.8 229.9L46.3 324.9C35.8 339.1 38.7 359.1 52.9 369.7C67.1 380.3 87.1 377.3 97.7 363.1L144 300.7L144 576C144 593.7 158.3 608 176 608C193.7 608 208 593.7 208 576L208 416C208 407.2 215.2 400 224 400C232.8 400 240 407.2 240 416L240 576C240 593.7 254.3 608 272 608C289.7 608 304 593.7 304 576L304 300.7zM496 608C575.5 608 640 543.5 640 464C640 384.5 575.5 320 496 320C416.5 320 352 384.5 352 464C352 543.5 416.5 608 496 608zM512 400L512 448L560 448C568.8 448 576 455.2 576 464C576 472.8 568.8 480 560 480L512 480L512 528C512 536.8 504.8 544 496 544C487.2 544 480 536.8 480 528L480 480L432 480C423.2 480 416 472.8 416 464C416 455.2 423.2 448 432 448L480 448L480 400C480 391.2 487.2 384 496 384C504.8 384 512 391.2 512 400z"/></svg>
-                    </div>
-                    <h3>Volunteer</h3>
-                    <p>Contribute your time and skills to drive meaningful community change.</p>
-                    <a href="get-involved.html" class="wtps-btn wtps-btn-primary">Get Started</a>
-                </div>
-                <div class="wtps-involvement-card">
-                    <div class="wtps-involvement-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path fill="#2d5f3f" d="M320 48C306.7 48 296 58.7 296 72L296 84L294.2 84C257.6 84 228 113.7 228 150.2C228 183.6 252.9 211.8 286 215.9L347 223.5C352.1 224.1 356 228.5 356 233.7C356 239.4 351.4 243.9 345.8 243.9L272 244C256.5 244 244 256.5 244 272C244 287.5 256.5 300 272 300L296 300L296 312C296 325.3 306.7 336 320 336C333.3 336 344 325.3 344 312L344 300L345.8 300C382.4 300 412 270.3 412 233.8C412 200.4 387.1 172.2 354 168.1L293 160.5C287.9 159.9 284 155.5 284 150.3C284 144.6 288.6 140.1 294.2 140.1L360 140C375.5 140 388 127.5 388 112C388 96.5 375.5 84 360 84L344 84L344 72C344 58.7 333.3 48 320 48zM141.3 405.5L98.7 448L64 448C46.3 448 32 462.3 32 480L32 544C32 561.7 46.3 576 64 576L384.5 576C413.5 576 441.8 566.7 465.2 549.5L591.8 456.2C609.6 443.1 613.4 418.1 600.3 400.3C587.2 382.5 562.2 378.7 544.4 391.8L424.6 480L312 480C298.7 480 288 469.3 288 456C288 442.7 298.7 432 312 432L384 432C401.7 432 416 417.7 416 400C416 382.3 401.7 368 384 368L231.8 368C197.9 368 165.3 381.5 141.3 405.5z"/></svg>
-                    </div>
-                    <h3>Donate</h3>
-                    <p>Support our mission with a financial contribution to empower communities.</p>
-                    <a href="donate.html" class="wtps-btn wtps-btn-success">Donate Now</a>
-                </div>
-            </div>
+            <ul class="wtps-other-ways">
+                <li>Event Sponsorships (e.g., National Conclave on Clean Elections)</li>
+                <li>Souvenir Advertisements & CSR Collaborations</li>
+                <li>Business Promotion Stalls at major WTPS events</li>
+            </ul>
         </div>
     </section>
 
-    <!-- CTA Section -->
+    <!-- Final CTA Section -->
     <section class="wtps-cta-section">
         <div class="wtps-container">
-            <p class="wtps-cta-label">Take Action</p>
-            <h2 class="wtps-cta-title">Democracy Thrives When Citizens Act</h2>
-            <p class="wtps-cta-description">Your support is crucial to our mission. Whether you donate, volunteer, or spread the word, you are contributing to a more transparent, equitable, and empowered society.</p>
-            <a href="get-involved.html" class="wtps-btn wtps-btn-success">Explore Ways to Contribute →</a>
+            <div class="wtps-cta-content">
+                <h2 class="wtps-cta-title">Join Hands with Us</h2>
+                <p class="wtps-cta-description">Be part of a movement that empowers citizens and transforms India. Together, let's build a future driven by knowledge, equality, and participation.</p>
+                <a href="get-involved.html" class="wtps-btn wtps-btn-lg wtps-btn-success">Join The Movement →</a>
+            </div>
         </div>
     </section>
 
@@ -902,7 +924,5 @@
             </div>
         </div>
     </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>
