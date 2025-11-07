@@ -401,8 +401,8 @@ body {
         gap: 0; /* No gap, only hamburger */
     }
 
-    .wtps-btn-primary {
-        display: none; /* Hide Donate button */
+    .donate-btn {
+        display: none; /* Hide Donate button */ 
     }
 
     .wtps-mobile-menu-btn {
