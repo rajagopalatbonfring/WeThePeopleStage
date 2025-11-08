@@ -513,6 +513,7 @@ body {
     }
 
     .wtps-footer-content{
+        padding: 0 0.5rem;
         gap : 1rem;
     }
 }
