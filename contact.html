@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery - We the People Stage</title>
+    <title>Contact Us - We the People Stage</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-
         :root {
             --wtps-primary: #2d5f3f;
             --wtps-success: #4caf50;
@@ -18,179 +17,201 @@
             --wtps-bg-cream: #faf8f5;
             --wtps-border: #e0e0e0;
         }
-
-
-        /* Gallery Header */
-        .wtps-gallery-header {
-            background: var(--wtps-bg-cream);
-            padding: 4rem 0;
-            text-align: center;
+        /* Contact Header */
+        .wtps-contact-header {
+            background: linear-gradient(135deg, #2d5f3f 0%, #1a3a27 100%);
+            padding: 5rem 0 6rem;
+            position: relative;
+            overflow: hidden;
         }
-
+        .wtps-contact-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.05)"/></svg>');
+            opacity: 0.3;
+        }
+        .wtps-contact-header .wtps-container {
+            position: relative;
+            z-index: 1;
+        }
         .wtps-section-label {
+            text-align: center;
             color: var(--wtps-warning);
             font-weight: 600;
             font-size: 0.875rem;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             margin-bottom: 1.5rem;
+            text-transform: uppercase;
         }
-
-        .wtps-gallery-title {
+        .wtps-contact-main-title {
+            text-align: center;
             font-size: 2.5rem;
             font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--wtps-primary);
-            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: white;
+            line-height: 1.3;
         }
-
-        .wtps-gallery-subtitle {
-            color: var(--wtps-text-light);
-            max-width: 800px;
+        .wtps-page-description {
+            text-align: center;
+            color: rgba(255,255,255,0.9);
             margin: 0 auto;
             line-height: 1.8;
+            max-width: 800px;
+            font-size: 1.1rem;
         }
-
-        /* Gallery Grid Section */
-        .wtps-gallery-section {
-            padding: 4rem 0;
-            background: white;
+        /* Contact Section */
+        .wtps-section {
+            padding: 5rem 0;
         }
-
-        .wtps-gallery-grid {
+        .wtps-contact-content {
+            max-width: 1000px;
+            margin: 0 auto;
             display: grid;
             grid-template-columns: 1fr;
-            gap: 1.5rem;
+            gap: 3rem;
         }
-
-        .wtps-gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 12px;
-            background: var(--wtps-bg-light);
-            aspect-ratio: 4/3;
-            cursor: pointer;
-            transition: transform 0.3s ease;
+        .wtps-contact-form {
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
         }
-
-        .wtps-gallery-item:hover {
-            transform: translateY(-4px);
-        }
-
-        .wtps-gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .wtps-gallery-item:hover img {
-            transform: scale(1.05);
-        }
-
-        .wtps-gallery-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
-            padding: 1.5rem;
-            transform: translateY(100%);
-            transition: transform 0.3s ease;
-        }
-
-        .wtps-gallery-item:hover .wtps-gallery-overlay {
-            transform: translateY(0);
-        }
-
-        .wtps-gallery-overlay h3 {
-            color: white;
-            font-size: 1.1rem;
-            margin-bottom: 0.25rem;
-        }
-
-        .wtps-gallery-overlay p {
-            color: rgba(255,255,255,0.9);
-            font-size: 0.9rem;
-        }
-
-        /* Gallery Empty State */
-        .wtps-section {
-            padding: 4rem 0;
-            min-height: 50vh;
-            display: flex;
-            align-items: center;
-        }
-
-        .wtps-gallery-empty {
-            text-align: center;
-            padding: 4rem 2rem;
-        }
-
-        .wtps-gallery-empty svg {
-            color: var(--wtps-text-light);
-            opacity: 0.3;
+        .wtps-contact-form h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--wtps-primary);
             margin-bottom: 1.5rem;
         }
-
-        .wtps-gallery-empty h3 {
-            font-size: 1.5rem;
+        .wtps-form-group {
+            margin-bottom: 1.5rem;
+        }
+        .wtps-form-group label {
+            display: block;
+            font-size: 0.95rem;
             font-weight: 600;
             color: var(--wtps-text);
             margin-bottom: 0.5rem;
         }
-
-        .wtps-gallery-empty p {
-            color: var(--wtps-text-light);
+        .wtps-form-group input,
+        .wtps-form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--wtps-border);
+            border-radius: 8px;
+            font-size: 1rem;
+            color: var(--wtps-text);
+            background: var(--wtps-bg-light);
         }
-
-
-
-
-
-               
- 
-
+        .wtps-form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+        .wtps-form-group input:focus,
+        .wtps-form-group textarea:focus {
+            outline: none;
+            border-color: var(--wtps-warning);
+            box-shadow: 0 0 5px rgba(255, 153, 0, 0.3);
+        }
+        .wtps-submit-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--wtps-warning);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .wtps-submit-button:hover {
+            background: #e68900;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 153, 0, 0.4);
+        }
+        .wtps-contact-info {
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+        .wtps-contact-info h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--wtps-primary);
+            margin-bottom: 1.5rem;
+        }
+        .wtps-contact-list {
+            list-style: none;
+        }
+        .wtps-contact-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .wtps-contact-list svg {
+            flex-shrink: 0;
+            color: var(--wtps-warning);
+            margin-top: 0.2rem;
+        }
+        .wtps-contact-list a {
+            color: var(--wtps-text);
+            text-decoration: none;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+        .wtps-contact-list a:hover {
+            color: var(--wtps-warning);
+        }
         /* Responsive Design */
-        @media (min-width: 640px) {
-            .wtps-gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
         @media (min-width: 768px) {
-
-            .wtps-gallery-title {
-                font-size: 3rem;
-            }
-
-            .wtps-gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 2rem;
-            }
-
             .wtps-footer-content {
                 grid-template-columns: 2fr 1fr 1fr 1fr 1.5fr;
             }
-        }
-
-        @media (min-width: 1024px) {
-            .wtps-gallery-header {
-                padding: 5rem 0;
+            .wtps-nav-desktop {
+                display: flex;
             }
-
-            .wtps-gallery-title {
+            .wtps-mobile-menu-btn {
+                display: none;
+            }
+            .wtps-contact-main-title {
                 font-size: 3.5rem;
             }
-
-            .wtps-gallery-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 2rem;
+            .wtps-contact-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (min-width: 1024px) {
+            .wtps-contact-header {
+                padding: 6rem 0 7rem;
+            }
+            .wtps-contact-form,
+            .wtps-contact-info {
+                padding: 3rem;
+            }
+        }
+        @media (max-width: 767px) {
+            .wtps-contact-form,
+            .wtps-contact-info {
+                padding: 1.5rem;
+            }
+            .wtps-contact-form h2,
+            .wtps-contact-info h2 {
+                font-size: 1.5rem;
+            }
+            .wtps-contact-main-title {
+                font-size: 2rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header class="wtps-header">
         <div class="wtps-header-main">
             <div class="wtps-container">
@@ -203,8 +224,8 @@
                         <a href="about.html" class="wtps-nav-link">About</a>
                         <a href="policy-reforms.html" class="wtps-nav-link">Policy Reforms</a>
                         <a href="get-involved.html" class="wtps-nav-link">Get Involved</a>
-                        <a href="gallery.html" class="wtps-nav-link active">Gallery</a>
-                        <a href="contact.html" class="wtps-nav-link">Contact</a>
+                        <a href="gallery.html" class="wtps-nav-link">Gallery</a>
+                        <a href="contact.html" class="wtps-nav-link active">Contact</a>
                     </nav>
                     <div class="wtps-header-actions">
                         <a href="donate.html" class="wtps-btn wtps-btn-primary donate-btn">Donate</a>
@@ -222,85 +243,65 @@
                     <a href="about.html" class="wtps-nav-link">About</a>
                     <a href="policy-reforms.html" class="wtps-nav-link">Policy Reforms</a>
                     <a href="get-involved.html" class="wtps-nav-link">Get Involved</a>
-                    <a href="gallery.html" class="wtps-nav-link active">Gallery</a>
-                    <a href="contact.html" class="wtps-nav-link">Contact</a>
+                    <a href="gallery.html" class="wtps-nav-link">Gallery</a>
+                    <a href="contact.html" class="wtps-nav-link active">Contact</a>
                     <a href="donate.html" class="wtps-nav-link">Donate</a>
                 </nav>
             </div>
         </div>
     </header>
-
-    <!-- Gallery Header -->
-    <section class="wtps-gallery-header">
+    <section class="wtps-contact-header">
         <div class="wtps-container">
-            <p class="wtps-section-label">VISUAL DIARY</p>
-            <h1 class="wtps-gallery-title">Our Journey in Pictures</h1>
-            <p class="wtps-gallery-subtitle">A glimpse into the heart of our activities, events, and the community we serve. See the change we're making, one moment at a time.</p>
+            <p class="wtps-section-label">Contact Us</p>
+            <h1 class="wtps-contact-main-title">Get in Touch with Us</h1>
+            <p class="wtps-page-description">We’d love to hear from you! Whether you have questions, want to collaborate, or are interested in supporting our mission, reach out to us through the form below or our contact details.</p>
         </div>
     </section>
-
-    <!-- Gallery Grid Section -->
-    <section class="wtps-gallery-section">
+    <section class="wtps-section">
         <div class="wtps-container">
-            <div class="wtps-gallery-grid">
-                <!-- Gallery Item 1 -->
-                <div class="wtps-gallery-item">
-                    <img src="./ClientData/Andraprades.jpg" alt="Andrapradesh Community Gathering">
-                    <div class="wtps-gallery-overlay">
-                        <h3>Andrapradesh Community Gathering</h3>
-                        <p>Bringing people together for change</p>
-                    </div>
+            <div class="wtps-contact-content">
+                <div class="wtps-contact-form">
+                    <h2>Send Us a Message</h2>
+                    <form action="#" method="POST">
+                        <div class="wtps-form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                        </div>
+                        <div classv class="wtps-form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                        </div>
+                        <div class="wtps-form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" placeholder="Enter the subject" required>
+                        </div>
+                        <div class="wtps-form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="Write your message here" required></textarea>
+                        </div>
+                        <button type="submit" class="wtps-submit-button">Send Message</button>
+                    </form>
                 </div>
-
-                <!-- Gallery Item 2 -->
-                <div class="wtps-gallery-item">
-                    <img src="./ClientData/Chennai.jpg" alt="Policy Discussion, Chennai">
-                    <div class="wtps-gallery-overlay">
-                        <h3>Policy Discussion, Chennai</h3>
-                        <p>Engaging citizens in democratic dialogue</p>
-                    </div>
-                </div>
-
-                <!-- Gallery Item 3 -->
-                <div class="wtps-gallery-item">
-                    <img src="./ClientData/Coimbatore Vivers.jpg" alt="Vivers">
-                    <div class="wtps-gallery-overlay">
-                        <h3>Vivers Awareness Campaign</h3>
-                        <p>Spreading the message of democracy</p>
-                    </div>
-                </div>
-
-                <!-- Gallery Item 4 -->
-                <div class="wtps-gallery-item">
-                    <img src="./ClientData/Kilvelur.jpg" alt="Awareness Campaign">
-                    <div class="wtps-gallery-overlay">
-                        <h3>Awareness Campaign, Kilvelur</h3>
-                        <p>Spreading the message of democracy</p>
-                    </div>
-                </div>
-
-                <!-- Gallery Item 5 -->
-                <div class="wtps-gallery-item">
-                    <img src="./ClientData/Trichy.jpg" alt="Volunteer Drive">
-                    <div class="wtps-gallery-overlay">
-                        <h3>Volunteer Drive</h3>
-                        <p>Together we make a difference</p>
-                    </div>
-                </div>
-
-                <!-- Gallery Item 6 -->
-                <div class="wtps-gallery-item">
-                    <img src="./ClientData/Trichy1.jpg" alt="Town Hall Meeting">
-                    <div class="wtps-gallery-overlay">
-                        <h3>Town Hall Meeting</h3>
-                        <p>Listening to community voices</p>
-                    </div>
+                <div class="wtps-contact-info">
+                    <h2>Contact Information</h2>
+                    <ul class="wtps-contact-list">
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                                <path fill="currentColor" d="M19 9A7 7 0 1 0 5 9c0 1.387.409 2.677 1.105 3.765h-.008L12 22l5.903-9.235h-.007A6.971 6.971 0 0 0 19 9zm-7 3a3 3 0 1 1 0-6a3 3 0 0 1 0 6z"/>
+                            </svg>
+                            <a href="https://maps.google.com/?q=30/267+18th+main+road+Anna+Nagar+Chennai+40" target="_blank">30/267, 18th Main Road, Anna Nagar, Chennai 40</a>
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                                <path fill="currentColor" d="M20 4H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zm0 2v.511l-8 6.223l-8-6.222V6h16zM4 18V9.044l7.386 5.745a.994.994 0 0 0 1.228 0L20 9.044L20.002 18H4z"/>
+                            </svg>
+                            <a href="mailto:wethepeoplestageindia@gmail.com">wethepeoplestageindia@gmail.com</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Footer -->
     <footer class="wtps-footer">
         <div class="wtps-container">
             <div class="wtps-footer-content">
@@ -332,7 +333,6 @@
                         </a>
                     </div>
                 </div>
-
                 <div>
                     <h3 class="wtps-footer-heading">About Us</h3>
                     <ul class="wtps-footer-links">
@@ -343,7 +343,6 @@
                         <li><a href="gallery.html">Gallery</a></li>
                     </ul>
                 </div>
-
                 <div>
                     <h3 class="wtps-footer-heading">Join the Mission</h3>
                     <ul class="wtps-footer-links">
@@ -352,15 +351,13 @@
                         <li><a href="donate.html#donate">Donate Now</a></li>
                     </ul>
                 </div>
-
                 <div>
-                    <h3 class="wtps-footer-heading">Policy Refroms</h3>
+                    <h3 class="wtps-footer-heading">Policy Reforms</h3>
                     <ul class="wtps-footer-links">
                         <li><a href="policy-reforms.html">Our Policy</a></li>
-                        <li><a href="policy-reforms.html#Awareness">Literacy </a></li>
+                        <li><a href="policy-reforms.html#Awareness">Literacy</a></li>
                     </ul>
                 </div>
-
                 <div>
                     <h3 class="wtps-footer-heading">Contact Us</h3>
                     <ul class="wtps-footer-links">
@@ -369,18 +366,9 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
                                     <path fill="currentColor" d="M19 9A7 7 0 1 0 5 9c0 1.387.409 2.677 1.105 3.765h-.008L12 22l5.903-9.235h-.007A6.971 6.971 0 0 0 19 9zm-7 3a3 3 0 1 1 0-6a3 3 0 0 1 0 6z"/>
                                 </svg>
-                                <span>30/267, 18th main road, Anna Nagar, Chennai 40</span>
+                                <span>30/267, 18th Main Road, Anna Nagar, Chennai 40</span>
                             </a>
                         </li>
-                        <!-- <li>
-                            <a href="tel:1234567890" class="wtps-contact-item">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-                                    <path fill="currentColor" d="M20 10.999h2C22 5.869 18.127 2 12.99 2v2C17.052 4 20 6.943 20 10.999z"/>
-                                    <path fill="currentColor" d="M13 8c2.103 0 3 .897 3 3h2c0-3.225-1.775-5-5-5v2zm3.422 5.443a1.001 1.001 0 0 0-1.391.043l-2.393 2.461c-.576-.11-1.734-.471-2.926-1.66c-1.192-1.193-1.553-2.354-1.66-2.926l2.459-2.394a1 1 0 0 0 .043-1.391L6.859 3.513a1 1 0 0 0-1.391-.087l-2.17 1.861a1 1 0 0 0-.29.649c-.015.25-.301 6.172 4.291 10.766C11.305 20.707 16.323 21 17.705 21c.202 0 .326-.006.359-.008a.992.992 0 0 0 .648-.291l1.86-2.171a.997.997 0 0 0-.086-1.391l-4.064-3.696z"/>
-                                </svg>
-                                <span>1234567890</span>
-                            </a>
-                        </li> -->
                         <li>
                             <a href="mailto:wethepeoplestageindia@gmail.com" class="wtps-contact-item">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
