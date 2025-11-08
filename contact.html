@@ -72,7 +72,7 @@
             margin: 0 auto;
             display: grid;
             grid-template-columns: 1fr;
-            gap: 3rem;
+            gap: 2rem;
         }
         .wtps-contact-form {
             background: white;
@@ -105,6 +105,7 @@
             font-size: 1rem;
             color: var(--wtps-text);
             background: var(--wtps-bg-light);
+            box-sizing: border-box;
         }
         .wtps-form-group textarea {
             resize: vertical;
@@ -135,10 +136,8 @@
             box-shadow: 0 6px 20px rgba(255, 153, 0, 0.4);
         }
         .wtps-contact-info {
-            background: white;
             border-radius: 16px;
             padding: 2.5rem;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
         }
         .wtps-contact-info h2 {
             font-size: 2rem;
@@ -148,6 +147,7 @@
         }
         .wtps-contact-list {
             list-style: none;
+            margin-bottom: 2rem;
         }
         .wtps-contact-list li {
             display: flex;
@@ -168,6 +168,22 @@
         }
         .wtps-contact-list a:hover {
             color: var(--wtps-warning);
+        }
+        .wtps-map-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .wtps-map-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
         }
         /* Responsive Design */
         @media (min-width: 768px) {
@@ -197,6 +213,10 @@
             }
         }
         @media (max-width: 767px) {
+            .wtps-contact-content {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
             .wtps-contact-form,
             .wtps-contact-info {
                 padding: 1.5rem;
@@ -207,6 +227,20 @@
             }
             .wtps-contact-main-title {
                 font-size: 2rem;
+            }
+            .wtps-form-group input,
+            .wtps-form-group textarea {
+                font-size: 0.95rem;
+            }
+            .wtps-submit-button {
+                padding: 0.75rem 2rem;
+                font-size: 1rem;
+            }
+            .wtps-contact-list a {
+                font-size: 0.95rem;
+            }
+            .wtps-map-container {
+                padding-bottom: 75%; /* Adjusted for mobile */
             }
         }
     </style>
@@ -267,7 +301,7 @@
                             <label for="name">Full Name</label>
                             <input type="text" id="name" name="name" placeholder="Enter your name" required>
                         </div>
-                        <div classv class="wtps-form-group">
+                        <div class="wtps-form-group">
                             <label for="email">Email Address</label>
                             <input type="email" id="email" name="email" placeholder="Enter your email" required>
                         </div>
@@ -298,6 +332,9 @@
                             <a href="mailto:wethepeoplestageindia@gmail.com">wethepeoplestageindia@gmail.com</a>
                         </li>
                     </ul>
+                    <div class="wtps-map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.296373974858!2d80.2056286148222!3d13.08368999078416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5267b0c7c7c7c7%3A0x7e7c7c7c7c7c7c7c!2s30%2F267%2C%2018th%20Main%20Rd%2C%20Anna%20Nagar%2C%20Chennai%2C%20Tamil%20Nadu%20600040%2C%20India!5e0!3m2!1sen!2sin!4v1698765432109!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
                 </div>
             </div>
         </div>
