@@ -206,6 +206,7 @@ body {
 
 .wtps-footer-content {
     display: grid;
+    grid-template-columns: repeat(5, 1fr);
     gap: 2rem;
     margin-bottom: 2rem;
     padding-bottom: 2rem;
@@ -231,6 +232,7 @@ body {
 .wtps-social-links {
     display: flex;
     gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .wtps-social-link {
@@ -319,6 +321,105 @@ body {
 
 .wtps-footer-bottom a:hover {
     color: var(--wtps-success);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .wtps-footer-content {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .wtps-footer-content > div:first-child {
+        grid-column: 1 / -1;
+        max-width: 600px;
+    }
+}
+
+@media (max-width: 768px) {
+    .wtps-footer {
+        padding: 2rem 0 0;
+    }
+    
+    .wtps-footer-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    .wtps-footer-content > div:first-child {
+        grid-column: 1 / -1;
+    }
+    
+    .wtps-footer-heading {
+        font-size: 1rem;
+    }
+    
+    .wtps-footer-description {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .wtps-footer {
+        padding: 1.5rem 0 0;
+    }
+    
+    .wtps-footer-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .wtps-footer-content > div:first-child {
+        grid-column: 1;
+    }
+    
+    .wtps-social-links {
+        gap: 0.75rem;
+    }
+    
+    .wtps-social-link {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .wtps-footer-heading {
+        font-size: 0.95rem;
+    }
+    
+    .wtps-footer-links {
+        font-size: 0.9rem;
+    }
+    
+    .wtps-contact-item {
+        font-size: 0.85rem;
+    }
+    
+    .wtps-contact-item svg {
+        width: 16px;
+        height: 16px;
+    }
+    
+    .wtps-footer-bottom {
+        padding: 1rem 0;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .wtps-footer-content {
+        gap: 1.25rem;
+    }
+    
+    .wtps-footer-heading {
+        font-size: 0.9rem;
+    }
+    
+    .wtps-footer-links {
+        font-size: 0.85rem;
+    }
+    
+    .wtps-contact-item span {
+        font-size: 0.8rem;
+    }
 }
 
 
