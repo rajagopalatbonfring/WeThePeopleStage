@@ -256,7 +256,6 @@
         .wtps-impact-item:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            border-color: var(--wtps-success);
         }
 
         .wtps-impact-amount {
@@ -294,11 +293,11 @@
 
         /* Other Ways Section - Improved Cards */
         .wtps-other-ways {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 3rem auto;
             list-style: none;
-            display: grid;
-            gap: 1rem;
+            display: flex;
+            gap: 2rem;
         }
 
         .wtps-other-ways li {
@@ -310,7 +309,7 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             transition: all 0.3s;
             font-size: 1.05rem;
-            border-left: 4px solid var(--wtps-success);
+            border-left: 2px solid var(--wtps-warning);
         }
 
         .wtps-other-ways li:hover {
@@ -326,6 +325,7 @@
             font-size: 1.5rem;
             font-weight: bold;
         }
+
 
         /* CTA Section - Enhanced */
         .wtps-cta-section {
@@ -407,7 +407,7 @@
 
         @media (max-width: 767px) {
             .wtps-impact-item {
-                flex-direction: column;
+                flex-direction: column-reverse;
                 text-align: center;
             }
 
@@ -488,6 +488,10 @@
                 gap: 1rem;
             }
 
+            .wtps-impact-arrow {
+                display: none;
+            }
+
             .wtps-impact-amount {
                 min-width: auto;
                 width: 100%;
@@ -498,9 +502,9 @@
                 font-size: 1rem;
             }
 
-            .wtps-other-ways li {
-                padding: 1rem 1rem 1rem 2.5rem;
-                font-size: 1rem;
+            .wtps-other-ways {
+                display: flex;
+                flex-direction: column;
             }
 
             .wtps-cta-section {
@@ -630,7 +634,7 @@
 
             .wtps-other-ways li {
                 font-size: 0.9rem;
-                padding: 0.75rem 0.75rem 0.75rem 2rem;
+                padding: 0.75rem 0.75rem 0.75rem 3rem;
             }
 
             .wtps-cta-section {
