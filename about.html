@@ -157,51 +157,98 @@
         }
 
         /* Inspirations Section - Enhanced */
+
         .wtps-inspiration-section {
             padding: 5rem 0;
             background: var(--wtps-bg-light);
         }
 
         .wtps-inspiration-container {
-            background: #8b745265;
-            padding: 3rem;
-            border: 2px solid rgba(173, 173, 173, 0.2);
-            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(45, 95, 63, 0.08) 0%, rgba(255, 152, 0, 0.08) 100%);
+            padding: 3.5rem;
+            border: 2px solid rgba(45, 95, 63, 0.2);
+            border-radius: 16px;
             margin-top: 3rem;
+            box-shadow: 0 10px 40px rgba(45, 95, 63, 0.12);
+            position: relative;
+            overflow: hidden;
         }
-
 
 
         .wtps-inspiration-content {
             text-align: center;
+            font-family: 'Merriweather', Georgia, serif;
         }
 
         .wtps-inspiration-name {
-            font-size: 1.5rem;
+            font-family: 'Merriweather', Georgia, serif;
+            font-size: 2rem;
             font-weight: 700;
             color: var(--wtps-primary);
             margin-bottom: 0.5rem;
-        }
-
-        .wtps-inspiration-subtitle {
-            color: var(--wtps-warning);
-            font-weight: 600;
-            font-size: .8rem;
-            margin-bottom: 2rem;
-            text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
+        .wtps-inspiration-subtitle {
+            font-family: 'Merriweather', Georgia, serif;
+            color: var(--wtps-warning);
+            font-weight: 700;
+            font-size: .85rem;
+            margin-bottom: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+        }
+
         .wtps-inspiration-text {
-            color: var(--wtps-text);
-            line-height: 1.9;
-            margin-bottom: 1.5rem;
+            font-family: 'Merriweather', Georgia, serif;
+            color: #444;
+            line-height: 2;
+            margin-bottom: 1.8rem;
             font-size: 1.05rem;
+            text-align: left;
+        }
+
+        .wtps-inspiration-text:last-child {
+            margin-bottom: 0;
+        }
+
+        .wtps-inspiration-text strong {
+            color: var(--wtps-primary);
+            font-weight: 700;
+        }
+
+        .highlight {
+            background: linear-gradient(180deg, transparent 65%, rgba(255, 152, 0, 0.3) 65%);
+            padding: 0 3px;
+            font-weight: 700;
+            color: var(--wtps-text);
         }
 
         @media (min-width: 1024px) {
             .wtps-inspiration-name {
-                font-size: 2rem;
+                font-size: 2.5rem;
+            }
+            
+            .wtps-section-title-center {
+                font-size: 3rem;
+            }
+
+            .wtps-inspiration-text {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .wtps-inspiration-container {
+                padding: 2.5rem 1.5rem;
+            }
+            
+            .wtps-inspiration-text {
+                font-size: 1rem;
+            }
+
+            .wtps-inspiration-name {
+                font-size: 1.6rem;
             }
         }
 
@@ -533,10 +580,16 @@
                     <h3 class="wtps-inspiration-name">Shri Keshav Vinayagan Ji</h3>
                     <p class="wtps-inspiration-subtitle">A Lifetime Dedicated to Service and Nation-Building</p>
                     <p class="wtps-inspiration-text">
-                        Shri Keshava Vinayagan Ji stands as the guiding force behind the formation of this socially oriented reforming trust. Inspired by his vision, the organisation was established to serve society through a structured framework that promotes research-driven policies for a welfare state.
-                        With over four and a half decades of dedicated service to the nation, Shri Keshava Vinayagan Ji began his journey in 1980 as an RSS Pracharak and went on to serve in key roles such as Jilla, Vibhag, and Prantha Pracharak. His life has been a continuous pursuit of organisational growth, national reconstruction, and social upliftment.
-                        Since 2002, he has been serving as the State Organising Secretary of Seva Bharathi Tamil Nadu, where he led numerous humanitarian projects. His leadership was instrumental in rehabilitating tsunami-affected families by constructing and handing over 834 homes, reflecting his compassion and administrative excellence.
-                        Committed to the welfare of the poor and the empowerment of youth, he has guided many students toward higher education and social responsibility. Since 2016, as the State Organising General Secretary of the BJP Tamil Nadu, he continues to embody the principles of discipline, selfless service, and nation-building—strengthening the vision of a self-reliant and prosperous Tamil Nadu.
+                        Shri Keshava Vinayagan Ji stands as <strong>the guiding force behind the formation of this socially oriented reforming trust</strong>. Inspired by his vision, the organisation was established to serve society through a structured framework that promotes <span class="highlight">research-driven policies for a welfare state</span>.
+                    </p>
+                    <p class="wtps-inspiration-text">
+                        With <strong>over four and a half decades of dedicated service to the nation</strong>, Shri Keshava Vinayagan Ji began his journey in 1980 as an RSS Pracharak and went on to serve in key roles such as Jilla, Vibhag, and Prantha Pracharak. His life has been a continuous pursuit of <span class="highlight">organisational growth, national reconstruction, and social upliftment</span>.
+                    </p>
+                    <p class="wtps-inspiration-text">
+                        Since 2002, he has been serving as the <strong>State Organising Secretary of Seva Bharathi Tamil Nadu</strong>, where he led numerous humanitarian projects. His leadership was instrumental in <span class="highlight">rehabilitating tsunami-affected families by constructing and handing over 834 homes</span>, reflecting his compassion and administrative excellence.
+                    </p>
+                    <p class="wtps-inspiration-text">
+                        Committed to the welfare of the poor and the empowerment of youth, he has guided many students toward higher education and social responsibility. Since 2016, as the <strong>State Organising General Secretary of the BJP Tamil Nadu</strong>, he continues to embody the principles of <span class="highlight">discipline, selfless service, and nation-building</span>—strengthening the vision of a self-reliant and prosperous Tamil Nadu.
                     </p>
                 </div>
             </div>
