@@ -160,7 +160,7 @@ body {
 }
 
 .wtps-mobile-menu-btn:hover {
-    background: #e9ecef;
+    background: #e9ecef00;
 }
 
 .wtps-mobile-nav {
@@ -508,8 +508,8 @@ body {
 
     .wtps-mobile-menu-btn {
         padding: 0.25rem;
-        width: 30px; /* Smaller hamburger */
-        height: 30px;
+        width: 40px; /* Smaller hamburger */
+        height: 40px;
     }
 
     .wtps-footer-content{
@@ -520,8 +520,12 @@ body {
 @media (max-width: 360px) {
 
     .wtps-mobile-menu-btn {
-        width: 28px;
-        height: 28px;
+        width: 32px;
+        height: 32px;
+    }
+
+    .logo{
+        width: 210px;
     }
 }
 
