@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -136,6 +135,34 @@
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(255, 153, 0, 0.4);
         }
+        .wtps-acknowledgment {
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 0.5s ease-in forwards;
+        }
+        .wtps-acknowledgment h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--wtps-primary);
+            margin-bottom: 1rem;
+        }
+        .wtps-acknowledgment p {
+            font-size: 1.1rem;
+            color: var(--wtps-text-light);
+            line-height: 1.6;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
         .wtps-contact-info {
             border-radius: 16px;
             padding: 2.5rem;
@@ -209,7 +236,8 @@
                 padding: 6rem 0 7rem;
             }
             .wtps-contact-form,
-            .wtps-contact-info {
+            .wtps-contact-info,
+            .wtps-acknowledgment {
                 padding: 3rem;
             }
         }
@@ -219,11 +247,13 @@
                 gap: 1.5rem;
             }
             .wtps-contact-form,
-            .wtps-contact-info {
+            .wtps-contact-info,
+            .wtps-acknowledgment {
                 padding: 1.5rem;
             }
             .wtps-contact-form h2,
-            .wtps-contact-info h2 {
+            .wtps-contact-info h2,
+            .wtps-acknowledgment h2 {
                 font-size: 1.5rem;
             }
             .wtps-contact-main-title {
@@ -242,6 +272,9 @@
             }
             .wtps-map-container {
                 padding-bottom: 75%; /* Adjusted for mobile */
+            }
+            .wtps-acknowledgment p {
+                font-size: 1rem;
             }
         }
     </style>
@@ -297,7 +330,7 @@
     <section class="wtps-section">
         <div class="wtps-container">
             <div class="wtps-contact-content">
-                <div class="wtps-contact-form">
+                <div class="wtps-contact-form" id="contact-form-container">
                     <h2>Send Us a Message</h2>
                     <form id="contact-form" method="POST">
                         <div class="wtps-form-group">
@@ -429,7 +462,7 @@
         </div>
     </footer>
     <script src="script.js"></script>
-     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script type="text/javascript">
         (function() {
             emailjs.init("Hqpy203VPEpqMBFE9"); // Replace with your actual EmailJS public key
@@ -437,19 +470,91 @@
 
         document.getElementById('contact-form').addEventListener('submit', function(event) {
             event.preventDefault();
+            const form = this;
+            const formContainer = document.getElementById('contact-form-container');
 
-            emailjs.sendForm('service_pcszhzt', 'template_wiok7rp', this)
+            emailjs.sendForm('service_pcszhzt', 'template_wiok7rp', form)
                 .then(function() {
-                    alert('Message sent successfully!');
+                    // Clear the form
+                    form.reset();
+
+                    // Replace form with acknowledgment message
+                    formContainer.innerHTML = `
+                        <div class="wtps-acknowledgment">
+                            <h2>Thank You!</h2>
+                            <p>Your message has been sent successfully. We'll get back to you soon.</p>
+                        </div>
+                    `;
+
+                    // Fade out acknowledgment and restore form after 5 seconds
+                    setTimeout(function() {
+                        const acknowledgment = formContainer.querySelector('.wtps-acknowledgment');
+                        acknowledgment.style.animation = 'fadeOut 0.5s ease-out forwards';
+                        setTimeout(function() {
+                            formContainer.innerHTML = `
+                                <h2>Send Us a Message</h2>
+                                <form id="contact-form" method="POST">
+                                    <div class="wtps-form-group">
+                                        <label for="name">Full Name</label>
+                                        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                                    </div>
+                                    <div class="wtps-form-group">
+                                        <label for="email">Email Address</label>
+                                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                                    </div>
+                                    <div class="wtps-form-group">
+                                        <label for="subject">Subject</label>
+                                        <input type="text" id="subject" name="subject" placeholder="Enter the subject" required>
+                                    </div>
+                                    <div class="wtps-form-group">
+                                        <label for="message">Message</label>
+                                        <textarea id="message" name="message" placeholder="Write your message here" required></textarea>
+                                    </div>
+                                    <button type="submit" class="wtps-submit-button">Send Message</button>
+                                </form>
+                            `;
+                        }, 500); // Match fade-out duration
+                    }, 5000); // Show acknowledgment for 5 seconds
                 }, function(error) {
-                    alert('Failed to send message. Error: ' + JSON.stringify(error));
+                    formContainer.innerHTML = `
+                        <div class="wtps-acknowledgment">
+                            <h2>Oops!</h2>
+                            <p>Failed to send message. Error: ${JSON.stringify(error)}</p>
+                        </div>
+                    `;
+                    setTimeout(function() {
+                        const acknowledgment = formContainer.querySelector('.wtps-acknowledgment');
+                        acknowledgment.style.animation = 'fadeOut 0.5s ease-out forwards';
+                        setTimeout(function() {
+                            formContainer.innerHTML = `
+                                <h2>Send Us a Message</h2>
+                                <form id="contact-form" method="POST">
+                                    <div class="wtps-form-group">
+                                        <label for="name">Full Name</label>
+                                        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                                    </div>
+                                    <div class="wtps-form-group">
+                                        <label for="email">Email Address</label>
+                                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                                    </div>
+                                    <div class="wtps-form-group">
+                                        <label for="subject">Subject</label>
+                                        <input type="text" id="subject" name="subject" placeholder="Enter the subject" required>
+                                    </div>
+                                    <div class="wtps-form-group">
+                                        <label for="message">Message</label>
+                                        <textarea id="message" name="message" placeholder="Write your message here" required></textarea>
+                                    </div>
+                                    <button type="submit" class="wtps-submit-button">Send Message</button>
+                                </form>
+                            `;
+                        }, 500); // Match fade-out duration
+                    }, 5000); // Show error message for 5 seconds
                 });
         });
     </script>
 </body>
 </html>
-
-
 
 
 
