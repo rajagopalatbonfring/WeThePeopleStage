@@ -4,366 +4,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Policy Reforms - We the People Stage</title>
         <link rel="stylesheet" href="styles.css">
-        <style>
-            :root {
-                --wtps-primary: #2d5f3f;
-                --wtps-success: #4caf50;
-                --wtps-warning: #ff9800;
-                --wtps-text: #333;
-                --wtps-text-light: #666;
-                --wtps-bg: #fff;
-                --wtps-bg-light: #f8f9fa;
-                --wtps-bg-cream: #faf8f5;
-                --wtps-border: #e0e0e0;
-            }
-            /* Policy Header */
-            .wtps-policy-header {
-                background: linear-gradient(135deg, #2d5f3f 0%, #1a3a27 100%);
-                padding: 5rem 0 6rem;
-                position: relative;
-                overflow: hidden;
-            }
-            .wtps-policy-header::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.05)"/></svg>');
-                opacity: 0.3;
-            }
-            .wtps-policy-header .wtps-container {
-                position: relative;
-                z-index: 1;
-            }
-            .wtps-section-label {
-                text-align: center;
-                color: var(--wtps-warning);
-                font-weight: 600;
-                font-size: 0.875rem;
-                letter-spacing: 2px;
-                margin-bottom: 1.5rem;
-                text-transform: uppercase;
-            }
-            .wtps-policy-main-title {
-                text-align: center;
-                font-size: 2.5rem;
-                font-weight: 700;
-                margin-bottom: 1.5rem;
-                color: white;
-                line-height: 1.3;
-            }
-            .wtps-page-description {
-                text-align: center;
-                color: rgba(255,255,255,0.9);
-                margin: 0 auto;
-                line-height: 1.8;
-                max-width: 800px;
-                font-size: 1.1rem;
-            }
-            /* Stats Bar */
-            .wtps-stats-bar {
-                background: white;
-                padding: 2.5rem 0;
-                box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-                margin-top: -4rem;
-                position: relative;
-                z-index: 20;
-                border-radius: 12px;
-            }
-            .wtps-stats-grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-                gap: 2rem;
-                text-align: center;
-            }
-            .wtps-stat-item {
-                padding: 1rem;
-            }
-            .wtps-stat-number {
-                font-size: 2.5rem;
-                font-weight: 700;
-                color: var(--wtps-primary);
-                margin-bottom: 0.5rem;
-            }
-            .wtps-stat-label {
-                color: var(--wtps-text-light);
-                font-size: 0.95rem;
-            }
-            /* Section Headers */
-            .wtps-section {
-                background-color: #9a847811;
-                padding: 5rem 0;
-            }
-            .wtps-section-header {
-                text-align: center;
-                max-width: 800px;
-                margin: 0 auto 4rem;
-            }
-            .wtps-section-title {
-                font-size: 2.5rem;
-                font-weight: 700;
-                color: var(--wtps-primary);
-                margin-bottom: 1rem;
-            }
-            .wtps-section-subtitle {
-                color: var(--wtps-text-light);
-                font-size: 1.1rem;
-                line-height: 1.8;
-            }
-            /* Reform Cards - Improved Layout */
-            .wtps-reform-cards {
-                display: grid;
-                gap: 2.5rem;
-                margin-bottom: 4rem;
-            }
-            .wtps-reform-card {
-                background: white;
-                border-radius: 16px;
-                padding: 3rem;
-                box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-                transition: all 0.3s ease;
-                border: 1px solid transparent;
-            }
-            .wtps-reform-card:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-            }
-            .wtps-reform-header {
-                display: flex;
-                align-items: flex-start;
-                gap: 1.5rem;
-                margin-bottom: 2rem;
-            }
-            .wtps-reform-icon {
-                width: 60px;
-                height: 60px;
-                border-radius: 12px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex-shrink: 0;
-                background: linear-gradient(135deg, #ff990049 0%, #ff990020 100%);
-                color: var(--wtps-warning);
-            }
-            .wtps-reform-title-wrapper {
-                flex: 1;
-            }
-            .wtps-reform-card-title {
-                font-size: 1.5rem;
-                font-weight: 700;
-                color: var(--wtps-primary);
-                margin-bottom: 0.5rem;
-                line-height: 1.3;
-            }
-            .wtps-reform-subtitle {
-                color: var(--wtps-warning);
-                font-size: 0.875rem;
-                font-weight: 600;
-                letter-spacing: 0.5px;
-            }
-            .wtps-reform-description {
-                color: var(--wtps-text);
-                margin-bottom: 2rem;
-                line-height: 1.8;
-                font-size: 1.05rem;
-            }
-            .wtps-reform-list {
-                list-style: none;
-                margin-bottom: 1.5rem;
-            }
-            .wtps-reform-list li {
-                display: flex;
-                align-items: flex-start;
-                gap: 1rem;
-                margin-bottom: 1rem;
-                padding: 0.75rem;
-                background: var(--wtps-bg-light);
-                border-radius: 8px;
-                transition: background 0.2s ease;
-            }
-            .wtps-reform-list li:hover {
-                background: #fff5e6;
-            }
-            .wtps-reform-list svg {
-                flex-shrink: 0;
-                color: var(--wtps-warning);
-                margin-top: 0.2rem;
-            }
-            .wtps-reform-list span {
-                color: var(--wtps-text);
-                line-height: 1.6;
-            }
-            .wtps-reform-note {
-                margin-top: 1.5rem;
-                padding: 1rem 1.5rem;
-                background: #f0f7f4;
-                border-left: 4px solid var(--wtps-success);
-                border-radius: 6px;
-                font-size: 0.95rem;
-                color: var(--wtps-text);
-                line-height: 1.7;
-            }
-            /* Constitutional Section */
-            .wtps-civic-section {
-                background: white;
-                padding: 5rem 0;
-                position: relative;
-            }
-            .wtps-civic-content {
-                max-width: 1000px;
-                margin: 0 auto;
-                display: grid;
-                grid-template-columns: 1fr;
-                gap: 3rem;
-                align-items: center;
-            }
-            .wtps-civic-icon-wrapper {
-                text-align: center;
-            }
-            .wtps-civic-icon {
-                width: 100px;
-                height: 100px;
-                background: linear-gradient(135deg, #ff990049 0%, #ff990020 100%);
-                border-radius: 50%;
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                margin-bottom: 2rem;
-                color: var(--wtps-warning);
-            }
-            .wtps-civic-text {
-                text-align: center;
-            }
-            .wtps-civic-title {
-                font-size: 2.2rem;
-                font-weight: 700;
-                color: var(--wtps-primary);
-                margin-bottom: 1.5rem;
-                line-height: 1.3;
-            }
-            .wtps-civic-description {
-                color: var(--wtps-text-light);
-                line-height: 1.9;
-                font-size: 1.05rem;
-            }
-            /* CTA Section */
-            .wtps-cta-section {
-                background: linear-gradient(135deg, #9a8478ef, #603813);
-                /* background: linear-gradient(135deg, #2d5f3f 0%, #1a3a27 100%); */
-                padding: 5rem 0;
-                text-align: center;
-                position: relative;
-                overflow: hidden;
-            }
-            .wtps-cta-section::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.05)"/></svg>');
-                opacity: 0.3;
-            }
-            .wtps-cta-content {
-                position: relative;
-                z-index: 1;
-            }
-            .wtps-cta-title {
-                font-size: 2.5rem;
-                font-weight: 700;
-                color: white;
-                margin-bottom: 1.5rem;
-            }
-            .wtps-cta-description {
-                color: rgba(255,255,255,0.9);
-                max-width: 700px;
-                margin: 0 auto 2.5rem;
-                line-height: 1.8;
-                font-size: 1.1rem;
-            }
-            .wtps-cta-button {
-                display: inline-block;
-                padding: 1rem 2.5rem;
-                background: var(--wtps-warning);
-                color: white;
-                text-decoration: none;
-                border-radius: 8px;
-                font-weight: 600;
-                font-size: 1.05rem;
-                transition: all 0.3s ease;
-                box-shadow: 0 4px 15px rgba(255, 153, 0, 0.3);
-            }
-            .wtps-cta-button:hover {
-                background: #e68900;
-                transform: translateY(-2px);
-                box-shadow: 0 6px 20px rgba(255, 153, 0, 0.4);
-            }
-            /* Responsive Design */
-            @media (min-width: 768px) {
-                .wtps-footer-content {
-                    grid-template-columns: 2fr 1fr 1fr 1fr 1.5fr;
-                }
-                .wtps-nav-desktop {
-                    display: flex;
-                }
-                .wtps-mobile-menu-btn {
-                    display: none;
-                }
-                .wtps-policy-main-title {
-                    font-size: 3.5rem;
-                }
-                .wtps-civic-content {
-                    grid-template-columns: auto 1fr;
-                    text-align: left;
-                }
-                .wtps-civic-text {
-                    text-align: left;
-                }
-                .wtps-civic-icon-wrapper {
-                    text-align: left;
-                }
-                }
-                @media (min-width: 1024px) {
-                .wtps-policy-header {
-                    padding: 6rem 0 7rem;
-                }
-                .wtps-reform-cards {
-                    grid-template-columns: repeat(3, 1fr);
-                }
-                .wtps-reform-card {
-                    padding: 2.5rem;
-                }
-            }
-            @media (max-width: 767px) {
-                .wtps-reform-cards {
-                    grid-template-columns: 1fr;
-                    gap: 1.5rem;
-                }
-                .wtps-reform-card {
-                    padding: 1.5rem;
-                }
-                .wtps-reform-card-title {
-                    font-size: 1.25rem;
-                }
-                .wtps-reform-description {
-                    font-size: 1rem;
-                }
-                .wtps-reform-list li {
-                    padding: 0.5rem;
-                    font-size: 0.95rem;
-                }
-                .wtps-reform-header {
-                    gap: 1rem;
-                }
-                .wtps-reform-icon {
-                    width: 50px;
-                    height: 50px;
-                }
-            }
-        </style>
     </head>
     <body>
         <header class="wtps-header">
@@ -428,7 +68,7 @@
         </header>
         <section class="wtps-policy-header">
             <div class="wtps-container">
-                <p class="wtps-section-label">Policy Reforms</p>
+                <p class="policy-wtps-section-label">Policy Reforms</p>
                 <h1 class="wtps-policy-main-title">
                     Driving Transparency.
                     <br>
@@ -436,39 +76,39 @@
                     <br>
                     Empowering Citizens.
                 </h1>
-                <p class="wtps-page-description">At We the People Stage (WTPS), we believe that good governance is the foundation of a strong democracy. Our Policy Reforms Division works to influence and support evidence-based, people-driven policies that promote transparency, accountability, and inclusive development.</p>
+                <p class="policy-wtps-page-description">At We the People Stage (WTPS), we believe that good governance is the foundation of a strong democracy. Our Policy Reforms Division works to influence and support evidence-based, people-driven policies that promote transparency, accountability, and inclusive development.</p>
             </div>
         </section>
-        <section class="wtps-section" style="padding-top: 0;">
+        <section class="policy-wtps-section" style="padding-top: 0;">
             <div class="wtps-container">
-                <div class="wtps-stats-bar">
-                    <div class="wtps-stats-grid">
-                        <div class="wtps-stat-item">
-                            <div class="wtps-stat-number">3</div>
-                            <div class="wtps-stat-label">Core Reform Areas</div>
+                <div class="policy-wtps-stats-bar">
+                    <div class="policy-wtps-stats-grid">
+                        <div class="policy-wtps-stat-item">
+                            <div class="policy-wtps-stat-number">3</div>
+                            <div class="policy-wtps-stat-label">Core Reform Areas</div>
                         </div>
-                        <div class="wtps-stat-item">
-                            <div class="wtps-stat-number">100%</div>
-                            <div class="wtps-stat-label">Voter Participation Goal</div>
+                        <div class="policy-wtps-stat-item">
+                            <div class="policy-wtps-stat-number">100%</div>
+                            <div class="policy-wtps-stat-label">Voter Participation Goal</div>
                         </div>
-                        <div class="wtps-stat-item">
-                            <div class="wtps-stat-number">17</div>
-                            <div class="wtps-stat-label">UN SDGs Alignment</div>
+                        <div class="policy-wtps-stat-item">
+                            <div class="policy-wtps-stat-number">17</div>
+                            <div class="policy-wtps-stat-label">UN SDGs Alignment</div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <section class="wtps-section">
+        <section class="policy-wtps-section">
             <div class="wtps-container">
-                <div class="wtps-section-header">
-                    <h2 class="wtps-section-title">Our Reform Initiatives</h2>
-                    <p class="wtps-section-subtitle">We work across multiple domains to create systemic change that benefits all citizens through transparent, accountable, and inclusive governance.</p>
+                <div class="policy-wtps-section-header">
+                    <h2 class="policy-wtps-section-title">Our Reform Initiatives</h2>
+                    <p class="policy-wtps-section-subtitle">We work across multiple domains to create systemic change that benefits all citizens through transparent, accountable, and inclusive governance.</p>
                 </div>
-                <div class="wtps-reform-cards">
-                    <div class="wtps-reform-card">
-                        <div class="wtps-reform-header">
-                            <div class="wtps-reform-icon">
+                <div class="policy-wtps-reform-cards">
+                    <div class="policy-wtps-reform-card">
+                        <div class="policy-wtps-reform-header">
+                            <div class="policy-wtps-reform-icon">
                                 <svg
                                     width="32"
                                     height="32"
@@ -480,13 +120,13 @@
                                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
                                 </svg>
                             </div>
-                            <div class="wtps-reform-title-wrapper">
-                                <h3 class="wtps-reform-card-title">Electoral and Governance Reforms</h3>
-                                <p class="wtps-reform-subtitle">CLEAN ELECTIONS · TRANSPARENCY</p>
+                            <div class="policy-wtps-reform-title-wrapper">
+                                <h3 class="policy-wtps-reform-card-title">Electoral and Governance Reforms</h3>
+                                <p class="policy-wtps-reform-subtitle">CLEAN ELECTIONS · TRANSPARENCY</p>
                             </div>
                         </div>
-                        <p class="wtps-reform-description">We actively advocate for clean elections and a corruption-free political process through awareness, research, and citizen engagement.</p>
-                        <ul class="wtps-reform-list">
+                        <p class="policy-wtps-reform-description">We actively advocate for clean elections and a corruption-free political process through awareness, research, and citizen engagement.</p>
+                        <ul class="policy-wtps-reform-list">
                             <li>
                                 <svg
                                     width="20"
@@ -544,11 +184,11 @@
                                 <span>Collaboration with Election Commission and civic bodies</span>
                             </li>
                         </ul>
-                        <div class="wtps-reform-note">By fostering responsible participation, WTPS helps build a culture of trust and integrity in governance.</div>
+                        <div class="policy-wtps-reform-note">By fostering responsible participation, WTPS helps build a culture of trust and integrity in governance.</div>
                     </div>
-                    <div class="wtps-reform-card">
-                        <div class="wtps-reform-header">
-                            <div class="wtps-reform-icon">
+                    <div class="policy-wtps-reform-card">
+                        <div class="policy-wtps-reform-header">
+                            <div class="policy-wtps-reform-icon">
                                 <svg
                                     width="32"
                                     height="32"
@@ -579,13 +219,13 @@
                                     ></line>
                                 </svg>
                             </div>
-                            <div class="wtps-reform-title-wrapper">
-                                <h3 class="wtps-reform-card-title">Economic and Social Policy Reforms</h3>
-                                <p class="wtps-reform-subtitle">INCLUSIVE GROWTH · EMPOWERMENT</p>
+                            <div class="policy-wtps-reform-title-wrapper">
+                                <h3 class="policy-wtps-reform-card-title">Economic and Social Policy Reforms</h3>
+                                <p class="policy-wtps-reform-subtitle">INCLUSIVE GROWTH · EMPOWERMENT</p>
                             </div>
                         </div>
-                        <p class="wtps-reform-description">WTPS supports reforms that strengthen India's economic liberalization, entrepreneurship, and social equity. We facilitate dialogue between citizens, experts, and policymakers to ensure that growth remains inclusive and sustainable.</p>
-                        <ul class="wtps-reform-list">
+                        <p class="policy-wtps-reform-description">WTPS supports reforms that strengthen India's economic liberalization, entrepreneurship, and social equity. We facilitate dialogue between citizens, experts, and policymakers to ensure that growth remains inclusive and sustainable.</p>
+                        <ul class="policy-wtps-reform-list">
                             <li>
                                 <svg
                                     width="20"
@@ -644,9 +284,9 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="wtps-reform-card">
-                        <div class="wtps-reform-header">
-                            <div class="wtps-reform-icon">
+                    <div class="policy-wtps-reform-card">
+                        <div class="policy-wtps-reform-header">
+                            <div class="policy-wtps-reform-icon">
                                 <svg
                                     width="32"
                                     height="32"
@@ -658,13 +298,13 @@
                                     <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
                                 </svg>
                             </div>
-                            <div class="wtps-reform-title-wrapper">
-                                <h3 class="wtps-reform-card-title">Environmental and Sustainable Development</h3>
-                                <p class="wtps-reform-subtitle">UN SDGs · CLIMATE RESILIENCE</p>
+                            <div class="policy-wtps-reform-title-wrapper">
+                                <h3 class="policy-wtps-reform-card-title">Environmental and Sustainable Development</h3>
+                                <p class="policy-wtps-reform-subtitle">UN SDGs · CLIMATE RESILIENCE</p>
                             </div>
                         </div>
-                        <p class="wtps-reform-description">In alignment with the United Nations Sustainable Development Goals (SDGs), WTPS encourages eco-conscious policy frameworks that ensure sustainable resource use and climate resilience.</p>
-                        <ul class="wtps-reform-list">
+                        <p class="policy-wtps-reform-description">In alignment with the United Nations Sustainable Development Goals (SDGs), WTPS encourages eco-conscious policy frameworks that ensure sustainable resource use and climate resilience.</p>
+                        <ul class="policy-wtps-reform-list">
                             <li>
                                 <svg
                                     width="20"
@@ -712,11 +352,11 @@
                 </div>
             </div>
         </section>
-        <section class="wtps-civic-section" id="Awareness">
+        <section class="policy-wtps-civic-section" id="Awareness">
             <div class="wtps-container">
-                <div class="wtps-civic-content">
-                    <div class="wtps-civic-icon-wrapper">
-                        <div class="wtps-civic-icon">
+                <div class="policy-wtps-civic-content">
+                    <div class="policy-wtps-civic-icon-wrapper">
+                        <div class="policy-wtps-civic-icon">
                             <svg
                                 width="48"
                                 height="48"
@@ -730,19 +370,19 @@
                             </svg>
                         </div>
                     </div>
-                    <div class="wtps-civic-text">
-                        <h2 class="wtps-civic-title">Constitutional Awareness and Civic Education</h2>
-                        <p class="wtps-civic-description">A strong democracy begins with informed citizens. Our programmes on constitutional literacy help students, NGOs, and communities understand their rights, duties, and responsibilities as active participants in governance. Through workshops, seminars, and research forums, we aim to bridge the gap between people and policy, nurturing a more aware and empowered electorate.</p>
+                    <div class="policy-wtps-civic-text">
+                        <h2 class="policy-wtps-civic-title">Constitutional Awareness and Civic Education</h2>
+                        <p class="policy-wtps-civic-description">A strong democracy begins with informed citizens. Our programmes on constitutional literacy help students, NGOs, and communities understand their rights, duties, and responsibilities as active participants in governance. Through workshops, seminars, and research forums, we aim to bridge the gap between people and policy, nurturing a more aware and empowered electorate.</p>
                     </div>
                 </div>
             </div>
         </section>
-        <section class="wtps-cta-section">
+        <section class="policy-wtps-cta-section">
             <div class="wtps-container">
-                <div class="wtps-cta-content">
-                    <h2 class="wtps-cta-title">Collaborate for Change</h2>
-                    <p class="wtps-cta-description">We invite academia, policymakers, NGOs, and citizens to join us in shaping India's reform journey. Together, we can create policies that serve people — not just systems.</p>
-                    <a href="get-involved.html" class="wtps-cta-button">Join Our Mission</a>
+                <div class="policy-wtps-cta-content">
+                    <h2 class="policy-wtps-cta-title">Collaborate for Change</h2>
+                    <p class="policy-wtps-cta-description">We invite academia, policymakers, NGOs, and citizens to join us in shaping India's reform journey. Together, we can create policies that serve people — not just systems.</p>
+                    <a href="get-involved.html" class="policy-wtps-cta-button">Join Our Mission</a>
                 </div>
             </div>
         </section>

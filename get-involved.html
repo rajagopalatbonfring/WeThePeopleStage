@@ -6,460 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Get Involved - We the People Stage</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        :root {
-            --wtps-primary: #2d5f3f;
-            --wtps-success: #4caf50;
-            --wtps-warning: #ff9800;
-            --wtps-text: #333;
-            --wtps-text-light: #666;
-            --wtps-bg: #fff;
-            --wtps-bg-light: #f8f9fa;
-            --wtps-bg-cream: #faf8f5;
-            --wtps-border: #e0e0e0;
-        }
-
-        /* Page Hero - Enhanced */
-        .wtps-page-hero {
-            background: linear-gradient(135deg, var(--wtps-primary) 0%, #1a3d28 100%);
-            padding: 5rem 0 6rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .wtps-hero-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .wtps-section-label {
-             text-align: center;
-            color: var(--wtps-warning);
-            font-weight: 600;
-            font-size: 0.875rem;
-            letter-spacing: 2px;
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-        }
-
-        .wtps-hero-title {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: white;
-            line-height: 1.2;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .wtps-hero-subtitle {
-            color: rgba(255, 255, 255, 0.9);
-            margin: 0 auto 2.5rem;
-            line-height: 1.8;
-            max-width: 800px;
-            font-size: 1.125rem;
-        }
-
-        .wtps-hero-actions {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        
-
-        /* Section */
-        .wtps-section {
-            padding: 5rem 0;
-        }
-
-        .wtps-section-alt {
-            background: white;
-        }
-
-        .wtps-section-header {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 4rem;
-        }
-
-        .wtps-section-title-center {
-            font-size: 2.25rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--wtps-primary);
-        }
-
-        .wtps-section-description-center {
-            color: var(--wtps-text-light);
-            line-height: 1.8;
-            font-size: 1.0625rem;
-        }
-
-        /* Contribute Cards - Redesigned */
-        .wtps-contribute-grid {
-            display: grid;
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
-
-        .wtps-contribute-card {
-            background: white;
-            padding: 3rem 2.5rem;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-            transition: all 0.3s ease;
-            border: 1px solid transparent;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .wtps-contribute-card:hover {
-            transform: translateY(-8px);
-        }
-
-        .wtps-contribute-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .wtps-contribute-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 16px;
-            background: linear-gradient(135deg, #fff3e0, #ffe0b2);
-            transition: transform 0.3s ease;
-        }
-
-        .wtps-contribute-card:hover .wtps-contribute-icon {
-            transform: scale(1.1) rotate(5deg);
-        }
-
-        .wtps-contribute-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--wtps-primary);
-        }
-
-        .wtps-contribute-description {
-            color: var(--wtps-text-light);
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-        }
-
-        .wtps-contribute-features {
-            list-style: none;
-            margin-top: 1.5rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid var(--wtps-border);
-        }
-
-        .wtps-contribute-features li {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 0.75rem;
-            color: var(--wtps-text);
-            font-size: 0.9375rem;
-        }
-
-        .wtps-contribute-features svg {
-            flex-shrink: 0;
-        }
-
-        /* Why Join Section - New */
-        .wtps-why-join {
-            display: grid;
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .wtps-why-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            display: flex;
-            gap: 1.5rem;
-            align-items: flex-start;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-        }
-
-        .wtps-why-card:hover {
-            box-shadow: 0 6px 25px rgba(0,0,0,0.1);
-        }
-
-        .wtps-why-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .wtps-why-content h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--wtps-primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .wtps-why-content p {
-            color: var(--wtps-text-light);
-            line-height: 1.7;
-        }
-
-        /* Contact CTA - Enhanced with Form */
-        .wtps-contact-section {
-            background: linear-gradient(135deg, #9a8478ef, #603813);
-            padding: 5rem 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .wtps-contact-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="white" opacity="0.1"/></svg>');
-            opacity: 0.3;
-        }
-
-        .wtps-contact-content {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        .wtps-contact-icon {
-            width: 90px;
-            height: 90px;
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            backdrop-filter: blur(10px);
-        }
-
-        .wtps-contact-title {
-            font-size: 2.25rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 1rem;
-        }
-
-        .wtps-contact-description {
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 2.5rem;
-            line-height: 1.8;
-            font-size: 1.0625rem;
-        }
-
-        /* Contact Form Styles */
-        .wtps-contact-form {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 16px;
-            padding: 2.5rem;
-            margin-top: 3rem;
-            text-align: left;
-        }
-
-        .wtps-form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .wtps-form-label {
-            display: block;
-            color: white;
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-            font-size: 0.9375rem;
-        }
-
-        .wtps-form-input,
-        .wtps-form-textarea,
-        .wtps-form-select {
-            width: 100%;
-            padding: 0.875rem 1rem;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0.95);
-            color: var(--wtps-text);
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .wtps-form-input:focus,
-        .wtps-form-textarea:focus,
-        .wtps-form-select:focus {
-            outline: none;
-            border-color: var(--wtps-warning);
-            background: white;
-            box-shadow: 0 0 0 3px rgba(255, 152, 0, 0.1);
-        }
-
-        .wtps-form-textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        .wtps-form-row {
-            display: grid;
-            gap: 1rem;
-            grid-template-columns: 1fr;
-        }
-
-        .wtps-form-submit {
-            width: 100%;
-            padding: 1rem 2rem;
-            background: var(--wtps-warning);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 1rem;
-        }
-
-        .wtps-form-submit:hover {
-            background: #f57c00;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(255, 152, 0, 0.4);
-        }
-
-        .wtps-form-submit:active {
-            transform: translateY(0);
-        }
-
-        .wtps-contact-methods {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .wtps-contact-method {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 1rem 1.5rem;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .wtps-contact-method:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
-        }
-
-        /* Success Message */
-        .wtps-form-success {
-            background: rgba(76, 175, 80, 0.2);
-            border: 1px solid rgba(76, 175, 80, 0.5);
-            color: white;
-            padding: 1rem;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            display: none;
-        }
-
-        .wtps-form-success.show {
-            display: block;
-        }
-
-        /* Error Message */
-        .wtps-form-error {
-            background: rgba(244, 67, 54, 0.2);
-            border: 1px solid rgba(244, 67, 54, 0.5);
-            color: white;
-            padding: 1rem;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            display: none;
-        }
-
-        .wtps-form-error.show {
-            display: block;
-        }
-
-        /* Responsive Design */
-        @media (min-width: 768px) {
-            .wtps-nav-desktop {
-                display: flex;
-            }
-
-            .wtps-mobile-menu-btn {
-                display: none;
-            }
-
-            .wtps-hero-title {
-                font-size: 3rem;
-            }
-
-            .wtps-contribute-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-
-            .wtps-why-join {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .wtps-form-row {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .wtps-footer-content {
-                grid-template-columns: 2fr 1fr 1fr 1fr 1.5fr;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .wtps-page-hero {
-                padding: 6rem 0 7rem;
-            }
-
-            .wtps-hero-title {
-                font-size: 3.5rem;
-            }
-
-            .wtps-contribute-card {
-                text-align: left;
-            }
-
-            .wtps-contribute-icon {
-                margin: 0 0 1.5rem 0;
-            }
-        }
-    </style>
 </head>
 <body>
     <!-- Header -->
@@ -503,13 +49,13 @@
     </header>
 
     <!-- Page Hero -->
-    <section class="wtps-page-hero">
+    <section class="involve-wtps-page-hero">
         <div class="wtps-container">
-            <div class="wtps-hero-content">
-                <p class="wtps-section-label">Join the Movement</p>
-                <h1 class="wtps-hero-title">Be Part of Building a Cleaner, Fairer, and More Empowered India</h1>
-                <p class="wtps-hero-subtitle">Act as a pressure group for policy making. Your support — through partnerships, volunteering, or donations — helps us take one step closer to a stronger democracy.</p>
-                <div class="wtps-hero-actions">
+            <div class="involve-wtps-hero-content">
+                <p class="involve-wtps-section-label">Join the Movement</p>
+                <h1 class="involve-wtps-hero-title">Be Part of Building a Cleaner, Fairer, and More Empowered India</h1>
+                <p class="involve-wtps-hero-subtitle">Act as a pressure group for policy making. Your support — through partnerships, volunteering, or donations — helps us take one step closer to a stronger democracy.</p>
+                <div class="involve-wtps-hero-actions">
                     <a href="#contribution" class="wtps-btn wtps-btn-lg wtps-btn-success">Explore Opportunities</a>
                     <a href="donate.html" class="wtps-btn wtps-btn-lg wtps-btn-primary">Donate Now</a>
                 </div>
@@ -518,16 +64,16 @@
     </section>
 
     <!-- How You Can Contribute Section -->
-    <section id="contribution" class="wtps-section">
+    <section id="contribution" class="involve-wtps-section">
         <div class="wtps-container">
-            <div class="wtps-section-header">
-                <h2 class="wtps-section-title-center">Ways to Contribute</h2>
-                <p class="wtps-section-description-center">Choose how you'd like to make an impact. Whether you have time, skills, resources, or connections, there's a meaningful way for you to contribute.</p>
+            <div class="involve-wtps-section-header">
+                <h2 class="involve-wtps-section-title-center">Ways to Contribute</h2>
+                <p class="involve-wtps-section-description-center">Choose how you'd like to make an impact. Whether you have time, skills, resources, or connections, there's a meaningful way for you to contribute.</p>
             </div>
             
-            <div class="wtps-contribute-grid">
-                <div class="wtps-contribute-card">
-                    <div class="wtps-contribute-icon">
+            <div class="involve-wtps-contribute-grid">
+                <div class="involve-wtps-contribute-card">
+                    <div class="involve-wtps-contribute-icon">
                         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ff9800" stroke-width="2">
                             <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
                             <circle cx="9" cy="7" r="4"></circle>
@@ -535,9 +81,9 @@
                             <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                         </svg>
                     </div>
-                    <h3 class="wtps-contribute-title">Volunteer Your Time</h3>
-                    <p class="wtps-contribute-description">Join our team of dedicated volunteers and contribute your skills to make a real difference in communities across India.</p>
-                    <ul class="wtps-contribute-features">
+                    <h3 class="involve-wtps-contribute-title">Volunteer Your Time</h3>
+                    <p class="involve-wtps-contribute-description">Join our team of dedicated volunteers and contribute your skills to make a real difference in communities across India.</p>
+                    <ul class="involve-wtps-contribute-features">
                         <li>
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4caf50" stroke-width="2">
                                 <polyline points="20 6 9 17 4 12"></polyline>
@@ -565,15 +111,15 @@
                     </ul>
                 </div>
 
-                <div class="wtps-contribute-card">
-                    <div class="wtps-contribute-icon">
+                <div class="involve-wtps-contribute-card">
+                    <div class="involve-wtps-contribute-icon">
                         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ff9800" stroke-width="2">
                             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
                         </svg>
                     </div>
-                    <h3 class="wtps-contribute-title">Partner With Us</h3>
-                    <p class="wtps-contribute-description">Collaborate on projects, co-host events, or become a strategic partner to amplify our collective impact and reach.</p>
-                    <ul class="wtps-contribute-features">
+                    <h3 class="involve-wtps-contribute-title">Partner With Us</h3>
+                    <p class="involve-wtps-contribute-description">Collaborate on projects, co-host events, or become a strategic partner to amplify our collective impact and reach.</p>
+                    <ul class="involve-wtps-contribute-features">
                         <li>
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4caf50" stroke-width="2">
                                 <polyline points="20 6 9 17 4 12"></polyline>
@@ -601,17 +147,17 @@
                     </ul>
                 </div>
 
-                <div class="wtps-contribute-card">
-                    <div class="wtps-contribute-icon">
+                <div class="involve-wtps-contribute-card">
+                    <div class="involve-wtps-contribute-icon">
                         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ff9800" stroke-width="2">
                             <circle cx="12" cy="12" r="10"></circle>
                             <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"></path>
                             <path d="M12 18V6"></path>
                         </svg>
                     </div>
-                    <h3 class="wtps-contribute-title">Support Financially</h3>
-                    <p class="wtps-contribute-description">Your donations directly fund our on-the-ground initiatives and help us reach more communities across India.</p>
-                    <ul class="wtps-contribute-features">
+                    <h3 class="involve-wtps-contribute-title">Support Financially</h3>
+                    <p class="involve-wtps-contribute-description">Your donations directly fund our on-the-ground initiatives and help us reach more communities across India.</p>
+                    <ul class="involve-wtps-contribute-features">
                         <li>
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4caf50" stroke-width="2">
                                 <polyline points="20 6 9 17 4 12"></polyline>
@@ -643,29 +189,29 @@
     </section>
 
     <!-- Why Join Section -->
-    <section class="wtps-section wtps-section-alt">
+    <section class="involve-wtps-section involve-wtps-section-alt">
         <div class="wtps-container">
-            <div class="wtps-section-header">
-                <h2 class="wtps-section-title-center">Why Join Our Mission?</h2>
-                <p class="wtps-section-description-center">Be part of a movement that's making tangible change. Here's what makes our community special.</p>
+            <div class="involve-wtps-section-header">
+                <h2 class="involve-wtps-section-title-center">Why Join Our Mission?</h2>
+                <p class="involve-wtps-section-description-center">Be part of a movement that's making tangible change. Here's what makes our community special.</p>
             </div>
 
-            <div class="wtps-why-join">
-                <div class="wtps-why-card">
-                    <div class="wtps-why-icon">
+            <div class="involve-wtps-why-join">
+                <div class="involve-wtps-why-card">
+                    <div class="involve-wtps-why-icon">
                         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4caf50" stroke-width="2">
                             <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
                             <polyline points="22 4 12 14.01 9 11.01"></polyline>
                         </svg>
                     </div>
-                    <div class="wtps-why-content">
+                    <div class="involve-wtps-why-content">
                         <h3>Make Real Impact</h3>
                         <p>See the direct results of your efforts in communities across India. Every contribution creates measurable change.</p>
                     </div>
                 </div>
 
-                <div class="wtps-why-card">
-                    <div class="wtps-why-icon">
+                <div class="involve-wtps-why-card">
+                    <div class="involve-wtps-why-icon">
                         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4caf50" stroke-width="2">
                             <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
                             <circle cx="9" cy="7" r="4"></circle>
@@ -673,32 +219,32 @@
                             <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                         </svg>
                     </div>
-                    <div class="wtps-why-content">
+                    <div class="involve-wtps-why-content">
                         <h3>Join a Community</h3>
                         <p>Connect with like-minded individuals who are passionate about creating positive change in India.</p>
                     </div>
                 </div>
 
-                <div class="wtps-why-card">
-                    <div class="wtps-why-icon">
+                <div class="involve-wtps-why-card">
+                    <div class="involve-wtps-why-icon">
                         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4caf50" stroke-width="2">
                             <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
                             <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
                         </svg>
                     </div>
-                    <div class="wtps-why-content">
+                    <div class="involve-wtps-why-content">
                         <h3>Develop Skills</h3>
                         <p>Gain valuable experience in community organizing, policy advocacy, and grassroots mobilization.</p>
                     </div>
                 </div>
 
-                <div class="wtps-why-card">
-                    <div class="wtps-why-icon">
+                <div class="involve-wtps-why-card">
+                    <div class="involve-wtps-why-icon">
                         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4caf50" stroke-width="2">
                             <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
                         </svg>
                     </div>
-                    <div class="wtps-why-content">
+                    <div class="involve-wtps-why-content">
                         <h3>Recognition & Growth</h3>
                         <p>Receive certificates, recommendations, and opportunities to lead initiatives and grow within our organization.</p>
                     </div>
@@ -707,69 +253,69 @@
         </div>
     </section>
 
-    <section class="wtps-contact-section">
+    <section class="involve-wtps-contact-section">
         <div class="wtps-container">
-            <div class="wtps-contact-content">
-                <div class="wtps-contact-icon">
+            <div class="involve-wtps-contact-content">
+                <div class="involve-wtps-contact-icon">
                     <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
                         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                         <polyline points="22,6 12,13 2,6"></polyline>
                     </svg>
                 </div>
-                <h2 class="wtps-contact-title">Ready to Get Involved?</h2>
-                <p class="wtps-contact-description">We'd love to hear from you. Fill out the form below and we'll get back to you shortly.</p>
+                <h2 class="involve-wtps-contact-title">Ready to Get Involved?</h2>
+                <p class="involve-wtps-contact-description">We'd love to hear from you. Fill out the form below and we'll get back to you shortly.</p>
                 
                 <!-- Contact Form -->
-                <div class="wtps-contact-form">
-                    <div class="wtps-form-success" id="successMessage">
+                <div class="involve-wtps-contact-form">
+                    <div class="involve-wtps-form-success" id="successMessage">
                         <strong>✓ Success!</strong> Your message has been sent successfully. We'll get back to you soon.
                     </div>
 
-                    <div class="wtps-form-error" id="errorMessage">
+                    <div class="involve-wtps-form-error" id="errorMessage">
                         <strong>✗ Error!</strong> Failed to send message. Please try again.
                     </div>
                     
                     <form id="contactForm">
                         <!-- ROW 1: First Name & Last Name -->
-                        <div class="wtps-form-row">
-                            <div class="wtps-form-group">
-                                <label for="firstName" class="wtps-form-label">First Name *</label>
-                                <input type="text" id="firstName" name="First_Name" class="wtps-form-input" required>
+                        <div class="involve-wtps-form-row">
+                            <div class="involve-wtps-form-group">
+                                <label for="firstName" class="involve-wtps-form-label">First Name *</label>
+                                <input type="text" id="firstName" name="First_Name" class="involve-wtps-form-input" required>
                             </div>
-                            <div class="wtps-form-group">
-                                <label for="lastName" class="wtps-form-label">Last Name *</label>
-                                <input type="text" id="lastName" name="Last_Name" class="wtps-form-input" required>
+                            <div class="involve-wtps-form-group">
+                                <label for="lastName" class="involve-wtps-form-label">Last Name *</label>
+                                <input type="text" id="lastName" name="Last_Name" class="involve-wtps-form-input" required>
                             </div>
                         </div>
 
                         <!-- ROW 2: Email & Phone -->
-                        <div class="wtps-form-row">
-                            <div class="wtps-form-group">
-                                <label for="email" class="wtps-form-label">Email Address *</label>
-                                <input type="email" id="email" name="Email" class="wtps-form-input" required>
+                        <div class="involve-wtps-form-row">
+                            <div class="involve-wtps-form-group">
+                                <label for="email" class="involve-wtps-form-label">Email Address *</label>
+                                <input type="email" id="email" name="Email" class="involve-wtps-form-input" required>
                             </div>
-                            <div class="wtps-form-group">
-                                <label for="phone" class="wtps-form-label">Phone Number *</label>
-                                <input type="tel" id="phone" name="Phone_Number" class="wtps-form-input" required>
+                            <div class="involve-wtps-form-group">
+                                <label for="phone" class="involve-wtps-form-label">Phone Number *</label>
+                                <input type="tel" id="phone" name="Phone_Number" class="involve-wtps-form-input" required>
                             </div>
                         </div>
 
                         <!-- ROW 3: City & State -->
-                        <div class="wtps-form-row">
-                            <div class="wtps-form-group">
-                                <label for="city" class="wtps-form-label">City *</label>
-                                <input type="text" id="city" name="City" class="wtps-form-input" required>
+                        <div class="involve-wtps-form-row">
+                            <div class="involve-wtps-form-group">
+                                <label for="city" class="involve-wtps-form-label">City *</label>
+                                <input type="text" id="city" name="City" class="involve-wtps-form-input" required>
                             </div>
-                            <div class="wtps-form-group">
-                                <label for="state" class="wtps-form-label">State *</label>
-                                <input type="text" id="state" name="State" class="wtps-form-input" required>
+                            <div class="involve-wtps-form-group">
+                                <label for="state" class="involve-wtps-form-label">State *</label>
+                                <input type="text" id="state" name="State" class="involve-wtps-form-input" required>
                             </div>
                         </div>
 
                         <!-- Interest Selection -->
-                        <div class="wtps-form-group">
-                            <label for="interest" class="wtps-form-label">I'm Interested In *</label>
-                            <select id="interest" name="Interest" class="wtps-form-select" required>
+                        <div class="involve-wtps-form-group">
+                            <label for="interest" class="involve-wtps-form-label">I'm Interested In *</label>
+                            <select id="interest" name="Interest" class="involve-wtps-form-select" required>
                                 <option value="">Select an option</option>
                                 <option value="Volunteering">Volunteering</option>
                                 <option value="Partnership Opportunities">Partnership Opportunities</option>
@@ -781,27 +327,27 @@
                         </div>
 
                         <!-- Organization (Optional) -->
-                        <div class="wtps-form-group">
-                            <label for="organization" class="wtps-form-label">Organization / Company (Optional)</label>
-                            <input type="text" id="organization" name="Organization" class="wtps-form-input" placeholder="Leave blank if not applicable">
+                        <div class="involve-wtps-form-group">
+                            <label for="organization" class="involve-wtps-form-label">Organization / Company (Optional)</label>
+                            <input type="text" id="organization" name="Organization" class="involve-wtps-form-input" placeholder="Leave blank if not applicable">
                         </div>
 
                         <!-- Skills/Expertise (Optional) -->
-                        <div class="wtps-form-group">
-                            <label for="skills" class="wtps-form-label">Your Skills / Expertise (Optional)</label>
-                            <input type="text" id="skills" name="Skills_Expertise" class="wtps-form-input" placeholder="e.g., Marketing, Programming, Event Management">
+                        <div class="involve-wtps-form-group">
+                            <label for="skills" class="involve-wtps-form-label">Your Skills / Expertise (Optional)</label>
+                            <input type="text" id="skills" name="Skills_Expertise" class="involve-wtps-form-input" placeholder="e.g., Marketing, Programming, Event Management">
                         </div>
 
                         <!-- Message -->
-                        <div class="wtps-form-group">
-                            <label for="message" class="wtps-form-label">Your Message *</label>
-                            <textarea id="message" name="Message" class="wtps-form-textarea" placeholder="Tell us more about how you'd like to get involved..." required></textarea>
+                        <div class="involve-wtps-form-group">
+                            <label for="message" class="involve-wtps-form-label">Your Message *</label>
+                            <textarea id="message" name="Message" class="involve-wtps-form-textarea" placeholder="Tell us more about how you'd like to get involved..." required></textarea>
                         </div>
 
                         <!-- Availability (Optional) -->
-                        <div class="wtps-form-group">
-                            <label for="availability" class="wtps-form-label">Availability (Optional)</label>
-                            <select id="availability" name="Availability" class="wtps-form-select">
+                        <div class="involve-wtps-form-group">
+                            <label for="availability" class="involve-wtps-form-label">Availability (Optional)</label>
+                            <select id="availability" name="Availability" class="involve-wtps-form-select">
                                 <option value="">Select your availability</option>
                                 <option value="Full-time">Full-time</option>
                                 <option value="Part-time">Part-time</option>
@@ -812,7 +358,7 @@
                         </div>
 
                         <!-- Checkbox for Terms -->
-                        <div class="wtps-form-group">
+                        <div class="involve-wtps-form-group">
                             <label style="display: flex; align-items: center; gap: 0.5rem; color: white;">
                                 <input type="checkbox" name="Agree_to_Updates" id="agreeCheckbox" value="Yes" required style="width: 18px; height: 18px; cursor: pointer;">
                                 <span>I agree to receive updates from We the People Stage *</span>
@@ -820,20 +366,20 @@
                         </div>
 
                         <!-- Submit Button -->
-                        <button type="submit" class="wtps-form-submit">Send Message</button>
+                        <button type="submit" class="involve-wtps-form-submit">Send Message</button>
                     </form>
                 </div>
                 
                 <!-- Alternative Contact Methods -->
-                <div class="wtps-contact-methods">
-                    <a href="mailto:wethepeoplestageindia@gmail.com" class="wtps-contact-method">
+                <div class="involve-wtps-contact-methods">
+                    <a href="mailto:wethepeoplestageindia@gmail.com" class="involve-wtps-contact-method">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                             <polyline points="22,6 12,13 2,6"></polyline>
                         </svg>
                         <span>Email Us</span>
                     </a>
-                    <a href="#contribution" class="wtps-contact-method">
+                    <a href="#contribution" class="involve-wtps-contact-method">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                             <polyline points="15 3 21 3 21 9"></polyline>
@@ -1083,7 +629,7 @@
                 }
 
                 // Remove error class on input change
-                const inputs = form.querySelectorAll('.wtps-form-input, .wtps-form-textarea, .wtps-form-select');
+                const inputs = form.querySelectorAll('.involve-wtps-form-input, .involve-wtps-form-textarea, .involve-wtps-form-select');
                 inputs.forEach(input => {
                     input.addEventListener('change', function() {
                         if (this.value.trim()) {

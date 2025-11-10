@@ -5,653 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Donate - We the People Stage</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        :root {
-            --wtps-primary: #2d5f3f;
-            --wtps-success: #4caf50;
-            --wtps-warning: #ff9800;
-            --wtps-text: #333;
-            --wtps-text-light: #666;
-            --wtps-bg: #fff;
-            --wtps-bg-light: #f8f9fa;
-            --wtps-bg-cream: #faf8f5;
-            --wtps-border: #e0e0e0;
-        }
-
-
-        /* Donate Hero - Improved */
-        .wtps-donate-hero {
-            background: linear-gradient(135deg, var(--wtps-bg-cream) 0%, #f0ede6 100%);
-            padding: 5rem 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .wtps-donate-hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 20% 50%, rgba(255, 152, 0, 0.05) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
-        .wtps-donate-hero-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .wtps-donate-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 2rem;
-            color: var(--wtps-warning);
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        .wtps-donate-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: var(--wtps-primary);
-            line-height: 1.2;
-            word-wrap: break-word;
-        }
-
-        .wtps-donate-subtitle {
-            color: var(--wtps-text-light);
-            max-width: 900px;
-            margin: 0 auto 1.5rem;
-            line-height: 1.8;
-            font-size: 1.05rem;
-            word-wrap: break-word;
-        }
-
-        /* Why Donate Section - Improved Grid Layout */
-        .wtps-section {
-            padding: 5rem 0;
-        }
-
-        .wtps-section-white {
-            background: white;
-        }
-
-        .wtps-donate-grid {
-            display: grid;
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .wtps-donate-info {
-            background: var(--wtps-bg-cream);
-            padding: 3rem;
-            border-radius: 16px;
-            border: 2px solid rgba(45, 95, 63, 0.1);
-        }
-
-        .wtps-donate-section-title {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--wtps-primary);
-            margin-bottom: 2rem;
-            position: relative;
-            padding-bottom: 1rem;
-        }
-
-        .wtps-donate-section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 60px;
-            height: 4px;
-            background: var(--wtps-warning);
-            border-radius: 2px;
-        }
-
-        .wtps-benefits-list {
-            list-style: none;
-        }
-
-        .wtps-benefits-list li {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-            color: var(--wtps-text);
-            padding: 1rem;
-            background: white;
-            border-radius: 8px;
-            transition: transform 0.3s;
-        }
-
-        .wtps-benefits-list li:hover {
-            transform: translateX(8px);
-        }
-
-        .wtps-benefits-list svg {
-            flex-shrink: 0;
-            color: var(--wtps-success);
-            margin-top: 0.2rem;
-        }
-
-        /* Bank Card - Improved Design */
-        .wtps-bank-card {
-            background: white;
-            padding: 3rem;
-            border-radius: 16px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-            border: 1px solid var(--wtps-border);
-        }
-
-        .wtps-bank-header {
-            margin-bottom: 2rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 2px solid var(--wtps-bg-light);
-        }
-
-        .wtps-bank-header h3 {
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: var(--wtps-primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .wtps-bank-header p {
-            color: var(--wtps-text-light);
-            font-size: 0.95rem;
-        }
-
-        .wtps-bank-details {
-            background: var(--wtps-bg-cream);
-            padding: 2rem;
-            border-radius: 12px;
-            margin-bottom: 1.5rem;
-        }
-
-        .wtps-bank-detail {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-            border-bottom: 1px solid rgba(45, 95, 63, 0.1);
-        }
-
-        .wtps-bank-detail:last-child {
-            border-bottom: none;
-        }
-
-        .wtps-bank-label {
-            color: var(--wtps-text-light);
-            font-weight: 500;
-            font-size: 0.9rem;
-        }
-
-        .wtps-bank-value {
-            color: var(--wtps-text);
-            font-weight: 700;
-            text-align: right;
-            font-size: 0.95rem;
-            word-break: break-all;
-        }
-
-        .wtps-bank-note {
-            padding: 1.5rem;
-            background: #e8f5e9;
-            border-left: 4px solid var(--wtps-success);
-            border-radius: 8px;
-            color: var(--wtps-text);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        .wtps-bank-note strong {
-            color: var(--wtps-primary);
-        }
-
-        /* Impact Section - Improved Cards */
-        .wtps-section-title-center {
-            font-size: 2.5rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 1rem;
-            color: var(--wtps-primary);
-        }
-
-        .wtps-section-description-center {
-            text-align: center;
-            color: var(--wtps-text-light);
-            margin-bottom: 3rem;
-            font-size: 1.05rem;
-            line-height: 1.8;
-        }
-
-        .wtps-impact-list {
-            max-width: 900px;
-            margin: 3rem auto;
-            display: grid;
-            gap: 1.5rem;
-        }
-
-        .wtps-impact-item {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            padding: 2rem;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            transition: all 0.3s;
-            border: 2px solid transparent;
-        }
-
-        .wtps-impact-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-        }
-
-        .wtps-impact-amount {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--wtps-success);
-            min-width: 140px;
-            text-align: center;
-            padding: 0.75rem 1rem;
-            background: #e8f5e9;
-            border-radius: 8px;
-        }
-
-        .wtps-impact-arrow {
-            font-size: 1.75rem;
-            color: var(--wtps-warning);
-            font-weight: bold;
-        }
-
-        .wtps-impact-description {
-            color: var(--wtps-text);
-            flex: 1;
-            font-size: 1.05rem;
-            line-height: 1.6;
-            word-wrap: break-word;
-        }
-
-        .wtps-impact-footer {
-            text-align: center;
-            color: var(--wtps-text-light);
-            margin-top: 3rem;
-            font-style: italic;
-            font-size: 1.05rem;
-        }
-
-        /* Other Ways Section - Improved Cards */
-        .wtps-other-ways {
-            max-width: 1000px;
-            margin: 3rem auto;
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-        }
-
-        .wtps-other-ways li {
-            padding: 1.5rem 1.5rem 1.5rem 3rem;
-            background: white;
-            border-radius: 12px;
-            position: relative;
-            color: var(--wtps-text);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            transition: all 0.3s;
-            font-size: 1.05rem;
-            border-left: 2px solid var(--wtps-warning);
-        }
-
-        .wtps-other-ways li:hover {
-            transform: translateX(10px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .wtps-other-ways li::before {
-            content: '✓';
-            position: absolute;
-            left: 1rem;
-            color: var(--wtps-success);
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-
-        /* CTA Section - Enhanced */
-        .wtps-cta-section {
-            background: linear-gradient(135deg, var(--wtps-primary) 0%, #1e4029 100%);
-            padding: 5rem 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .wtps-cta-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 80% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
-        .wtps-cta-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .wtps-cta-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 1.5rem;
-        }
-
-        .wtps-cta-description {
-            color: rgba(255, 255, 255, 0.9);
-            max-width: 700px;
-            margin: 0 auto 2.5rem;
-            line-height: 1.8;
-            font-size: 1.1rem;
-        }
-
-        @media (min-width: 768px) {
-
-            .wtps-footer-content {
-                grid-template-columns: 2fr 1fr 1fr 1fr 1.5fr;
-            }
-
-            .wtps-donate-title {
-                font-size: 3rem;
-            }
-
-            .wtps-donate-grid {
-                grid-template-columns: 1fr 1fr;
-                align-items: start;
-            }
-
-            .wtps-impact-item {
-                flex-direction: row;
-            }
-
-            .wtps-cta-title {
-                font-size: 3rem;
-            }
-
-            .wtps-section-title-center {
-                font-size: 3rem;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .wtps-donate-hero {
-                padding: 6rem 0;
-            }
-
-            .wtps-donate-title {
-                font-size: 3.5rem;
-            }
-        }
-
-        @media (max-width: 767px) {
-            .wtps-impact-item {
-                flex-direction: column-reverse;
-                text-align: center;
-            }
-
-            .wtps-impact-arrow {
-                transform: rotate(90deg);
-            }
-
-            .wtps-bank-detail {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 0.5rem;
-            }
-
-            .wtps-bank-value {
-                text-align: left;
-            }
-
-            /* Mobile adjustments */
-            .wtps-section {
-                padding: 3rem 0;
-            }
-
-            .wtps-donate-hero {
-                padding: 3rem 0;
-            }
-
-            .wtps-donate-title {
-                font-size: 2rem;
-            }
-
-            .wtps-donate-subtitle {
-                font-size: 1rem;
-            }
-
-            .wtps-donate-icon {
-                width: 60px;
-                height: 60px;
-            }
-
-            .wtps-donate-section-title {
-                font-size: 1.75rem;
-            }
-
-            .wtps-bank-card {
-                padding: 1.5rem;
-            }
-
-            .wtps-bank-header h3 {
-                font-size: 1.5rem;
-            }
-
-            .wtps-bank-details {
-                padding: 1.5rem;
-            }
-
-            .wtps-bank-note {
-                padding: 1rem;
-            }
-
-            .wtps-donate-info {
-                padding: 1.5rem;
-            }
-
-            .wtps-benefits-list li {
-                padding: 0.75rem;
-            }
-
-            .wtps-section-title-center {
-                font-size: 2rem;
-            }
-
-            .wtps-section-description-center {
-                font-size: 1rem;
-            }
-
-            .wtps-impact-item {
-                padding: 1.5rem;
-                gap: 1rem;
-            }
-
-            .wtps-impact-arrow {
-                display: none;
-            }
-
-            .wtps-impact-amount {
-                min-width: auto;
-                width: 100%;
-                margin-bottom: 1rem;
-            }
-
-            .wtps-impact-description {
-                font-size: 1rem;
-            }
-
-            .wtps-other-ways {
-                display: flex;
-                flex-direction: column;
-            }
-
-            .wtps-cta-section {
-                padding: 3rem 0;
-            }
-
-            .wtps-cta-title {
-                font-size: 2rem;
-            }
-
-            .wtps-cta-description {
-                font-size: 1rem;
-            }
-        }
-
-        /* New media query for screens below 370px to fix x-overflow */
-        @media (max-width: 370px) {
-            body {
-                overflow-x: hidden;
-            }
-
-            .wtps-container {
-                padding: 0 0.5rem;
-                max-width: 100%;
-            }
-
-            .wtps-donate-hero {
-                padding: 2rem 0;
-            }
-
-            .wtps-donate-title {
-                font-size: 1.75rem;
-            }
-
-            .wtps-donate-subtitle {
-                font-size: 0.9rem;
-                padding: 0 0.5rem;
-            }
-
-            .wtps-donate-icon {
-                width: 50px;
-                height: 50px;
-            }
-
-            .wtps-donate-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .wtps-donate-info {
-                padding: 1rem;
-            }
-
-            .wtps-donate-section-title {
-                font-size: 1.5rem;
-            }
-
-            .wtps-benefits-list li {
-                font-size: 0.9rem;
-                padding: 0.5rem;
-            }
-
-            .wtps-bank-card {
-                padding: 1rem;
-            }
-
-            .wtps-bank-header h3 {
-                font-size: 1.25rem;
-            }
-
-            .wtps-bank-details {
-                padding: 1rem;
-            }
-
-            .wtps-bank-detail {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 0.25rem;
-            }
-
-            .wtps-bank-label,
-            .wtps-bank-value {
-                font-size: 0.85rem;
-                word-break: break-all;
-            }
-
-            .wtps-bank-note {
-                font-size: 0.85rem;
-                padding: 0.75rem;
-            }
-
-            .wtps-section {
-                padding: 2rem 0;
-            }
-
-            .wtps-section-title-center {
-                font-size: 1.75rem;
-            }
-
-            .wtps-section-description-center {
-                font-size: 0.9rem;
-            }
-
-            .wtps-impact-list {
-                gap: 1rem;
-            }
-
-            .wtps-impact-item {
-                padding: 1rem;
-                gap: 0.5rem;
-            }
-
-            .wtps-impact-amount {
-                font-size: 1.25rem;
-                padding: 0.5rem;
-                width: 100%;
-            }
-
-            .wtps-impact-arrow {
-                font-size: 1.5rem;
-            }
-
-            .wtps-impact-description {
-                font-size: 0.9rem;
-            }
-
-
-            .wtps-other-ways li {
-                font-size: 0.9rem;
-                padding: 0.75rem 0.75rem 0.75rem 3rem;
-            }
-
-            .wtps-cta-section {
-                padding: 2rem 0;
-            }
-
-            .wtps-cta-title {
-                font-size: 1.75rem;
-            }
-
-            .wtps-cta-description {
-                font-size: 0.9rem;
-                padding: 0 0.5rem;
-            }
-
-        }
-    </style>
 </head>
 <body>
     <!-- Header -->
@@ -711,12 +64,12 @@
     </section>
 
     <!-- Why Donate Section -->
-    <section id="donate" class="wtps-section wtps-section-white">
+    <section id="donate" class="donate-wtps-section donate-wtps-section-white">
         <div class="wtps-container">
             <div class="wtps-donate-grid">
                 <div class="wtps-donate-info">
                     <h2 class="wtps-donate-section-title">Why Donate to WTPS?</h2>
-                    <ul class="wtps-benefits-list">
+                    <ul class="donate-wtps-benefits-list">
                         <li>
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
                                 <polyline points="20 6 9 17 4 12"></polyline>
@@ -750,79 +103,79 @@
                     </ul>
                 </div>
 
-                <div class="wtps-bank-card">
-                    <div class="wtps-bank-header">
+                <div class="donate-wtps-bank-card">
+                    <div class="donate-wtps-bank-header">
                         <h3>Direct Bank Transfer</h3>
                         <p>Use our details below for NEFT/RTGS/IMPS transfers.</p>
                     </div>
-                    <div class="wtps-bank-details">
-                        <div class="wtps-bank-detail">
-                            <span class="wtps-bank-label">Account Name:</span>
-                            <span class="wtps-bank-value">WE THE PEOPLE STAGE</span>
+                    <div class="donate-wtps-bank-details">
+                        <div class="donate-wtps-bank-detail">
+                            <span class="donate-wtps-bank-label">Account Name:</span>
+                            <span class="donate-wtps-bank-value">WE THE PEOPLE STAGE</span>
                         </div>
-                        <div class="wtps-bank-detail">
-                            <span class="wtps-bank-label">Account Number:</span>
-                            <span class="wtps-bank-value">79120200002036</span>
+                        <div class="donate-wtps-bank-detail">
+                            <span class="donate-wtps-bank-label">Account Number:</span>
+                            <span class="donate-wtps-bank-value">79120200002036</span>
                         </div>
-                        <div class="wtps-bank-detail">
-                            <span class="wtps-bank-label">Bank Name:</span>
-                            <span class="wtps-bank-value">Bank of Baroda</span>
+                        <div class="donate-wtps-bank-detail">
+                            <span class="donate-wtps-bank-label">Bank Name:</span>
+                            <span class="donate-wtps-bank-value">Bank of Baroda</span>
                         </div>
-                        <div class="wtps-bank-detail">
-                            <span class="wtps-bank-label">IFSC Code:</span>
-                            <span class="wtps-bank-value">BARB0DBTNAG</span>
+                        <div class="donate-wtps-bank-detail">
+                            <span class="donate-wtps-bank-label">IFSC Code:</span>
+                            <span class="donate-wtps-bank-value">BARB0DBTNAG</span>
                         </div>
-                        <div class="wtps-bank-detail">
-                            <span class="wtps-bank-label">Branch:</span>
-                            <span class="wtps-bank-value">S G Road Branch, Nagar, Chennai 600017</span>
+                        <div class="donate-wtps-bank-detail">
+                            <span class="donate-wtps-bank-label">Branch:</span>
+                            <span class="donate-wtps-bank-value">S G Road Branch, Nagar, Chennai 600017</span>
                         </div>
                     </div>
-                    <p class="wtps-bank-note">Please email your transaction details to <strong>wethepeoplestageindia@gmail.com</strong> to receive your 80G donation receipt.</p>
+                    <p class="donate-wtps-bank-note">Please email your transaction details to <strong>wethepeoplestageindia@gmail.com</strong> to receive your 80G donation receipt.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contribution Impact Section -->
-    <section class="wtps-section">
+    <section class="donate-wtps-section">
         <div class="wtps-container">
-            <h2 class="wtps-section-title-center">How Your Contribution Helps</h2>
-            <p class="wtps-section-description-center">See the tangible impact of your generosity</p>
+            <h2 class="donate-wtps-section-title-center">How Your Contribution Helps</h2>
+            <p class="donate-wtps-section-description-center">See the tangible impact of your generosity</p>
             
-            <div class="wtps-impact-list">
-                <div class="wtps-impact-item">
-                    <span class="wtps-impact-amount">₹5,000</span>
-                    <span class="wtps-impact-arrow">→</span>
-                    <span class="wtps-impact-description">Supports skill training for 10 rural youth</span>
+            <div class="donate-wtps-impact-list">
+                <div class="donate-wtps-impact-item">
+                    <span class="donate-wtps-impact-amount">₹5,000</span>
+                    <span class="donate-wtps-impact-arrow">→</span>
+                    <span class="donate-wtps-impact-description">Supports skill training for 10 rural youth</span>
                 </div>
-                <div class="wtps-impact-item">
-                    <span class="wtps-impact-amount">₹10,000</span>
-                    <span class="wtps-impact-arrow">→</span>
-                    <span class="wtps-impact-description">Funds awareness workshops on clean elections</span>
+                <div class="donate-wtps-impact-item">
+                    <span class="donate-wtps-impact-amount">₹10,000</span>
+                    <span class="donate-wtps-impact-arrow">→</span>
+                    <span class="donate-wtps-impact-description">Funds awareness workshops on clean elections</span>
                 </div>
-                <div class="wtps-impact-item">
-                    <span class="wtps-impact-amount">₹25,000</span>
-                    <span class="wtps-impact-arrow">→</span>
-                    <span class="wtps-impact-description">Enables vocational programs for women and students</span>
+                <div class="donate-wtps-impact-item">
+                    <span class="donate-wtps-impact-amount">₹25,000</span>
+                    <span class="donate-wtps-impact-arrow">→</span>
+                    <span class="donate-wtps-impact-description">Enables vocational programs for women and students</span>
                 </div>
-                <div class="wtps-impact-item">
-                    <span class="wtps-impact-amount">₹50,000+</span>
-                    <span class="wtps-impact-arrow">→</span>
-                    <span class="wtps-impact-description">Empowers community-level campaigns and NGO partnerships</span>
+                <div class="donate-wtps-impact-item">
+                    <span class="donate-wtps-impact-amount">₹50,000+</span>
+                    <span class="donate-wtps-impact-arrow">→</span>
+                    <span class="donate-wtps-impact-description">Empowers community-level campaigns and NGO partnerships</span>
                 </div>
             </div>
 
-            <p class="wtps-impact-footer">All contributions are utilized ethically and transparently for socio-democratic development.</p>
+            <p class="donate-wtps-impact-footer">All contributions are utilized ethically and transparently for socio-democratic development.</p>
         </div>
     </section>
 
     <!-- Other Ways Section -->
-    <section class="wtps-section wtps-section-white">
+    <section class="donate-wtps-section donate-wtps-section-white">
         <div class="wtps-container">
-            <h2 class="wtps-section-title-center">Other Ways to Support</h2>
-            <p class="wtps-section-description-center">Explore additional opportunities to partner with us</p>
+            <h2 class="donate-wtps-section-title-center">Other Ways to Support</h2>
+            <p class="donate-wtps-section-description-center">Explore additional opportunities to partner with us</p>
             
-            <ul class="wtps-other-ways">
+            <ul class="donate-wtps-other-ways">
                 <li>Event Sponsorships (e.g., National Conclave on Clean Elections)</li>
                 <li>Souvenir Advertisements & CSR Collaborations</li>
                 <li>Business Promotion Stalls at major WTPS events</li>
@@ -831,11 +184,11 @@
     </section>
 
     <!-- Final CTA Section -->
-    <section class="wtps-cta-section">
+    <section class="donate-wtps-cta-section">
         <div class="wtps-container">
-            <div class="wtps-cta-content">
-                <h2 class="wtps-cta-title">Join Hands with Us</h2>
-                <p class="wtps-cta-description">Be part of a movement that empowers citizens and transforms India. Together, let's build a future driven by knowledge, equality, and participation.</p>
+            <div class="donate-wtps-cta-content">
+                <h2 class="donate-wtps-cta-title">Join Hands with Us</h2>
+                <p class="donate-wtps-cta-description">Be part of a movement that empowers citizens and transforms India. Together, let's build a future driven by knowledge, equality, and participation.</p>
                 <a href="get-involved.html" class="wtps-btn wtps-btn-lg wtps-btn-success">Join The Movement →</a>
             </div>
         </div>
