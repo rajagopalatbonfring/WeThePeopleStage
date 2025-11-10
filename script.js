@@ -1,3 +1,6 @@
+// Navbar scripts
+// 
+// 
 function toggleMobileMenu() {
     const mobileNav = document.getElementById('mobileNav');
     mobileNav.classList.toggle('active');
